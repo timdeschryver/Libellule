@@ -1,0 +1,5354 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ (%@)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ (%2$@)"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (%@)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (%@)"
+          }
+        }
+      }
+    },
+    "%@ is %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ is %2$@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ est %@"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ is %@"
+          }
+        }
+      }
+    },
+    "%@ is %@ in the editor": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ is %2$@ in the editor"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ est %@ dans l'éditeur"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ is %@ in de editor"
+          }
+        }
+      }
+    },
+    "%@ or %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ or %2$@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ou %@"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ of %@"
+          }
+        }
+      }
+    },
+    "%@ picks a colour": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ choisit une couleur"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ kiest een kleur"
+          }
+        }
+      }
+    },
+    "%lld account or card numbers": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld numéros de compte ou de carte"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld rekening- of kaartnummers"
+          }
+        }
+      }
+    },
+    "%lld email addresses": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld adresses e-mail"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld e-mailadressen"
+          }
+        }
+      }
+    },
+    "%lld faces": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld visages"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld gezichten"
+          }
+        }
+      }
+    },
+    "%lld keys or tokens": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld clés ou jetons"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld sleutels of tokens"
+          }
+        }
+      }
+    },
+    "%lld phone numbers": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld numéros de téléphone"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld telefoonnummers"
+          }
+        }
+      }
+    },
+    "%lld pt": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld pt"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld pt"
+          }
+        }
+      }
+    },
+    "%lld × %lld px": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld × %2$lld px"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld × %lld px"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld × %lld px"
+          }
+        }
+      }
+    },
+    "%lld%%": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld %%"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld%%"
+          }
+        }
+      }
+    },
+    "1": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1"
+          }
+        }
+      }
+    },
+    "1 account or card number": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 numéro de compte ou de carte"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 rekening- of kaartnummer"
+          }
+        }
+      }
+    },
+    "1 email address": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 adresse e-mail"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 e-mailadres"
+          }
+        }
+      }
+    },
+    "1 face": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 visage"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 gezicht"
+          }
+        }
+      }
+    },
+    "1 key or token": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 clé ou jeton"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 sleutel of token"
+          }
+        }
+      }
+    },
+    "1 phone number": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 numéro de téléphone"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 telefoonnummer"
+          }
+        }
+      }
+    },
+    "24": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "24"
+          }
+        }
+      }
+    },
+    "A ring spreads out from every click, and a disc shows while the button is held": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un anneau s'élargit à chaque clic, et un disque s'affiche tant que le bouton est enfoncé"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bij elke klik spreidt een kring zich uit, en zolang de knop ingedrukt is verschijnt een schijf"
+          }
+        }
+      }
+    },
+    "A ring, a disc or a crosshair drawn on the pointer while annotating the screen, so an audience can find it": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un anneau, un disque ou un réticule dessiné sur le pointeur pendant l'annotation de l'écran, pour que le public le repère"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Een ring, een schijf of een draadkruis op de aanwijzer tijdens het annoteren van het scherm, zodat een publiek hem terugvindt"
+          }
+        }
+      }
+    },
+    "A white or black board, or whichever suits the system's light or dark appearance": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un tableau blanc ou noir, ou celui qui convient à l'apparence claire ou sombre du système"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Een wit of zwart bord, of het bord dat bij de lichte of donkere weergave van het systeem past"
+          }
+        }
+      }
+    },
+    "A whiteboard or blackboard laid over the screen to draw on, switched on from the palette or with %@. Lower the opacity to let the screen show through.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un tableau blanc ou noir posé sur l'écran pour y dessiner, activé depuis la palette ou avec %@. Baissez l'opacité pour laisser l'écran transparaître."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Een whiteboard of schoolbord over het scherm om op te tekenen, ingeschakeld vanuit het palet of met %@. Verlaag de dekking om het scherm te laten doorschemeren."
+          }
+        }
+      }
+    },
+    "Across the top": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En haut, en travers"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bovenaan, in de breedte"
+          }
+        }
+      }
+    },
+    "Actual Size": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taille réelle"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ware grootte"
+          }
+        }
+      }
+    },
+    "Add Space": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter de l'espace"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruimte toevoegen"
+          }
+        }
+      }
+    },
+    "After Capturing": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Après la capture"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Na het vastleggen"
+          }
+        }
+      }
+    },
+    "After capturing": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Après la capture"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Na het vastleggen"
+          }
+        }
+      }
+    },
+    "All Around": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout autour"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rondom"
+          }
+        }
+      }
+    },
+    "Already hidden": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Déjà masqué"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Al afgeschermd"
+          }
+        }
+      }
+    },
+    "Annotate": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annoter"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annoteren"
+          }
+        }
+      }
+    },
+    "Annotate Screen": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annoter l'écran"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scherm annoteren"
+          }
+        }
+      }
+    },
+    "Annotate screen": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annoter l'écran"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scherm annoteren"
+          }
+        }
+      }
+    },
+    "Any width from 1 to 24 points; the presets are 2, 4 and 8": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "N'importe quelle épaisseur de 1 à 24 points ; les préréglages sont 2, 4 et 8"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elke dikte van 1 tot 24 punten; de voorinstellingen zijn 2, 4 en 8"
+          }
+        }
+      }
+    },
+    "Area": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zone"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebied"
+          }
+        }
+      }
+    },
+    "Arrow": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Flèche"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pijl"
+          }
+        }
+      }
+    },
+    "Ask macOS for Screen Recording access, or open the setting if it has already been asked": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demander à macOS l'accès à l'enregistrement de l'écran, ou ouvrir le réglage s'il a déjà été demandé"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vraag macOS om toegang tot schermopname, of open de instelling als dat al gevraagd is"
+          }
+        }
+      }
+    },
+    "Back to the factory key, %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revenir à la touche d'origine, %@"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terug naar de standaardtoets, %@"
+          }
+        }
+      }
+    },
+    "Back to the factory setting": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revenir au réglage d'origine"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terug naar de standaardinstelling"
+          }
+        }
+      }
+    },
+    "Back to the factory shortcut, %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revenir au raccourci d'origine, %@"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terug naar de standaardsneltoets, %@"
+          }
+        }
+      }
+    },
+    "Back to the whole capture": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revenir à la capture entière"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terug naar de hele opname"
+          }
+        }
+      }
+    },
+    "Black": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noir"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zwart"
+          }
+        }
+      }
+    },
+    "Black Out": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer en noir"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zwart maken"
+          }
+        }
+      }
+    },
+    "Blackboard": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tableau noir"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schoolbord"
+          }
+        }
+      }
+    },
+    "Blur": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Flou"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vervagen"
+          }
+        }
+      }
+    },
+    "Board": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tableau"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bord"
+          }
+        }
+      }
+    },
+    "Board: a whiteboard or blackboard over the screen to draw on%@; which one, and how see-through, is set in Settings": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tableau : un tableau blanc ou noir par-dessus l'écran pour y dessiner%@ ; lequel, et sa transparence, se règlent dans les Réglages"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bord: een whiteboard of schoolbord over het scherm om op te tekenen%@; welk bord, en hoe doorzichtig, stel je in bij Instellingen"
+          }
+        }
+      }
+    },
+    "Bordered": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerclé"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omrand"
+          }
+        }
+      }
+    },
+    "Bottom": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bas"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Onder"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuler"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuleer"
+          }
+        }
+      }
+    },
+    "Cancel (esc)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuler (esc)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuleer (esc)"
+          }
+        }
+      }
+    },
+    "Capture": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capturer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vastleggen"
+          }
+        }
+      }
+    },
+    "Capture Area": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capturer une zone"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebied vastleggen"
+          }
+        }
+      }
+    },
+    "Capture after 3 seconds": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capturer dans 3 secondes"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vastleggen na 3 seconden"
+          }
+        }
+      }
+    },
+    "Capture area": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capturer une zone"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebied vastleggen"
+          }
+        }
+      }
+    },
+    "Capture cancelled": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capture annulée"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vastleggen geannuleerd"
+          }
+        }
+      }
+    },
+    "Capturing in %lld… · %@ cancels": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Capturing in %1$lld… · %2$@ cancels"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capture dans %lld… · %@ annule"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vastleggen over %lld… · %@ annuleert"
+          }
+        }
+      }
+    },
+    "Changes that haven't been copied, saved or shared are lost when Libellule quits.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les modifications qui n'ont pas été copiées, enregistrées ou partagées sont perdues quand Libellule quitte."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wijzigingen die niet gekopieerd, bewaard of gedeeld zijn gaan verloren als Libellule stopt."
+          }
+        }
+      }
+    },
+    "Change…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modifier…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wijzig…"
+          }
+        }
+      }
+    },
+    "Check for Updates…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rechercher des mises à jour…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoek naar updates…"
+          }
+        }
+      }
+    },
+    "Choose an area, a window or a whole screen to capture (%@)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisir une zone, une fenêtre ou un écran entier à capturer (%@)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kies een gebied, een venster of een heel scherm om vast te leggen (%@)"
+          }
+        }
+      }
+    },
+    "Circle": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disque"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schijf"
+          }
+        }
+      }
+    },
+    "Clear": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Effacer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wis"
+          }
+        }
+      }
+    },
+    "Clear all": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout effacer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alles wissen"
+          }
+        }
+      }
+    },
+    "Clear all drawings%@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Effacer tous les dessins%@"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle tekeningen wissen%@"
+          }
+        }
+      }
+    },
+    "Click a detail for a loupe on it · drag from the detail to where the enlarged view should sit": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cliquez un détail pour y poser une loupe · glissez du détail vers l'endroit où placer la vue agrandie"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klik op een detail voor een vergrootglas · sleep van het detail naar waar de vergroting moet komen"
+          }
+        }
+      }
+    },
+    "Click to drop the next step number · %@ starts again at 1": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cliquez pour poser le numéro d'étape suivant · %@ recommence à 1"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klik om het volgende stapnummer te plaatsen · %@ begint opnieuw bij 1"
+          }
+        }
+      }
+    },
+    "Click to record a new key": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cliquez pour enregistrer une nouvelle touche"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klik om een nieuwe toets vast te leggen"
+          }
+        }
+      }
+    },
+    "Click to record a new shortcut": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cliquez pour enregistrer un nouveau raccourci"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klik om een nieuwe sneltoets vast te leggen"
+          }
+        }
+      }
+    },
+    "Click to select · drag a box or ⇧-click for several · ⌘A all · drag to move · ⌥-drag duplicates · ⌘C ⌘X ⌘V ⌘D · ⌫ deletes · arrows nudge · double-click text to edit · ⌘[ ⌘] text size · ⌘B pill": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cliquez pour sélectionner · tracez un cadre ou ⇧-clic pour plusieurs · ⌘A tout · glissez pour déplacer · ⌥-glisser duplique · ⌘C ⌘X ⌘V ⌘D · ⌫ supprime · flèches pour décaler · double-clic sur un texte pour le modifier · ⌘[ ⌘] taille du texte · ⌘B pastille"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klik om te selecteren · sleep een kader of ⇧-klik voor meerdere · ⌘A alles · sleep om te verplaatsen · ⌥-slepen dupliceert · ⌘C ⌘X ⌘V ⌘D · ⌫ verwijdert · pijltjes verschuiven · dubbelklik op tekst om te bewerken · ⌘[ ⌘] tekstgrootte · ⌘B achtergrond"
+          }
+        }
+      }
+    },
+    "Click where the text should start, or on a text to change it · drag out a box of a width · ⇧↩ breaks a line · ↩ places · esc drops · ⌘B pill · ⌘[ ⌘] size": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cliquez là où le texte doit commencer, ou sur un texte pour le modifier · tracez un cadre d'une largeur donnée · ⇧↩ saute une ligne · ↩ place · esc abandonne · ⌘B pastille · ⌘[ ⌘] taille"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klik waar de tekst moet beginnen, of op een tekst om die te wijzigen · sleep een vak van een bepaalde breedte · ⇧↩ nieuwe regel · ↩ plaatst · esc laat vallen · ⌘B achtergrond · ⌘[ ⌘] grootte"
+          }
+        }
+      }
+    },
+    "Colour of the mark and ripples": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couleur du repère et des ondes"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kleur van de markering en de kringen"
+          }
+        }
+      }
+    },
+    "Copied %lld QR codes": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld codes QR copiés"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld QR-codes gekopieerd"
+          }
+        }
+      }
+    },
+    "Copied %lld barcodes": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld codes-barres copiés"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld streepjescodes gekopieerd"
+          }
+        }
+      }
+    },
+    "Copied %lld lines of text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld lignes de texte copiées"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld regels tekst gekopieerd"
+          }
+        }
+      }
+    },
+    "Copied %lld paragraphs of text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld paragraphes de texte copiés"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld alinea's tekst gekopieerd"
+          }
+        }
+      }
+    },
+    "Copied %lld shapes": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld formes copiées"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld vormen gekopieerd"
+          }
+        }
+      }
+    },
+    "Copied 1 line of text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 ligne de texte copiée"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 regel tekst gekopieerd"
+          }
+        }
+      }
+    },
+    "Copied 1 paragraph of text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 paragraphe de texte copié"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 alinea tekst gekopieerd"
+          }
+        }
+      }
+    },
+    "Copied 1 shape": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 forme copiée"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 vorm gekopieerd"
+          }
+        }
+      }
+    },
+    "Copied the QR code's contents": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contenu du code QR copié"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inhoud van de QR-code gekopieerd"
+          }
+        }
+      }
+    },
+    "Copied the barcode's contents": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contenu du code-barres copié"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inhoud van de streepjescode gekopieerd"
+          }
+        }
+      }
+    },
+    "Copied to clipboard%@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copié dans le presse-papiers%@"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gekopieerd naar het klembord%@"
+          }
+        }
+      }
+    },
+    "Copy": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopieer"
+          }
+        }
+      }
+    },
+    "Copy & Edit": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier et modifier"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopieer en bewerk"
+          }
+        }
+      }
+    },
+    "Copy Text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier le texte"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekst kopiëren"
+          }
+        }
+      }
+    },
+    "Copy and Close": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier et fermer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopieer en sluit"
+          }
+        }
+      }
+    },
+    "Copy text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier le texte"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekst kopiëren"
+          }
+        }
+      }
+    },
+    "Copy the annotated image (⌘C; with shapes selected, ⌘C copies those instead)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier l'image annotée (⌘C ; avec des formes sélectionnées, ⌘C copie celles-ci)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopieer de geannoteerde afbeelding (⌘C; met geselecteerde vormen kopieert ⌘C die)"
+          }
+        }
+      }
+    },
+    "Copy the screenshot before closing?": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier la capture avant de fermer ?"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schermafbeelding kopiëren voor het sluiten?"
+          }
+        }
+      }
+    },
+    "Copy to the clipboard and open the editor": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier dans le presse-papiers et ouvrir l'éditeur"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopieer naar het klembord en open de editor"
+          }
+        }
+      }
+    },
+    "Copy to the clipboard only": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copier dans le presse-papiers seulement"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alleen naar het klembord kopiëren"
+          }
+        }
+      }
+    },
+    "Couldn't capture the screen": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de capturer l'écran"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het scherm kon niet worden vastgelegd"
+          }
+        }
+      }
+    },
+    "Couldn't freeze the screen": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de figer l'écran"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het scherm kon niet worden bevroren"
+          }
+        }
+      }
+    },
+    "Cover anything sensitive before a screenshot is copied, saved or edited; the capture bar's Redact button switches this too": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer tout ce qui est sensible avant qu'une capture soit copiée, enregistrée ou modifiée ; le bouton Caviarder de la barre de capture le règle aussi"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dek alles af wat gevoelig is voordat een schermafbeelding wordt gekopieerd, bewaard of bewerkt; de knop Afschermen op de opnamebalk schakelt dit ook"
+          }
+        }
+      }
+    },
+    "Covers email addresses, phone numbers, IBANs and card numbers, keys and tokens, and faces before a screenshot is copied, saved or edited. The capture bar's Redact button (R) switches this too and keeps the choice. The Redact buttons in the editor and while annotating the screen (%@) do it on demand. Black out is the safe choice: pixelated or blurred text, digits especially, can sometimes be read back. Check the result before sharing: only text Libellule can read gets covered.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masque les adresses e-mail, numéros de téléphone, IBAN et numéros de carte, clés et jetons, et visages avant qu'une capture soit copiée, enregistrée ou modifiée. Le bouton Caviarder de la barre de capture (R) le règle aussi et retient le choix. Les boutons Caviarder de l'éditeur et de l'annotation d'écran (%@) le font à la demande. Le noir est le choix sûr : un texte pixellisé ou flouté, surtout des chiffres, peut parfois être relu. Vérifiez le résultat avant de partager : seul le texte que Libellule sait lire est masqué."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dekt e-mailadressen, telefoonnummers, IBAN's en kaartnummers, sleutels en tokens, en gezichten af voordat een schermafbeelding wordt gekopieerd, bewaard of bewerkt. De knop Afschermen op de opnamebalk (R) schakelt dit ook en onthoudt de keuze. De knoppen Afschermen in de editor en tijdens het annoteren van het scherm (%@) doen het op verzoek. Zwart maken is de veilige keuze: gepixelde of vervaagde tekst, vooral cijfers, kan soms worden teruggelezen. Controleer het resultaat voor je deelt: alleen tekst die Libellule kan lezen wordt afgedekt."
+          }
+        }
+      }
+    },
+    "Crop": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recadrer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bijsnijden"
+          }
+        }
+      }
+    },
+    "Crop, or add space around the picture (⌘K)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recadrer, ou ajouter de l'espace autour de l'image (⌘K)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bijsnijden, of ruimte rond de afbeelding toevoegen (⌘K)"
+          }
+        }
+      }
+    },
+    "Crosshair": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réticule"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Draadkruis"
+          }
+        }
+      }
+    },
+    "Cursor": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pointeur"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aanwijzer"
+          }
+        }
+      }
+    },
+    "Custom Color": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couleur personnalisée"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aangepaste kleur"
+          }
+        }
+      }
+    },
+    "Custom color": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couleur personnalisée"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aangepaste kleur"
+          }
+        }
+      }
+    },
+    "Cut": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couper"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Knip"
+          }
+        }
+      }
+    },
+    "Cut the picture to the rectangle, with any added space filled in (↩)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Découper l'image au rectangle, en remplissant l'espace ajouté (↩)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Snijd de afbeelding bij tot de rechthoek, met de toegevoegde ruimte opgevuld (↩)"
+          }
+        }
+      }
+    },
+    "Dim Lights": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamiser"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dimmen"
+          }
+        }
+      }
+    },
+    "Dim lights": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamiser"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dimmen"
+          }
+        }
+      }
+    },
+    "Dim lights: darken everything except highlighted areas (%@)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamiser : assombrir tout sauf les zones mises en lumière (%@)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dimmen: alles verduisteren behalve de uitgelichte gebieden (%@)"
+          }
+        }
+      }
+    },
+    "Discard": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abandonner"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwerp"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminé"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gereed"
+          }
+        }
+      }
+    },
+    "Down the left edge": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le long du bord gauche"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langs de linkerrand"
+          }
+        }
+      }
+    },
+    "Down the right edge": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le long du bord droit"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langs de rechterrand"
+          }
+        }
+      }
+    },
+    "Drag an area · click a window · ↩ whole screen · T copies text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tracez une zone · cliquez une fenêtre · ↩ écran entier · T copie le texte"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep een gebied · klik op een venster · ↩ hele scherm · T kopieert tekst"
+          }
+        }
+      }
+    },
+    "Drag between two points to measure the distance · ⇧ for straight angles": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez entre deux points pour mesurer la distance · ⇧ pour des angles droits"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep tussen twee punten om de afstand te meten · ⇧ voor rechte hoeken"
+          }
+        }
+      }
+    },
+    "Drag over anything to remove it": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez sur n'importe quoi pour l'enlever"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep over wat dan ook om het te verwijderen"
+          }
+        }
+      }
+    },
+    "Drag over the part to hide · %@ hides anything sensitive": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez sur la partie à masquer · %@ masque tout ce qui est sensible"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep over het deel dat verborgen moet worden · %@ schermt alles af wat gevoelig is"
+          }
+        }
+      }
+    },
+    "Drag over the part to keep bright · %@ dims the rest even more": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez sur la partie à garder éclairée · %@ assombrit davantage le reste"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep over het deel dat licht moet blijven · %@ dimt de rest nog meer"
+          }
+        }
+      }
+    },
+    "Drag over the part to soften · the size sets how strongly · %@ hides anything sensitive": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez sur la partie à flouter · la taille règle l'intensité · %@ masque tout ce qui est sensible"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep over het deel dat vervaagd moet worden · de grootte bepaalt hoe sterk · %@ schermt alles af wat gevoelig is"
+          }
+        }
+      }
+    },
+    "Drag the edges · past the picture adds space · ↩ crops · esc cancels": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez les bords · au-delà de l'image ajoute de l'espace · ↩ recadre · esc annule"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep de randen · voorbij de afbeelding voegt ruimte toe · ↩ snijdt bij · esc annuleert"
+          }
+        }
+      }
+    },
+    "Drag the palette anywhere; it remembers where it was left on each display. %@ hides and shows it. Takes effect the next time annotation mode starts.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez la palette où vous voulez ; elle retient sa place sur chaque écran. %@ la masque et l'affiche. Prend effet au prochain démarrage du mode annotation."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep het palet waarheen je wilt; het onthoudt per beeldscherm waar het stond. %@ verbergt en toont het. Geldt vanaf de volgende keer dat de annotatiemodus start."
+          }
+        }
+      }
+    },
+    "Drag this into Finder, Mail, Slack… to hand over the PNG": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez ceci dans le Finder, Mail, Slack… pour transmettre le PNG"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep dit naar de Finder, Mail, Slack… om de PNG over te dragen"
+          }
+        }
+      }
+    },
+    "Drag to draw": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez pour dessiner"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep om te tekenen"
+          }
+        }
+      }
+    },
+    "Drag to draw · ⇧ for a square or circle · ⌥ from the centre": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez pour dessiner · ⇧ pour un carré ou un cercle · ⌥ depuis le centre"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep om te tekenen · ⇧ voor een vierkant of cirkel · ⌥ vanuit het midden"
+          }
+        }
+      }
+    },
+    "Drag to draw · ⇧ for straight angles": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glissez pour dessiner · ⇧ pour des angles droits"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep om te tekenen · ⇧ voor rechte hoeken"
+          }
+        }
+      }
+    },
+    "Drag to export": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Glisser pour exporter"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep om te exporteren"
+          }
+        }
+      }
+    },
+    "Draw anywhere · ↩ keeps a screenshot · esc leaves": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dessinez n'importe où · ↩ garde une capture · esc quitte"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Teken waar je wilt · ↩ bewaart een schermafbeelding · esc verlaat"
+          }
+        }
+      }
+    },
+    "Draw on a still picture of the screen instead of the moving screen; the palette's Live button switches it per session": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dessiner sur une image fixe de l'écran plutôt que sur l'écran en mouvement ; le bouton En direct de la palette change cela par session"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Teken op een stilstaande afbeelding van het scherm in plaats van op het bewegende scherm; de knop Live op het palet wisselt dit per sessie"
+          }
+        }
+      }
+    },
+    "Draw on top of every app, on every display, without taking a screenshot first (%@)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dessiner par-dessus toutes les apps, sur tous les écrans, sans capture préalable (%@)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Teken over elke app, op elk beeldscherm, zonder eerst een schermafbeelding te maken (%@)"
+          }
+        }
+      }
+    },
+    "Drawing on the screen works without it. macOS asks the first time you capture; turn Libellule on in System Settings (use + if it isn't listed), then quit and reopen the app.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dessiner sur l'écran fonctionne sans. macOS demande à la première capture ; activez Libellule dans Réglages Système (utilisez + s'il n'est pas listé), puis quittez et rouvrez l'app."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Op het scherm tekenen werkt ook zonder. macOS vraagt het bij de eerste opname; schakel Libellule in bij Systeeminstellingen (gebruik + als het er niet staat), stop de app en open hem opnieuw."
+          }
+        }
+      }
+    },
+    "Duplicate": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dupliquer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dupliceer"
+          }
+        }
+      }
+    },
+    "Edit": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modifier"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewerk"
+          }
+        }
+      }
+    },
+    "Editing": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Édition"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewerken"
+          }
+        }
+      }
+    },
+    "Ellipse": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ellipse"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ellips"
+          }
+        }
+      }
+    },
+    "Eraser": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gomme"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gum"
+          }
+        }
+      }
+    },
+    "Fading Ink": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encre évanescente"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vervagende inkt"
+          }
+        }
+      }
+    },
+    "Fading ink": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encre évanescente"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vervagende inkt"
+          }
+        }
+      }
+    },
+    "Fading ink stays for": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L'encre évanescente reste"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vervagende inkt blijft"
+          }
+        }
+      }
+    },
+    "Fading ink: drawings fade away shortly after you stop drawing, for pointing things out while presenting%@; text, highlights and hidden areas stay": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encre évanescente : les dessins s'effacent peu après que vous cessez de dessiner, pour montrer des choses en présentant%@ ; les textes, mises en lumière et zones masquées restent"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vervagende inkt: tekeningen vervagen kort nadat je stopt met tekenen, om dingen aan te wijzen tijdens een presentatie%@; tekst, uitgelichte en afgeschermde gebieden blijven"
+          }
+        }
+      }
+    },
+    "Fill": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remplissage"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vulling"
+          }
+        }
+      }
+    },
+    "Filled": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plein"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gevuld"
+          }
+        }
+      }
+    },
+    "Filled is a solid disc with the number cut out; Bordered is a ring with the number inside. %@ starts the count again at 1.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plein est un disque avec le numéro en creux ; Cerclé est un anneau avec le numéro dedans. %@ fait recommencer le compte à 1."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gevuld is een volle schijf met het nummer uitgespaard; Omrand is een ring met het nummer erin. %@ laat de telling opnieuw bij 1 beginnen."
+          }
+        }
+      }
+    },
+    "Fit": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajuster"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passend"
+          }
+        }
+      }
+    },
+    "Fit to Window": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajuster à la fenêtre"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pas in venster"
+          }
+        }
+      }
+    },
+    "Format:": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Format :"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Structuur:"
+          }
+        }
+      }
+    },
+    "Freeze the screen while annotating it": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Figer l'écran pendant qu'on l'annote"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bevries het scherm tijdens het annoteren"
+          }
+        }
+      }
+    },
+    "Freeze the screen while choosing what to capture": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Figer l'écran pendant le choix de la capture"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bevries het scherm tijdens het kiezen wat je vastlegt"
+          }
+        }
+      }
+    },
+    "Freezing the screen needs Screen Recording access": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Figer l'écran demande l'accès à l'enregistrement de l'écran"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het scherm bevriezen vereist toegang tot schermopname"
+          }
+        }
+      }
+    },
+    "Frozen, you draw on a picture of the screen taken when annotating starts, so videos, animations and scrolling hold still; keeping it as a screenshot keeps that picture too. The palette's Live button (⌘L) switches this for one session. Pausing lets the screen move again so you can see what you click, and it freezes afresh when you resume.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Figé, vous dessinez sur une image de l'écran prise au début de l'annotation, si bien que vidéos, animations et défilement restent immobiles ; la garder comme capture garde aussi cette image. Le bouton En direct de la palette (⌘L) change cela pour une session. La pause laisse l'écran bouger à nouveau pour voir ce que vous cliquez, et il se fige de nouveau à la reprise."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bevroren teken je op een afbeelding van het scherm die bij het begin van het annoteren is gemaakt, zodat video's, animaties en scrollen stilstaan; als schermafbeelding bewaren bewaart ook die afbeelding. De knop Live op het palet (⌘L) wisselt dit voor één sessie. Pauzeren laat het scherm weer bewegen zodat je ziet waar je klikt, en het bevriest opnieuw als je verdergaat."
+          }
+        }
+      }
+    },
+    "General": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Général"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Algemeen"
+          }
+        }
+      }
+    },
+    "Grant Access…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accorder l'accès…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geef toegang…"
+          }
+        }
+      }
+    },
+    "Hide Drawings": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer les dessins"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verberg tekeningen"
+          }
+        }
+      }
+    },
+    "Hide With": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer avec"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afschermen met"
+          }
+        }
+      }
+    },
+    "Hide drawings": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer les dessins"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekeningen verbergen"
+          }
+        }
+      }
+    },
+    "Hide email addresses, phone numbers, IBANs, card numbers, keys and tokens, and faces (%@)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer adresses e-mail, numéros de téléphone, IBAN, numéros de carte, clés et jetons, et visages (%@)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scherm e-mailadressen, telefoonnummers, IBAN's, kaartnummers, sleutels en tokens, en gezichten af (%@)"
+          }
+        }
+      }
+    },
+    "Hide email addresses, phone numbers, account and card numbers, keys and tokens, and faces before the screenshot is copied, saved or edited (R; remembered for next time)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer adresses e-mail, numéros de téléphone, numéros de compte et de carte, clés et jetons, et visages avant que la capture soit copiée, enregistrée ou modifiée (R ; retenu pour la prochaine fois)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scherm e-mailadressen, telefoonnummers, rekening- en kaartnummers, sleutels en tokens, en gezichten af voordat de schermafbeelding wordt gekopieerd, bewaard of bewerkt (R; onthouden voor de volgende keer)"
+          }
+        }
+      }
+    },
+    "Hide email addresses, phone numbers, account and card numbers, keys and tokens, and faces on screen right now%@; run it again after scrolling": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer adresses e-mail, numéros de téléphone, numéros de compte et de carte, clés et jetons, et visages visibles à l'écran maintenant%@ ; relancez après avoir fait défiler"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scherm e-mailadressen, telefoonnummers, rekening- en kaartnummers, sleutels en tokens, en gezichten die nu op het scherm staan af%@; doe het opnieuw na het scrollen"
+          }
+        }
+      }
+    },
+    "Hide the drawings for a moment to see the screen underneath; they come back when switched off%@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer les dessins un instant pour voir l'écran dessous ; ils reviennent quand on désactive%@"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verberg de tekeningen even om het scherm eronder te zien; ze komen terug als je dit uitschakelt%@"
+          }
+        }
+      }
+    },
+    "Hide with": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer avec"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afschermen met"
+          }
+        }
+      }
+    },
+    "Highlight": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mise en lumière"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uitlichten"
+          }
+        }
+      }
+    },
+    "Holds menus, tooltips and animations still while you choose; off, the picture is taken when you release": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Immobilise menus, infobulles et animations pendant le choix ; désactivé, l'image est prise quand vous relâchez"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Houdt menu's, knopinfo en animaties stil terwijl je kiest; uit wordt de afbeelding gemaakt als je loslaat"
+          }
+        }
+      }
+    },
+    "How dark everything outside the highlights and the spotlight gets": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "À quel point tout ce qui est hors des mises en lumière et du projecteur s'assombrit"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoe donker alles buiten de uitgelichte gebieden en de spot wordt"
+          }
+        }
+      }
+    },
+    "How far the ripple spreads": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jusqu'où l'onde s'étend"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoe ver de kring zich uitspreidt"
+          }
+        }
+      }
+    },
+    "How long drawings made with fading ink stay before they fade: a quarter of a second to five seconds": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Combien de temps les dessins à l'encre évanescente restent avant de s'effacer : d'un quart de seconde à cinq secondes"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoe lang tekeningen met vervagende inkt blijven voor ze vervagen: een kwart seconde tot vijf seconden"
+          }
+        }
+      }
+    },
+    "How new step numbers look: a solid disc, or a ring": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L'aspect des nouveaux numéros d'étape : un disque plein, ou un anneau"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoe nieuwe stapnummers eruitzien: een volle schijf, of een ring"
+          }
+        }
+      }
+    },
+    "How solid the board is: lower lets the screen show through it": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L'opacité du tableau : plus bas, l'écran transparaît"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoe dekkend het bord is: lager laat het scherm erdoorheen schemeren"
+          }
+        }
+      }
+    },
+    "Include the window's shadow (⌥-click a window for the opposite)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inclure l'ombre de la fenêtre (⌥-clic sur une fenêtre pour l'inverse)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neem de schaduw van het venster mee (⌥-klik op een venster voor het omgekeerde)"
+          }
+        }
+      }
+    },
+    "Include the window's shadow when capturing a window": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inclure l'ombre de la fenêtre en capturant une fenêtre"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neem de schaduw van het venster mee bij het vastleggen van een venster"
+          }
+        }
+      }
+    },
+    "JPEG": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "JPEG"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "JPEG"
+          }
+        }
+      }
+    },
+    "Join lines into paragraphs": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réunir les lignes en paragraphes"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voeg regels samen tot alinea's"
+          }
+        }
+      }
+    },
+    "Keep the drawing as a screenshot (↩)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Garder le dessin comme capture (↩)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewaar de tekening als schermafbeelding (↩)"
+          }
+        }
+      }
+    },
+    "Keep the drawing when leaving annotation mode": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Garder le dessin en quittant le mode annotation"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Behoud de tekening bij het verlaten van de annotatiemodus"
+          }
+        }
+      }
+    },
+    "Keep the screen moving instead of frozen while choosing; the picture is taken when you capture (L)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laisser l'écran bouger au lieu de le figer pendant le choix ; l'image est prise au moment de capturer (L)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laat het scherm bewegen in plaats van bevroren tijdens het kiezen; de afbeelding wordt gemaakt op het moment van vastleggen (L)"
+          }
+        }
+      }
+    },
+    "Keep the shadow around a captured window, on a transparent edge": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Garder l'ombre autour d'une fenêtre capturée, sur un bord transparent"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Behoud de schaduw rond een vastgelegd venster, op een transparante rand"
+          }
+        }
+      }
+    },
+    "Larger Text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Texte plus grand"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grotere tekst"
+          }
+        }
+      }
+    },
+    "Leave annotation mode (esc)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quitter le mode annotation (esc)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verlaat de annotatiemodus (esc)"
+          }
+        }
+      }
+    },
+    "Leave the picture as it was (esc)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laisser l'image telle quelle (esc)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laat de afbeelding zoals ze was (esc)"
+          }
+        }
+      }
+    },
+    "Leave this without a key": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laisser sans touche"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laat dit zonder toets"
+          }
+        }
+      }
+    },
+    "Left": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gauche"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Links"
+          }
+        }
+      }
+    },
+    "Libellule": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Libellule"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Libellule"
+          }
+        }
+      }
+    },
+    "Libellule needs Screen Recording access": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Libellule a besoin de l'accès à l'enregistrement de l'écran"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Libellule heeft toegang tot schermopname nodig"
+          }
+        }
+      }
+    },
+    "Lights": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lumières"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lichten"
+          }
+        }
+      }
+    },
+    "Lights on": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lumières allumées"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lichten aan"
+          }
+        }
+      }
+    },
+    "Line": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ligne"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lijn"
+          }
+        }
+      }
+    },
+    "Line width": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Épaisseur du trait"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lijndikte"
+          }
+        }
+      }
+    },
+    "Line width %@ pt": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Épaisseur du trait %@ pt"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lijndikte %@ pt"
+          }
+        }
+      }
+    },
+    "Line width in points: click for a slider ([ and ] step by 1, ⌘-scroll too)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Épaisseur du trait en points : cliquez pour un curseur ([ et ] par pas de 1, ⌘-défilement aussi)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lijndikte in punten: klik voor een schuifknop ([ en ] stappen per 1, ⌘-scrollen ook)"
+          }
+        }
+      }
+    },
+    "Line width: %@ pt": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Épaisseur du trait : %@ pt"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lijndikte: %@ pt"
+          }
+        }
+      }
+    },
+    "Live": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En direct"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live"
+          }
+        }
+      }
+    },
+    "Live or frozen screen": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Écran en direct ou figé"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live of bevroren scherm"
+          }
+        }
+      }
+    },
+    "Live: keep the screen moving under the drawing instead of frozen%@; a frozen screen moves while paused and freezes again when you resume": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En direct : laisser l'écran bouger sous le dessin au lieu de le figer%@ ; un écran figé bouge pendant la pause et se fige de nouveau à la reprise"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live: laat het scherm onder de tekening bewegen in plaats van bevroren%@; een bevroren scherm beweegt tijdens de pauze en bevriest opnieuw als je verdergaat"
+          }
+        }
+      }
+    },
+    "Looking for anything sensitive…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recherche d'éléments sensibles…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoeken naar gevoelige gegevens…"
+          }
+        }
+      }
+    },
+    "Loupe": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loupe suiveuse"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loep"
+          }
+        }
+      }
+    },
+    "Loupe: a live loupe follows the pointer, also while paused%@; size sets the lens, the colour its ring": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loupe suiveuse : une loupe en direct suit le pointeur, même en pause%@ ; la taille règle la lentille, la couleur son anneau"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loep: een live loep volgt de aanwijzer, ook tijdens de pauze%@; de grootte bepaalt de lens, de kleur de ring"
+          }
+        }
+      }
+    },
+    "Magnifier": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loupe"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vergrootglas"
+          }
+        }
+      }
+    },
+    "Make room for callouts next to the picture": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Faire de la place pour des légendes à côté de l'image"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maak ruimte voor bijschriften naast de afbeelding"
+          }
+        }
+      }
+    },
+    "Mark size": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taille du repère"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grootte van de markering"
+          }
+        }
+      }
+    },
+    "Mark the pointer with": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marquer le pointeur d'un"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Markeer de aanwijzer met"
+          }
+        }
+      }
+    },
+    "Marker": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marqueur"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Markeerstift"
+          }
+        }
+      }
+    },
+    "Match the appearance": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suivre l'apparence"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volg de weergave"
+          }
+        }
+      }
+    },
+    "Measure": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mesurer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meten"
+          }
+        }
+      }
+    },
+    "Medium": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Moyen"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gemiddeld"
+          }
+        }
+      }
+    },
+    "No text or code found": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun texte ni code trouvé"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen tekst of code gevonden"
+          }
+        }
+      }
+    },
+    "None": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen"
+          }
+        }
+      }
+    },
+    "Nothing sensitive found": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rien de sensible trouvé"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niets gevoeligs gevonden"
+          }
+        }
+      }
+    },
+    "Off keeps one line per line on screen. On runs the lines of a paragraph together, which suits text copied from a document or a chat. Double spaces are always collapsed.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Désactivé, une ligne reste une ligne comme à l'écran. Activé, les lignes d'un paragraphe sont réunies, ce qui convient au texte copié d'un document ou d'une discussion. Les doubles espaces sont toujours réduits."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uit houdt één regel per regel op het scherm. Aan voegt de regels van een alinea samen, wat past bij tekst uit een document of een chat. Dubbele spaties worden altijd samengevoegd."
+          }
+        }
+      }
+    },
+    "Off, Libellule lives in the menu bar only; on, it also gets a Dock icon and shows up in ⌘-Tab": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Désactivé, Libellule ne vit que dans la barre des menus ; activé, il a aussi une icône dans le Dock et apparaît dans ⌘-Tab"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uit leeft Libellule alleen in de menubalk; aan krijgt het ook een Dock-symbool en verschijnt het in ⌘-Tab"
+          }
+        }
+      }
+    },
+    "On, the next annotation session starts with what was on the screens when the last one ended, until the app quits. Off, every session starts clean.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activé, la session d'annotation suivante reprend ce qui était à l'écran à la fin de la précédente, jusqu'à ce que l'app quitte. Désactivé, chaque session part de zéro."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aan begint de volgende annotatiesessie met wat op de schermen stond toen de vorige eindigde, tot de app stopt. Uit begint elke sessie leeg."
+          }
+        }
+      }
+    },
+    "Open Libellule Window": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir la fenêtre Libellule"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open het Libellule-venster"
+          }
+        }
+      }
+    },
+    "Open Libellule at login": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir Libellule à l'ouverture de session"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Libellule bij inloggen"
+          }
+        }
+      }
+    },
+    "Open Login Items…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir les éléments d'ouverture…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open inlogonderdelen…"
+          }
+        }
+      }
+    },
+    "Open System Settings": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir Réglages Système"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Systeeminstellingen"
+          }
+        }
+      }
+    },
+    "Open System Settings at the Login Items list to switch Libellule on": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir Réglages Système à la liste des éléments d'ouverture pour activer Libellule"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Systeeminstellingen bij de lijst met inlogonderdelen om Libellule in te schakelen"
+          }
+        }
+      }
+    },
+    "Open the editor": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir l'éditeur"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open de editor"
+          }
+        }
+      }
+    },
+    "Open the latest release on GitHub in your browser": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir la dernière version sur GitHub dans votre navigateur"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open de nieuwste versie op GitHub in je browser"
+          }
+        }
+      }
+    },
+    "Opens the latest release in your browser so you can compare versions and download it. Libellule has no network access of its own, so it can't check in the background.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvre la dernière version dans votre navigateur pour comparer les versions et la télécharger. Libellule n'a aucun accès réseau, il ne peut donc pas vérifier en arrière-plan."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opent de nieuwste versie in je browser, zodat je versies kunt vergelijken en downloaden. Libellule heeft zelf geen netwerktoegang en kan dus niet op de achtergrond controleren."
+          }
+        }
+      }
+    },
+    "Outline": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contour"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omtrek"
+          }
+        }
+      }
+    },
+    "PNG": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PNG"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PNG"
+          }
+        }
+      }
+    },
+    "PNG keeps every pixel and transparency; JPEG is smaller and loses a little": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PNG garde chaque pixel et la transparence ; JPEG est plus léger et perd un peu"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PNG bewaart elke pixel en transparantie; JPEG is kleiner en verliest een beetje"
+          }
+        }
+      }
+    },
+    "PNG keeps every pixel and transparency; JPEG is smaller and loses a little. Remembered for next time.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PNG garde chaque pixel et la transparence ; JPEG est plus léger et perd un peu. Retenu pour la prochaine fois."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PNG bewaart elke pixel en transparantie; JPEG is kleiner en verliest een beetje. Onthouden voor de volgende keer."
+          }
+        }
+      }
+    },
+    "Palette": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Palette"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Palet"
+          }
+        }
+      }
+    },
+    "Paste": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coller"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plak"
+          }
+        }
+      }
+    },
+    "Pause": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pauze"
+          }
+        }
+      }
+    },
+    "Pen": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stylo"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pen"
+          }
+        }
+      }
+    },
+    "Pixelate": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pixelliser"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pixeleren"
+          }
+        }
+      }
+    },
+    "Play a sound when annotation mode starts, ends or is cleared": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jouer un son quand le mode annotation démarre, se termine ou est effacé"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Speel een geluid als de annotatiemodus start, eindigt of wordt gewist"
+          }
+        }
+      }
+    },
+    "Pointer spotlight": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Projecteur sur le pointeur"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spot op de aanwijzer"
+          }
+        }
+      }
+    },
+    "Pointer spotlight size": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taille du projecteur"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grootte van de spot"
+          }
+        }
+      }
+    },
+    "Presenting": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Présentation"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presenteren"
+          }
+        }
+      }
+    },
+    "Press the new key, or esc to keep the current one": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appuyez sur la nouvelle touche, ou esc pour garder l'actuelle"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Druk op de nieuwe toets, of esc om de huidige te houden"
+          }
+        }
+      }
+    },
+    "Press the new shortcut, or esc to keep the current one": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appuyez sur le nouveau raccourci, ou esc pour garder l'actuel"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Druk op de nieuwe sneltoets, of esc om de huidige te houden"
+          }
+        }
+      }
+    },
+    "Put every drawing key back to the factory setting": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remettre chaque touche de dessin à son réglage d'origine"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zet elke tekentoets terug op de standaardinstelling"
+          }
+        }
+      }
+    },
+    "Quit": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quitter"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop"
+          }
+        }
+      }
+    },
+    "Quit & Reopen": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quitter et rouvrir"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop en open opnieuw"
+          }
+        }
+      }
+    },
+    "Quit Libellule": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quitter Libellule"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop Libellule"
+          }
+        }
+      }
+    },
+    "Reading text…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lecture du texte…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekst lezen…"
+          }
+        }
+      }
+    },
+    "Recognize the text, or a QR code, in the capture and copy it (⇧⌘C)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reconnaître le texte, ou un code QR, dans la capture et le copier (⇧⌘C)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herken de tekst, of een QR-code, in de opname en kopieer die (⇧⌘C)"
+          }
+        }
+      }
+    },
+    "Record different shortcuts in Settings": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer d'autres raccourcis dans les Réglages"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leg andere sneltoetsen vast in Instellingen"
+          }
+        }
+      }
+    },
+    "Rectangle": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rectangle"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rechthoek"
+          }
+        }
+      }
+    },
+    "Redact": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caviarder"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afschermen"
+          }
+        }
+      }
+    },
+    "Redact every screenshot": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caviarder chaque capture"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scherm elke schermafbeelding af"
+          }
+        }
+      }
+    },
+    "Redacting needs Screen Recording access": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caviarder demande l'accès à l'enregistrement de l'écran"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afschermen vereist toegang tot schermopname"
+          }
+        }
+      }
+    },
+    "Redaction": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caviardage"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afscherming"
+          }
+        }
+      }
+    },
+    "Redo": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rétablir"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opnieuw"
+          }
+        }
+      }
+    },
+    "Redo (⇧⌘Z)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rétablir (⇧⌘Z)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opnieuw (⇧⌘Z)"
+          }
+        }
+      }
+    },
+    "Redo (⇧⌘Z, or the mouse's forward button)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rétablir (⇧⌘Z, ou le bouton suivant de la souris)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opnieuw (⇧⌘Z, of de vooruitknop van de muis)"
+          }
+        }
+      }
+    },
+    "Remove all annotations (%@)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer toutes les annotations (%@)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwijder alle annotaties (%@)"
+          }
+        }
+      }
+    },
+    "Repeat last area": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Répéter la dernière zone"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herhaal laatste gebied"
+          }
+        }
+      }
+    },
+    "Reset": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réinitialiser"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herstel"
+          }
+        }
+      }
+    },
+    "Reset All to Defaults": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout réinitialiser"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herstel alle standaardwaarden"
+          }
+        }
+      }
+    },
+    "Restart step numbers at 1": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recommencer les numéros d'étape à 1"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Begin de stapnummers opnieuw bij 1"
+          }
+        }
+      }
+    },
+    "Right": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Droite"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rechts"
+          }
+        }
+      }
+    },
+    "Ripple size": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taille de l'onde"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grootte van de kring"
+          }
+        }
+      }
+    },
+    "Run the lines of a paragraph together when copying text from the screen": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réunir les lignes d'un paragraphe en copiant du texte depuis l'écran"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voeg de regels van een alinea samen bij het kopiëren van tekst van het scherm"
+          }
+        }
+      }
+    },
+    "Save As…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer sous…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewaar als…"
+          }
+        }
+      }
+    },
+    "Save as PNG or JPEG (⌘S)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer en PNG ou JPEG (⌘S)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewaar als PNG of JPEG (⌘S)"
+          }
+        }
+      }
+    },
+    "Save screenshots as": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer les captures en"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewaar schermafbeeldingen als"
+          }
+        }
+      }
+    },
+    "Save to a file (asks where)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer dans un fichier (demande où)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewaar in een bestand (vraagt waar)"
+          }
+        }
+      }
+    },
+    "Saved %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ enregistré"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ bewaard"
+          }
+        }
+      }
+    },
+    "Save…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewaar…"
+          }
+        }
+      }
+    },
+    "Saving": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrement"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewaren"
+          }
+        }
+      }
+    },
+    "Screen": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Écran"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scherm"
+          }
+        }
+      }
+    },
+    "Screen Recording access granted": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accès à l'enregistrement de l'écran accordé"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toegang tot schermopname verleend"
+          }
+        }
+      }
+    },
+    "Screen Recording access needed for screenshots": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accès à l'enregistrement de l'écran requis pour les captures"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toegang tot schermopname nodig voor schermafbeeldingen"
+          }
+        }
+      }
+    },
+    "Screenshot": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capture d'écran"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schermafbeelding"
+          }
+        }
+      }
+    },
+    "See everything. Share only what matters.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout voir. Ne partager que l'essentiel."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zie alles. Deel alleen wat ertoe doet."
+          }
+        }
+      }
+    },
+    "Select": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sélection"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecteren"
+          }
+        }
+      }
+    },
+    "Select All": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout sélectionner"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecteer alles"
+          }
+        }
+      }
+    },
+    "Send the annotated image to another app or person": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Envoyer l'image annotée à une autre app ou personne"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stuur de geannoteerde afbeelding naar een andere app of persoon"
+          }
+        }
+      }
+    },
+    "Settings…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réglages…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instellingen…"
+          }
+        }
+      }
+    },
+    "Shadow": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ombre"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schaduw"
+          }
+        }
+      }
+    },
+    "Share": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Partager"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deel"
+          }
+        }
+      }
+    },
+    "Short system sounds for the overlay coming up, going away and being cleared": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De courts sons système quand le calque apparaît, disparaît ou est effacé"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Korte systeemgeluiden als de laag verschijnt, verdwijnt of wordt gewist"
+          }
+        }
+      }
+    },
+    "Shortcuts": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Raccourcis"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sneltoetsen"
+          }
+        }
+      }
+    },
+    "Show Libellule in the Dock": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher Libellule dans le Dock"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toon Libellule in het Dock"
+          }
+        }
+      }
+    },
+    "Show a ripple where you click": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher une onde là où vous cliquez"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toon een kring waar je klikt"
+          }
+        }
+      }
+    },
+    "Show or hide the palette": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher ou masquer la palette"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toon of verberg het palet"
+          }
+        }
+      }
+    },
+    "Shown while annotating the screen, also while paused, so an audience can follow the pointer and see every click. Changes apply the next time annotation mode starts.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Affiché pendant l'annotation de l'écran, même en pause, pour que le public suive le pointeur et voie chaque clic. Les changements s'appliquent au prochain démarrage du mode annotation."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zichtbaar tijdens het annoteren van het scherm, ook tijdens de pauze, zodat een publiek de aanwijzer kan volgen en elke klik ziet. Wijzigingen gelden vanaf de volgende keer dat de annotatiemodus start."
+          }
+        }
+      }
+    },
+    "Size": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taille"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grootte"
+          }
+        }
+      }
+    },
+    "Size down": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taille moins"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kleiner"
+          }
+        }
+      }
+    },
+    "Size up": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taille plus"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Groter"
+          }
+        }
+      }
+    },
+    "Smaller Text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Texte plus petit"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kleinere tekst"
+          }
+        }
+      }
+    },
+    "Solid black can't be read back; pixelated or blurred text sometimes can": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le noir plein ne peut pas être relu ; un texte pixellisé ou flouté le peut parfois"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Effen zwart kan niet worden teruggelezen; gepixelde of vervaagde tekst soms wel"
+          }
+        }
+      }
+    },
+    "Start Libellule in the menu bar whenever you log in; the list itself lives in System Settings › General › Login Items": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lancer Libellule dans la barre des menus à chaque ouverture de session ; la liste elle-même se trouve dans Réglages Système › Général › Éléments d'ouverture"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start Libellule in de menubalk telkens als je inlogt; de lijst zelf staat in Systeeminstellingen › Algemeen › Inlogonderdelen"
+          }
+        }
+      }
+    },
+    "Start the next annotation session with the drawing the last one ended with": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Commencer la prochaine session d'annotation avec le dessin de la fin de la précédente"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Begin de volgende annotatiesessie met de tekening waarmee de vorige eindigde"
+          }
+        }
+      }
+    },
+    "Step Number": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numéro d'étape"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stapnummer"
+          }
+        }
+      }
+    },
+    "Step numbers": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numéros d'étape"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stapnummers"
+          }
+        }
+      }
+    },
+    "Step numbers start again at 1": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les numéros d'étape recommencent à 1"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stapnummers beginnen opnieuw bij 1"
+          }
+        }
+      }
+    },
+    "System-wide": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dans tout le système"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Systeembreed"
+          }
+        }
+      }
+    },
+    "Text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Texte"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekst"
+          }
+        }
+      }
+    },
+    "Text Background": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fond du texte"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekstachtergrond"
+          }
+        }
+      }
+    },
+    "The board the screen was annotated on: switch it off to show the picture underneath": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le tableau sur lequel l'écran a été annoté : désactivez-le pour montrer l'image dessous"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het bord waarop het scherm is geannoteerd: schakel het uit om de afbeelding eronder te tonen"
+          }
+        }
+      }
+    },
+    "The colour and size are always remembered from last time, for the screen and for screenshots separately.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La couleur et la taille sont toujours retenues de la dernière fois, séparément pour l'écran et pour les captures."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De kleur en de grootte worden altijd onthouden van de vorige keer, apart voor het scherm en voor schermafbeeldingen."
+          }
+        }
+      }
+    },
+    "The colour of the pointer mark and the click ripples": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La couleur du repère du pointeur et des ondes de clic"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De kleur van de aanwijzermarkering en de klikkringen"
+          }
+        }
+      }
+    },
+    "The digits pick tools": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les chiffres choisissent les outils"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De cijfers kiezen gereedschappen"
+          }
+        }
+      }
+    },
+    "The menu next to Screenshot on the capture bar changes what happens after capturing too (O steps through it), and keeps that choice for next time. With the freeze off, the screen keeps moving under the selection and the picture is taken the moment you release the area or click a window; the capture bar's Live button (L) switches this for one capture. Hold ⌥ while clicking a window to do the opposite of the shadow setting. In the editor, ⌘C copies and ⌘S saves at any time.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le menu à côté de Capture d'écran sur la barre de capture change aussi ce qui se passe après la capture (O fait défiler les choix) et retient ce choix pour la prochaine fois. Sans figer, l'écran continue de bouger sous la sélection et l'image est prise au moment où vous relâchez la zone ou cliquez une fenêtre ; le bouton En direct de la barre (L) change cela pour une capture. Maintenez ⌥ en cliquant une fenêtre pour l'inverse du réglage de l'ombre. Dans l'éditeur, ⌘C copie et ⌘S enregistre à tout moment."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het menu naast Schermafbeelding op de opnamebalk wijzigt ook wat er na het vastleggen gebeurt (O loopt de keuzes af) en onthoudt die keuze voor de volgende keer. Zonder bevriezen blijft het scherm onder de selectie bewegen en wordt de afbeelding gemaakt op het moment dat je het gebied loslaat of op een venster klikt; de knop Live op de opnamebalk (L) wisselt dit voor één opname. Houd ⌥ ingedrukt bij het klikken op een venster voor het omgekeerde van de schaduwinstelling. In de editor kopieert ⌘C en bewaart ⌘S op elk moment."
+          }
+        }
+      }
+    },
+    "The radius of the bright circle that follows the pointer while the lights are dimmed": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le rayon du cercle lumineux qui suit le pointeur quand les lumières sont tamisées"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De straal van de lichte cirkel die de aanwijzer volgt terwijl de lichten gedimd zijn"
+          }
+        }
+      }
+    },
+    "The radius of the mark on the pointer": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le rayon du repère sur le pointeur"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De straal van de markering op de aanwijzer"
+          }
+        }
+      }
+    },
+    "The save panel starts with this format and lets you switch it per file. Copying, dragging and sharing always hand over a PNG.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La fenêtre d'enregistrement propose ce format et permet d'en changer par fichier. Copier, glisser et partager transmettent toujours un PNG."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het bewaarvenster begint met deze structuur en laat je die per bestand wijzigen. Kopiëren, slepen en delen geven altijd een PNG door."
+          }
+        }
+      }
+    },
+    "The spotlight is the bright circle that follows the pointer while the lights are dimmed (%@ cycles through lights on, dimmed and spotlight).": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le projecteur est le cercle lumineux qui suit le pointeur quand les lumières sont tamisées (%@ passe de lumières allumées à tamisées puis projecteur)."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De spot is de lichte cirkel die de aanwijzer volgt terwijl de lichten gedimd zijn (%@ wisselt tussen lichten aan, gedimd en spot)."
+          }
+        }
+      }
+    },
+    "The tool in hand at the start: whichever was used last time, or always the same one": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L'outil en main au départ : celui de la dernière fois, ou toujours le même"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het gereedschap bij de start: wat de vorige keer werd gebruikt, of altijd hetzelfde"
+          }
+        }
+      }
+    },
+    "The tool used last": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le dernier outil utilisé"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het laatst gebruikte gereedschap"
+          }
+        }
+      }
+    },
+    "Then: open the editor, copy to the clipboard, or save to a file (O switches; remembered for next time)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ensuite : ouvrir l'éditeur, copier dans le presse-papiers, ou enregistrer dans un fichier (O change ; retenu pour la prochaine fois)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daarna: open de editor, kopieer naar het klembord, of bewaar in een bestand (O wisselt; onthouden voor de volgende keer)"
+          }
+        }
+      }
+    },
+    "These work while the editor or the screen overlay has the keyboard. A key on its own, or with ⌘, ⌥ or ⌃; ⇧ is ignored so the digits work on every keyboard. The colours keep their letters (R O Y G B P W K), the digits 1–9 and 0 pick the shapes in toolbar order, and ⌘Z, ⌘A, ⌘C, ⌘X, ⌘V and ⌘D are fixed. Loupe, fading ink, board, hiding, live and the palette apply to the screen only.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elles agissent quand l'éditeur ou le calque d'écran a le clavier. Une touche seule, ou avec ⌘, ⌥ ou ⌃ ; ⇧ est ignoré pour que les chiffres marchent sur tous les claviers. Les couleurs gardent leurs lettres (R O Y G B P W K), les chiffres 1–9 et 0 choisissent les formes dans l'ordre de la barre, et ⌘Z, ⌘A, ⌘C, ⌘X, ⌘V et ⌘D sont fixes. Loupe suiveuse, encre évanescente, tableau, masquage, direct et palette ne s'appliquent qu'à l'écran."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze werken terwijl de editor of de schermlaag het toetsenbord heeft. Een toets alleen, of met ⌘, ⌥ of ⌃; ⇧ wordt genegeerd zodat de cijfers op elk toetsenbord werken. De kleuren houden hun letters (R O Y G B P W K), de cijfers 1–9 en 0 kiezen de vormen in de volgorde van de balk, en ⌘Z, ⌘A, ⌘C, ⌘X, ⌘V en ⌘D liggen vast. Loep, vervagende inkt, bord, verbergen, live en het palet gelden alleen op het scherm."
+          }
+        }
+      }
+    },
+    "They work even while Libellule is in the background. Use at least one of ⌘, ⌥ or ⌃. While annotating the screen, the capture shortcut keeps the drawing as a screenshot. Repeat retakes the area of the previous capture without asking again; the delayed capture counts down three seconds first, so a menu can be opened in time, and pressing it again during the countdown cancels it.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ils fonctionnent même quand Libellule est en arrière-plan. Utilisez au moins l'une des touches ⌘, ⌥ ou ⌃. Pendant l'annotation de l'écran, le raccourci de capture garde le dessin comme capture. Répéter reprend la zone de la capture précédente sans redemander ; la capture différée compte trois secondes d'abord, le temps d'ouvrir un menu, et le presser à nouveau pendant le compte à rebours l'annule."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ze werken ook als Libellule op de achtergrond staat. Gebruik minstens een van ⌘, ⌥ of ⌃. Tijdens het annoteren van het scherm bewaart de opnamesneltoets de tekening als schermafbeelding. Herhalen neemt het gebied van de vorige opname opnieuw zonder te vragen; de uitgestelde opname telt eerst drie seconden af, zodat een menu op tijd open kan, en nogmaals drukken tijdens het aftellen annuleert."
+          }
+        }
+      }
+    },
+    "Thick": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Épais"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dik"
+          }
+        }
+      }
+    },
+    "Thicker (preset)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plus épais (préréglage)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dikker (voorinstelling)"
+          }
+        }
+      }
+    },
+    "Thin": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fin"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dun"
+          }
+        }
+      }
+    },
+    "Thinner (preset)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plus fin (préréglage)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dunner (voorinstelling)"
+          }
+        }
+      }
+    },
+    "This is version %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %@"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dit is versie %@"
+          }
+        }
+      }
+    },
+    "Tools": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Outils"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gereedschappen"
+          }
+        }
+      }
+    },
+    "Top": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Haut"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boven"
+          }
+        }
+      }
+    },
+    "Transparent": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transparent"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transparant"
+          }
+        }
+      }
+    },
+    "Turn Libellule on under Login Items to finish": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activez Libellule sous Éléments d'ouverture pour terminer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schakel Libellule in bij Inlogonderdelen om af te ronden"
+          }
+        }
+      }
+    },
+    "Turn on Libellule under System Settings › Privacy & Security › Screen & System Audio Recording. macOS applies the change only to a freshly started app, so quit and reopen Libellule afterwards.\n\nIf Libellule is already switched on there, just quit and reopen it. If it isn't listed, click + below the list and choose the app.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activez Libellule dans Réglages Système › Confidentialité et sécurité › Enregistrement de l'écran et de l'audio système. macOS n'applique le changement qu'à une app fraîchement lancée : quittez et rouvrez Libellule ensuite.\n\nSi Libellule y est déjà activé, quittez-le et rouvrez-le. S'il n'est pas listé, cliquez + sous la liste et choisissez l'app."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schakel Libellule in bij Systeeminstellingen › Privacy en beveiliging › Scherm- en systeemaudio-opname. macOS past de wijziging alleen toe op een pas gestarte app: stop Libellule daarna en open het opnieuw.\n\nAls Libellule daar al is ingeschakeld, stop het dan en open het opnieuw. Staat het er niet bij, klik dan op + onder de lijst en kies de app."
+          }
+        }
+      }
+    },
+    "Undo": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuler"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herstel"
+          }
+        }
+      }
+    },
+    "Undo (⌘Z)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuler (⌘Z)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herstel (⌘Z)"
+          }
+        }
+      }
+    },
+    "Undo (⌘Z, or the mouse's back button)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuler (⌘Z, ou le bouton précédent de la souris)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herstel (⌘Z, of de terugknop van de muis)"
+          }
+        }
+      }
+    },
+    "Updates": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mises à jour"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Updates"
+          }
+        }
+      }
+    },
+    "What fills the space added around the picture": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce qui remplit l'espace ajouté autour de l'image"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wat de ruimte rond de afbeelding vult"
+          }
+        }
+      }
+    },
+    "What happens with a screenshot once the area or window is chosen": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce qu'il advient d'une capture une fois la zone ou la fenêtre choisie"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wat er met een schermafbeelding gebeurt zodra het gebied of venster gekozen is"
+          }
+        }
+      }
+    },
+    "Where the tool palette sits while annotating the screen": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Où se place la palette d'outils pendant l'annotation de l'écran"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waar het gereedschapspalet staat tijdens het annoteren van het scherm"
+          }
+        }
+      }
+    },
+    "While drawing: %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En dessinant : %@"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tijdens het tekenen: %@"
+          }
+        }
+      }
+    },
+    "White": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blanc"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wit"
+          }
+        }
+      }
+    },
+    "Whiteboard": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tableau blanc"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Whiteboard"
+          }
+        }
+      }
+    },
+    "Window": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fenêtre"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Venster"
+          }
+        }
+      }
+    },
+    "With fading ink on, drawings fade out this long after the pen stops.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avec l'encre évanescente, les dessins s'effacent ce délai après l'arrêt du stylo."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Met vervagende inkt aan vervagen tekeningen zo lang nadat de pen stopt."
+          }
+        }
+      }
+    },
+    "Your changes haven't been copied, saved or shared yet, and are lost when the window closes.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vos modifications n'ont pas encore été copiées, enregistrées ni partagées, et seront perdues à la fermeture de la fenêtre."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je wijzigingen zijn nog niet gekopieerd, bewaard of gedeeld, en gaan verloren als het venster sluit."
+          }
+        }
+      }
+    },
+    "Zoom in (⌘+)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoom avant (⌘+)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoom in (⌘+)"
+          }
+        }
+      }
+    },
+    "Zoom level: fit (⌘0), actual size (⌘1) or a step": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niveau de zoom : ajuster (⌘0), taille réelle (⌘1) ou un palier"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoomniveau: passend (⌘0), ware grootte (⌘1) of een stap"
+          }
+        }
+      }
+    },
+    "Zoom out (⌘−)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoom arrière (⌘−)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoom uit (⌘−)"
+          }
+        }
+      }
+    },
+    "no key": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "aucune touche"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "geen toets"
+          }
+        }
+      }
+    },
+    "s": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "s"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "s"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
