@@ -184,8 +184,8 @@ final class CaptureCoordinator {
     /// when the user commits. `drawings` (per display) come from live annotation mode, stay editable in the
     /// editor, and need the frozen screen they were drawn on. When annotation mode had frozen the screen, its
     /// pictures (`frozen`, per display) are chosen on instead of the screen as it is by now.
-    func beginCapture(after delay: Duration = .zero, drawings: [CGDirectDisplayID: SurfaceDrawing] = [:], frozen: [CGDirectDisplayID: CGImage] = [:], purpose: CapturePurpose = .image) {
-        guard !isCapturing else { return }
+    func beginCapture(after delay: Duration = .zero, drawings: [CGDirectDisplayID: SurfaceDrawing] = [:], frozen: [CGDirectDisplayID: CGImage] = [:], purpose: CapturePurpose = .image, receiving: ((AnnotationDocument) -> Void)? = nil, onCancel: (() -> Void)? = nil) {
+        guard !isCapturing else { onCancel?(); return }
         isCapturing = true
 
         Task {
@@ -211,22 +211,24 @@ final class CaptureCoordinator {
                 }
                 let session = SelectionSession()
                 selectionSession = session
-                session.begin(on: surfaces, windowCandidates: await windowCandidates, purpose: purpose) { outcome in
+                session.begin(on: surfaces, windowCandidates: await windowCandidates, purpose: purpose, isStandaloneCapture: receiving == nil) { outcome in
                     self.selectionSession = nil
                     self.isCapturing = false
                     switch outcome {
                     case .cancelled:
-                        break
+                        onCancel?()
                     case .selected(let selection):
-                        Task { await self.handle(selection) }
+                        Task { await self.handle(selection, receiving: receiving, onCancel: onCancel) }
                     case .failed(let error):
                         Diagnostics.log("Live capture failed · \(error)")
+                        onCancel?()
                         self.presentError(error)
                     }
                 }
             } catch {
                 isCapturing = false
                 Diagnostics.log("Capture failed · \(error)")
+                onCancel?()
                 presentError(error)
             }
         }
@@ -234,7 +236,7 @@ final class CaptureCoordinator {
 
     /// Turns the selection into pixels (cropping the frozen screen, or capturing a window cleanly),
     /// then copies the text, or copies, saves or edits the image as chosen on the toolbar.
-    private func handle(_ selection: ScreenSelection) async {
+    private func handle(_ selection: ScreenSelection, receiving: ((AnnotationDocument) -> Void)? = nil, onCancel: (() -> Void)? = nil) async {
         let snapshot = selection.snapshot
         let scale = snapshot.scale
         var image: CGImage?
@@ -256,7 +258,7 @@ final class CaptureCoordinator {
         case .window(let target, let includeShadow):
             let bounds = CGRect(origin: .zero, size: snapshot.screen.frame.size)
             capturedRect = target.rect.intersection(bounds)
-            if selection.purpose == .image, snapshot.annotations.isEmpty {
+            if receiving == nil, selection.purpose == .image, snapshot.annotations.isEmpty {
                 do {
                     let captured = try await ScreenCapturer.captureWindow(target.window, includeShadow: includeShadow)
                     image = captured.image
@@ -272,6 +274,7 @@ final class CaptureCoordinator {
         }
         guard let image else {
             Diagnostics.log("Selection produced no image")
+            onCancel?()
             return
         }
         if let displayID = snapshot.screen.displayID {
@@ -303,6 +306,11 @@ final class CaptureCoordinator {
                 CaptureToast.show(redaction.message, systemImage: "eye.slash", on: snapshot.screen)
             }
         }
+        if let receiving {
+            receiving(document)
+            return
+        }
+        CaptureHistoryStore.shared.record(document)
         let completion = selection.completion
         if completion == .saveAs {
             save(document, on: snapshot.screen)
@@ -329,7 +337,7 @@ final class CaptureCoordinator {
         editors.filter { $0.document.hasUnsavedChanges }.count
     }
 
-    private func openEditor(for document: AnnotationDocument, on screen: NSScreen) {
+    func openEditor(for document: AnnotationDocument, on screen: NSScreen? = nil) {
         previousApp = nil
         // What the editor opens with (drawings from the screen, automatic redaction) is where it starts, not a change.
         document.markSaved()

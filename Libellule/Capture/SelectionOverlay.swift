@@ -60,6 +60,8 @@ enum CaptureMode: CaseIterable {
 final class CaptureOptions {
     var mode: CaptureMode = .area
     var purpose: CapturePurpose = .image
+    /// A scrolling-capture receiver owns the result and always needs an image.
+    var isStandaloneCapture = true
     var includeShadow = SelectionSession.includesWindowShadow
     /// The screen keeps moving under the overlay and the picture is taken on commit, instead of being frozen first.
     var isLive = false
@@ -178,9 +180,10 @@ final class SelectionSession {
         UserDefaults.standard.object(forKey: freezesScreenKey) as? Bool ?? true
     }
 
-    func begin(on surfaces: [SelectionSurface], windowCandidates: [SCWindow], purpose: CapturePurpose, completion: @escaping (SelectionOutcome) -> Void) {
+    func begin(on surfaces: [SelectionSurface], windowCandidates: [SCWindow], purpose: CapturePurpose, isStandaloneCapture: Bool = true, completion: @escaping (SelectionOutcome) -> Void) {
         self.completion = completion
         options.purpose = purpose
+        options.isStandaloneCapture = isStandaloneCapture
         options.isLive = surfaces.contains { $0.snapshot == nil }
         canToggleLive = surfaces.allSatisfy { $0.drawing.isEmpty }
         wasAppActive = NSApp.isActive
@@ -351,28 +354,34 @@ struct CaptureToolbar: View {
             }
             .fixedSize()
 
-            ChoiceBar(selection: Binding(get: { options.purpose }, set: { options.purpose = $0; session.refresh() }), options: CapturePurpose.allCases, isTitled: true) { purpose in
-                Label(purpose.title, systemImage: purpose.systemImage)
-            } help: { purpose in
-                "\(purpose.title) (T switches)"
+            if options.isStandaloneCapture {
+                ChoiceBar(selection: Binding(get: { options.purpose }, set: { options.purpose = $0; session.refresh() }), options: CapturePurpose.allCases, isTitled: true) { purpose in
+                    Label(purpose.title, systemImage: purpose.systemImage)
+                } help: { purpose in
+                    "\(purpose.title) (T switches)"
+                }
+                .fixedSize()
+            } else {
+                Label("Scrolling Capture", systemImage: "rectangle.split.1x2")
             }
-            .fixedSize()
 
             if hasOptions {
                 BarSeparator()
             }
 
             if options.purpose == .image {
-                Picker("After Capturing", selection: Binding(get: { options.completion }, set: { options.setCompletion($0) })) {
-                    ForEach(CaptureCompletion.allCases) { completion in
-                        Label(completion.shortTitle, systemImage: completion.systemImage)
-                            .tag(completion)
+                if options.isStandaloneCapture {
+                    Picker("After Capturing", selection: Binding(get: { options.completion }, set: { options.setCompletion($0) })) {
+                        ForEach(CaptureCompletion.allCases) { completion in
+                            Label(completion.shortTitle, systemImage: completion.systemImage)
+                                .tag(completion)
+                        }
                     }
+                    .pickerStyle(.menu)
+                    .labelsHidden()
+                    .fixedSize()
+                    .barHelp(Text("Then: open the editor, copy to the clipboard, or save to a file (O switches; remembered for next time)"))
                 }
-                .pickerStyle(.menu)
-                .labelsHidden()
-                .fixedSize()
-                .barHelp(Text("Then: open the editor, copy to the clipboard, or save to a file (O switches; remembered for next time)"))
 
                 Toggle(isOn: Binding(get: { options.redacts }, set: { options.setRedacts($0) })) {
                     Label("Redact", systemImage: "eye.slash")
@@ -381,7 +390,7 @@ struct CaptureToolbar: View {
                 .barHelp(Text("Hide email addresses, phone numbers, account and card numbers, keys and tokens, and faces before the screenshot is copied, saved or edited (R; remembered for next time)"))
             }
 
-            if options.mode == .window {
+            if options.mode == .window && options.isStandaloneCapture {
                 Toggle(isOn: Binding(get: { options.includeShadow }, set: { options.includeShadow = $0 })) {
                     Label("Shadow", systemImage: "shadow")
                 }
@@ -643,12 +652,13 @@ final class SelectionView: NSView {
         case kVK_ANSI_F:
             setMode(.screen)
         case kVK_ANSI_T:
+            guard options.isStandaloneCapture else { break }
             options.purpose = options.purpose == .image ? .text : .image
             onOptionsChanged?()
         case kVK_ANSI_L:
             onToggleLive?()
         case kVK_ANSI_O:
-            guard options.purpose == .image else { break }  // copied text always goes to the clipboard
+            guard options.purpose == .image, options.isStandaloneCapture else { break }
             options.setCompletion(options.completion.next)
             onOptionsChanged?()
         case kVK_ANSI_R:

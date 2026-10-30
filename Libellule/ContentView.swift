@@ -3,6 +3,7 @@ import SwiftUI
 #if os(macOS)
 import AppKit
 import Combine
+import UniformTypeIdentifiers
 
 /// The main window: buttons to try both modes, the global shortcuts at a glance, and whether capturing is allowed.
 /// The title bar stays empty and see-through, since the window names the app itself.
@@ -16,6 +17,7 @@ struct ContentView: View {
         VStack(spacing: 24) {
             header
             actions
+            workspaceActions
             shortcutList
             permissionRow
         }
@@ -25,8 +27,25 @@ struct ContentView: View {
         .frame(width: 500)
         .toolbar(removing: .title)
         .toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
+        .onDrop(of: [.fileURL, .image], isTargeted: nil) { WorkspaceCoordinator.shared.acceptDrop($0) }
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
             hasScreenAccess = ScreenCapturer.hasPermission
+        }
+    }
+
+    private var workspaceActions: some View {
+        VStack(spacing: 8) {
+            HStack {
+                Button("Open Image or Project…", systemImage: "folder") { WorkspaceCoordinator.shared.openPanel() }
+                Button("Paste Image", systemImage: "doc.on.clipboard") { WorkspaceCoordinator.shared.pasteImage() }
+            }
+            HStack {
+                Button("History", systemImage: "photo.stack") { WorkspaceCoordinator.shared.showHistory() }
+                Button("Scrolling Capture", systemImage: "rectangle.split.1x2") { WorkspaceCoordinator.shared.showScrollingCapture() }
+                Button("Compare", systemImage: "rectangle.on.rectangle") { WorkspaceCoordinator.shared.showComparison() }
+            }
+            Text("Drop an image or an editable project here to open it.")
+                .font(.caption).foregroundStyle(.secondary)
         }
     }
 
@@ -140,6 +159,7 @@ struct ContentView: View {
                     Text("Drawing on the screen works without it. macOS asks the first time you capture; turn Libellule on in System Settings (use + if it isn't listed), then quit and reopen the app.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
             }
             Spacer()

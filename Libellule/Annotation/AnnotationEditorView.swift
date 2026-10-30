@@ -20,6 +20,12 @@ struct AnnotationEditorView: View {
     /// A board came with the capture from annotating the screen; the markup bar then offers to take it off.
     private let cameWithBoard: Bool
     @AppStorage(RedactionStyle.defaultsKey) private var redactionStyle = RedactionStyle.blackout
+    #if os(macOS)
+    @State private var redactionReview: RedactionReview?
+    @State private var extractionImage: CGImage?
+    @State private var showsExtraction = false
+    @AppStorage(CaptureHistoryStore.enabledKey) private var historyEnabled = false
+    #endif
 
     private struct StatusMessage: Equatable {
         let id = UUID()
@@ -93,6 +99,19 @@ struct AnnotationEditorView: View {
         .overlay(alignment: .bottom) { statusView.padding(.bottom, 52) }
         .background { editCommands }
         .toolbar { toolbarContent }
+        #if os(macOS)
+        .sheet(item: $redactionReview) { review in
+            RedactionReviewView(review: review) { findings in
+                guard document.image === review.image else { return }
+                document.layer.addRedactions(findings.map { $0.rect(in: document.pointSize) }, style: redactionStyle)
+                showStatus("Hid \(Redactor.summary(of: findings.map(\.kind)))")
+            }
+        }
+        .sheet(isPresented: $showsExtraction) {
+            if let extractionImage { StructuredTextView(image: extractionImage) }
+        }
+        .onDrop(of: ["public.file-url", "public.image"], isTargeted: nil) { WorkspaceCoordinator.shared.acceptDrop($0) }
+        #endif
     }
 
     /// The ⌘ keys for the selection, bound to buttons that aren't seen: a window's own key equivalents come
@@ -397,6 +416,10 @@ struct AnnotationEditorView: View {
 
         ToolbarItemGroup(placement: .primaryAction) {
             Menu {
+                #if os(macOS)
+                Button("Review Detected Areas…") { reviewRedactions() }
+                Divider()
+                #endif
                 Picker("Hide With", selection: $redactionStyle) {
                     ForEach(RedactionStyle.allCases) { style in
                         Text(style.title).tag(style)
@@ -426,6 +449,26 @@ struct AnnotationEditorView: View {
         // Handing the picture over comes last, at the trailing edge.
         ToolbarItemGroup(placement: .primaryAction) {
             #if os(macOS)
+            Menu {
+                Button("Save Editable Project…") { document.saveProject(attachedTo: NSApp.keyWindow) }
+                    .keyboardShortcut("s", modifiers: [.command, .shift])
+                Button("Pin Screenshot") { WorkspaceCoordinator.shared.pin(document) }
+                Button("Compare With…") {
+                    document.layer.commitTextEditing()
+                    WorkspaceCoordinator.shared.showComparison(image: document.flattenedImage())
+                }
+                Button("Extract Text and Tables…") {
+                    document.layer.commitTextEditing()
+                    extractionImage = document.flattenedImage()
+                    showsExtraction = extractionImage != nil
+                }
+                Button("Add Current Version to History") { CaptureHistoryStore.shared.record(document) }
+                    .disabled(!historyEnabled)
+                Divider()
+                Button("Export Presets…") { WorkspaceCoordinator.shared.showPresets() }
+            } label: { Label("More", systemImage: "ellipsis.circle") }
+            .disabled(isCropping)
+
             Button(action: copyToClipboard) {
                 Label("Copy", systemImage: "doc.on.doc")
             }
@@ -479,6 +522,20 @@ struct AnnotationEditorView: View {
     }
 
     // MARK: - Keyboard
+
+    #if os(macOS)
+    private func reviewRedactions() {
+        document.layer.commitTextEditing()
+        let image = document.image
+        showStatus(String(localized: "Looking for anything sensitive…"))
+        Task {
+            let findings = await Redactor.findings(in: image).filter { !document.layer.isRedacted($0.rect(in: document.pointSize)) }
+            guard document.image === image else { return }
+            if findings.isEmpty { showStatus(String(localized: "Nothing sensitive found")) }
+            else if let preview = document.flattenedImage() { redactionReview = RedactionReview(image: image, preview: preview, findings: findings) }
+        }
+    }
+    #endif
 
     private func handleKey(_ press: KeyPress) -> KeyPress.Result {
         let layer = document.layer

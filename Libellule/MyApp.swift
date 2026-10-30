@@ -28,6 +28,7 @@ struct MyApp: App {
         }
         .windowResizability(.contentSize)
         .defaultPosition(.center)
+        .commands { WorkspaceCommands() }
         #else
         WindowGroup {
             ContentView()
@@ -41,18 +42,27 @@ import AppKit
 import os
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
+    private var historyMaintenance: Timer?
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Unit tests run inside the app for its code; they need neither its shortcuts nor the self-test.
         guard ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil else { return }
         Diagnostics.logLaunch()
         DockIcon.apply()
         CaptureCoordinator.shared.start()
+        CaptureHistoryStore.shared.prune()
+        historyMaintenance = Timer.scheduledTimer(withTimeInterval: 3600, repeats: true) { _ in
+            Task { @MainActor in CaptureHistoryStore.shared.prune() }
+        }
         Diagnostics.runSelfTestIfRequested()
     }
 
     /// Closing the main window shouldn't quit: the shortcut and menu bar item keep working.
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         false
+    }
+
+    func application(_ application: NSApplication, open urls: [URL]) {
+        WorkspaceCoordinator.shared.open(urls)
     }
 
     /// Quitting closes every editor without asking each one, so ask once for all of them.
@@ -98,6 +108,17 @@ struct MenuBarContent: View {
         }
         HotKeyMenuButton("Copy Text from Screen", action: .copyText) {
             CaptureCoordinator.shared.beginCapture(after: .milliseconds(250), purpose: .text)
+        }
+        Divider()
+        Button("Open Image or Project…") { WorkspaceCoordinator.shared.openPanel() }
+        Button("Paste Image") { WorkspaceCoordinator.shared.pasteImage() }
+        Button("Capture History…") { WorkspaceCoordinator.shared.showHistory() }
+        Button("Scrolling Capture…") { WorkspaceCoordinator.shared.showScrollingCapture() }
+        Button("Compare Screenshots…") { WorkspaceCoordinator.shared.showComparison() }
+        Button("Export Presets…") { WorkspaceCoordinator.shared.showPresets() }
+        Menu("Pinned Screenshots") {
+            Button("Make Pinned Screenshots Interactive") { WorkspaceCoordinator.shared.makePinsInteractive() }
+            Button("Close All Pinned Screenshots") { WorkspaceCoordinator.shared.closePins() }
         }
         Divider()
         Button("Open Libellule Window") {

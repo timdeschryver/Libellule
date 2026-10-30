@@ -98,7 +98,7 @@ enum StrokeWidth: CGFloat, CaseIterable, Identifiable {
 }
 
 /// How a step number is drawn: a solid disc with the number cut out of it, or a ring with the number inside.
-enum BadgeStyle: String, CaseIterable, Identifiable, Sendable {
+enum BadgeStyle: String, CaseIterable, Identifiable, Sendable, Codable {
     case filled, bordered
 
     var id: String { rawValue }
@@ -112,7 +112,7 @@ enum BadgeStyle: String, CaseIterable, Identifiable, Sendable {
 }
 
 /// How a text annotation is set beyond its colour: a size of its own, a fixed width to wrap at, a background pill.
-nonisolated struct TextStyle: Equatable, Sendable {
+nonisolated struct TextStyle: Equatable, Sendable, Codable {
     /// In points; nil follows the line width like everything else does.
     var fontSize: CGFloat?
     /// In points; nil lets the label grow with its longest line.
@@ -127,7 +127,7 @@ nonisolated struct TextStyle: Equatable, Sendable {
 }
 
 /// A whiteboard or blackboard laid over the screen (or the picture) under the drawing.
-nonisolated struct Board: Equatable, Sendable {
+nonisolated struct Board: Equatable, Sendable, Codable {
     var isDark: Bool
     /// 0.1…1; less lets the screen show through.
     var opacity: Double
@@ -174,8 +174,8 @@ enum AnnotationPalette {
 
 /// One drawn element. All coordinates are in the surface's point space, origin at the top-left,
 /// which is what both the SwiftUI canvas and the export renderer use.
-struct Annotation: Identifiable, Equatable, Sendable {
-    enum Shape: Equatable, Sendable {
+struct Annotation: Identifiable, Equatable, Sendable, Codable {
+    enum Shape: Equatable, Sendable, Codable {
         case line(from: CGPoint, to: CGPoint)
         case arrow(from: CGPoint, to: CGPoint)
         case rectangle(CGRect)
@@ -516,6 +516,33 @@ struct Annotation: Identifiable, Equatable, Sendable {
         }
         path.addLine(to: points[points.count - 1])
         return path
+    }
+}
+
+nonisolated extension Annotation {
+    private enum CodingKeys: String, CodingKey { case id, shape, color, lineWidth, text, badgeStyle }
+
+    /// Store linear components directly. Converting to sRGB and back introduces rounding in project saves.
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(UUID.self, forKey: .id)
+        shape = try values.decode(Shape.self, forKey: .shape)
+        let components = try values.decode([Float].self, forKey: .color)
+        guard components.count == 4 else { throw DecodingError.dataCorruptedError(forKey: .color, in: values, debugDescription: "Expected four linear color components") }
+        color = Color.Resolved(colorSpace: .sRGBLinear, red: components[0], green: components[1], blue: components[2], opacity: components[3])
+        lineWidth = try values.decode(CGFloat.self, forKey: .lineWidth)
+        text = try values.decode(TextStyle.self, forKey: .text)
+        badgeStyle = try values.decode(BadgeStyle.self, forKey: .badgeStyle)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var values = encoder.container(keyedBy: CodingKeys.self)
+        try values.encode(id, forKey: .id)
+        try values.encode(shape, forKey: .shape)
+        try values.encode([color.linearRed, color.linearGreen, color.linearBlue, color.opacity], forKey: .color)
+        try values.encode(lineWidth, forKey: .lineWidth)
+        try values.encode(text, forKey: .text)
+        try values.encode(badgeStyle, forKey: .badgeStyle)
     }
 }
 

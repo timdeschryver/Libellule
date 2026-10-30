@@ -64,7 +64,7 @@ extension AnnotationLayer {
 enum Redactor {
     /// In order of precedence when matches overlap: a token full of digits isn't also a phone number.
     enum Kind: Int, CaseIterable, Comparable {
-        case secret, account, email, phone, face
+        case secret, account, email, phone, face, custom
 
         static func < (lhs: Kind, rhs: Kind) -> Bool { lhs.rawValue < rhs.rawValue }
 
@@ -75,6 +75,7 @@ enum Redactor {
             case .email: count == 1 ? String(localized: "1 email address") : String(localized: "\(count) email addresses")
             case .phone: count == 1 ? String(localized: "1 phone number") : String(localized: "\(count) phone numbers")
             case .face: count == 1 ? String(localized: "1 face") : String(localized: "\(count) faces")
+            case .custom: count == 1 ? String(localized: "1 custom match") : String(localized: "\(count) custom matches")
             }
         }
     }
@@ -101,8 +102,9 @@ enum Redactor {
     }
 
     static func findings(in image: CGImage) async -> [Finding] {
-        async let text = textFindings(in: image)
-        async let faces = faceFindings(in: image)
+        let disabled = RedactionRules.disabled
+        async let text = textFindings(in: image, rules: RedactionRules.custom, disabled: disabled)
+        async let faces = disabled.contains(.face) ? [] : faceFindings(in: image)
         return await text + faces
     }
 
@@ -117,15 +119,16 @@ enum Redactor {
 
     // MARK: - Vision
 
-    private static func textFindings(in image: CGImage) async -> [Finding] {
+    private static func textFindings(in image: CGImage, rules: [CustomRedactionRule], disabled: Set<Kind>) async -> [Finding] {
         var request = RecognizeTextRequest()
         request.recognitionLevel = .accurate
         // Corrections would "fix" the very strings worth hiding: addresses, keys, account numbers.
         request.usesLanguageCorrection = false
+        request.automaticallyDetectsLanguage = true
         guard let observations = try? await request.perform(on: image) else { return [] }
         return observations.flatMap { observation -> [Finding] in
             guard let candidate = observation.topCandidates(1).first else { return [] }
-            return matches(in: candidate.string).map { match in
+            return matches(in: candidate.string, rules: rules, disabled: disabled).map { match in
                 let box = candidate.boundingBox(for: match.range)?.boundingBox ?? observation.boundingBox
                 return Finding(kind: match.kind, box: topLeft(box.cgRect))
             }
@@ -144,13 +147,13 @@ enum Redactor {
 
     // MARK: - Text
 
-    /// The sensitive parts of one line of recognized text, left to right. Where matches overlap, the kind
-    /// listed first in `Kind` keeps the text.
-    static func matches(in text: String) -> [(kind: Kind, range: Range<String.Index>)] {
+    /// The sensitive parts of one line, left to right. Overlaps are united; the first kind in `Kind`
+    /// names the combined finding without shortening a broader custom match.
+    static func matches(in text: String, rules: [CustomRedactionRule] = [], disabled: Set<Kind> = []) -> [(kind: Kind, range: Range<String.Index>)] {
         let whole = NSRange(text.startIndex..., in: text)
         var found: [(kind: Kind, range: Range<String.Index>)] = []
         func add(_ kind: Kind, _ range: NSRange, where accept: (Substring) -> Bool = { _ in true }) {
-            guard range.location != NSNotFound, let range = Range(range, in: text), accept(text[range]) else { return }
+            guard !disabled.contains(kind), range.location != NSNotFound, range.length > 0, let range = Range(range, in: text), accept(text[range]) else { return }
             found.append((kind, range))
         }
 
@@ -174,9 +177,17 @@ enum Redactor {
             add(.phone, match.range) { $0.filter(\.isNumber).count >= 7 }
         }
 
+        for rule in rules where rule.isEnabled {
+            for match in rule.expression?.matches(in: text, range: whole) ?? [] { add(.custom, match.range) }
+        }
+
         var accepted: [(kind: Kind, range: Range<String.Index>)] = []
-        for item in found.sorted(by: { $0.kind < $1.kind }) where !accepted.contains(where: { $0.range.overlaps(item.range) }) {
-            accepted.append(item)
+        for item in found.sorted(by: { $0.range.lowerBound < $1.range.lowerBound }) {
+            if let previous = accepted.last, previous.range.overlaps(item.range) {
+                accepted[accepted.count - 1] = (min(previous.kind, item.kind), previous.range.lowerBound..<max(previous.range.upperBound, item.range.upperBound))
+            } else {
+                accepted.append(item)
+            }
         }
         return accepted.sorted { $0.range.lowerBound < $1.range.lowerBound }
     }

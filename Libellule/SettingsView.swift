@@ -89,6 +89,11 @@ private struct GeneralSettings: View {
                     .foregroundStyle(.secondary)
             }
 
+            Section("Library and Export") {
+                Button("Capture History…") { WorkspaceCoordinator.shared.showHistory() }
+                Button("Export Presets…") { WorkspaceCoordinator.shared.showPresets() }
+            }
+
             Section {
                 LabeledContent("This is version \(AppInfo.version)") {
                     Button("Check for Updates…") {
@@ -337,6 +342,8 @@ private struct PresentingSettings: View {
 private struct RedactionSettings: View {
     @AppStorage(SelectionSession.redactsCapturesKey) private var redactsCaptures = false
     @AppStorage(RedactionStyle.defaultsKey) private var redactionStyle = RedactionStyle.blackout
+    @State private var rules = RedactionRules.custom
+    @State private var disabledKinds = RedactionRules.disabled
 
     var body: some View {
         Form {
@@ -355,8 +362,46 @@ private struct RedactionSettings: View {
                 Text("Covers email addresses, phone numbers, IBANs and card numbers, keys and tokens, and faces before a screenshot is copied, saved or edited. The capture bar's Redact button (R) switches this too and keeps the choice. The Redact buttons in the editor and while annotating the screen (\(OverlayShortcuts.shared.label(for: .redact))) do it on demand. Black out is the safe choice: pixelated or blurred text, digits especially, can sometimes be read back. Check the result before sharing: only text Libellule can read gets covered.")
                     .foregroundStyle(.secondary)
             }
+            Section("Detection Categories") {
+                ForEach(Redactor.Kind.allCases, id: \.rawValue) { kind in
+                    Toggle(categoryTitle(kind), isOn: Binding(get: { !disabledKinds.contains(kind) }, set: { enabled in
+                        if enabled { disabledKinds.remove(kind) } else { disabledKinds.insert(kind) }
+                        RedactionRules.disabled = disabledKinds
+                    }))
+                }
+            }
+            Section {
+                ForEach($rules) { $rule in
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Toggle("Enabled", isOn: $rule.isEnabled).labelsHidden()
+                            TextField("Rule name", text: $rule.name)
+                            Button(role: .destructive) { rules.removeAll { $0.id == rule.id } } label: { Image(systemName: "trash") }
+                        }
+                        TextField("Text or pattern to hide", text: $rule.pattern)
+                        Toggle("Regular expression", isOn: $rule.isRegularExpression)
+                        if !rule.isValid { Text("This regular expression is invalid and will not run.").foregroundStyle(.red) }
+                    }.padding(.vertical, 4)
+                }
+                Button("Add Custom Rule", systemImage: "plus") { rules.append(CustomRedactionRule()) }
+            } header: { Text("Custom Rules") } footer: {
+                Text("Literal rules match text without regard to case. Regular expressions match the entire matched area. Use the Redact menu → Review Detected Areas in the editor to dismiss false positives.")
+            }
         }
-        .settingsPane()
+        .formStyle(.grouped)
+        .frame(width: 580, height: 650)
+        .onChange(of: rules) { _, value in RedactionRules.custom = value }
+    }
+
+    private func categoryTitle(_ kind: Redactor.Kind) -> String {
+        switch kind {
+        case .secret: String(localized: "Keys and tokens")
+        case .account: String(localized: "Accounts and payment cards")
+        case .email: String(localized: "Email addresses")
+        case .phone: String(localized: "Phone numbers")
+        case .face: String(localized: "Faces")
+        case .custom: String(localized: "Custom rules")
+        }
     }
 }
 

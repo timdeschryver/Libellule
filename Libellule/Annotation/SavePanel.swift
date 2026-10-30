@@ -27,6 +27,16 @@ extension AnnotationDocument {
             let stem = (panel.nameFieldStringValue as NSString).deletingPathExtension
             panel.nameFieldStringValue = "\(stem).\(format.fileExtension)"
             ExportFormat.preferred = format
+        } presetChanged: { [weak panel] preset in
+            guard let panel else { return }
+            if let preset {
+                choice.format = preset.format
+                panel.allowedContentTypes = [preset.format.utType]
+                let image = self.flattenedImage().flatMap { preset.render($0) } ?? self.image
+                panel.nameFieldStringValue = preset.fileName(image: image)
+            } else {
+                panel.nameFieldStringValue = Self.suggestedFileName(format: choice.format)
+            }
         })
         accessory.frame = NSRect(origin: .zero, size: accessory.fittingSize)
         panel.accessoryView = accessory
@@ -36,7 +46,10 @@ extension AnnotationDocument {
                 completion(.cancelled)
                 return
             }
-            guard let data = self.imageData(format: choice.format) else {
+            let preset = choice.preset
+            guard let flattened = self.flattenedImage(),
+                  let rendered = preset.map({ $0.render(flattened) }) ?? flattened,
+                  let data = self.imageData(from: rendered, format: choice.format) else {
                 completion(.failed("Couldn't render the image"))
                 return
             }
@@ -60,6 +73,8 @@ extension AnnotationDocument {
 @Observable
 final class SaveFormatChoice {
     var format: ExportFormat
+    var presetID: UUID?
+    var preset: ExportPreset? { ExportPresetStore.shared.presets.first { $0.id == presetID } }
 
     init(format: ExportFormat) {
         self.format = format
@@ -70,12 +85,23 @@ final class SaveFormatChoice {
 struct SaveFormatAccessory: View {
     @Bindable var choice: SaveFormatChoice
     let formatChanged: (ExportFormat) -> Void
+    let presetChanged: (ExportPreset?) -> Void
 
     var body: some View {
-        Picker("Format:", selection: $choice.format) {
-            ForEach(ExportFormat.allCases) { format in
-                Text(format.title).tag(format)
+        VStack(alignment: .leading, spacing: 8) {
+            Picker("Preset:", selection: $choice.presetID) {
+                Text("Original size").tag(nil as UUID?)
+                ForEach(ExportPresetStore.shared.presets.filter(\.isValid)) { preset in
+                    Text(preset.name).tag(Optional(preset.id))
+                }
             }
+            .onChange(of: choice.presetID) { _, _ in presetChanged(choice.preset) }
+            Picker("Format:", selection: $choice.format) {
+                ForEach(ExportFormat.allCases) { format in
+                    Text(format.title).tag(format)
+                }
+            }
+            Button("Manage Presets…") { WorkspaceCoordinator.shared.showPresets() }
         }
         .pickerStyle(.menu)
         .fixedSize()

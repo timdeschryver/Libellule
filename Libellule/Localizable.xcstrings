@@ -105,6 +105,66 @@
         }
       }
     },
+    "%@ · %lld × %lld px": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ · %2$lld × %3$lld px"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · %lld × %lld px"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · %lld × %lld px"
+          }
+        }
+      }
+    },
+    "%lld / %lld pixels changed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld / %2$lld pixels changed"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld / %lld pixels modifiés"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld / %lld pixels gewijzigd"
+          }
+        }
+      }
+    },
+    "%lld Sections": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld sections"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld secties"
+          }
+        }
+      }
+    },
     "%lld account or card numbers": {
       "localizations": {
         "fr": {
@@ -117,6 +177,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "%lld rekening- of kaartnummers"
+          }
+        }
+      }
+    },
+    "%lld custom matches": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld correspondances personnalisées"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld aangepaste treffers"
           }
         }
       }
@@ -201,6 +277,22 @@
         }
       }
     },
+    "%lld sections": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld sections"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld secties"
+          }
+        }
+      }
+    },
     "%lld × %lld px": {
       "localizations": {
         "en": {
@@ -239,6 +331,28 @@
         }
       }
     },
+    "%lld. %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld. %2$@"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld. %@"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld. %@"
+          }
+        }
+      }
+    },
     "1": {
       "localizations": {
         "fr": {
@@ -267,6 +381,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "1 rekening- of kaartnummer"
+          }
+        }
+      }
+    },
+    "1 custom match": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 correspondance personnalisée"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 aangepaste treffer"
+          }
+        }
+      }
+    },
+    "1 day": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 jour"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 dag"
           }
         }
       }
@@ -351,6 +497,38 @@
         }
       }
     },
+    "30 days": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 jours"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 dagen"
+          }
+        }
+      }
+    },
+    "7 days": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 jours"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 dagen"
+          }
+        }
+      }
+    },
     "A ring spreads out from every click, and a disc shows while the button is held": {
       "localizations": {
         "fr": {
@@ -415,6 +593,38 @@
         }
       }
     },
+    "Accept Join": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accepter le raccord"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overgang accepteren"
+          }
+        }
+      }
+    },
+    "Accounts and payment cards": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comptes et cartes de paiement"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rekeningen en betaalkaarten"
+          }
+        }
+      }
+    },
     "Across the top": {
       "localizations": {
         "fr": {
@@ -447,6 +657,70 @@
         }
       }
     },
+    "Add Current Version to History": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter la version actuelle à l’historique"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Huidige versie aan geschiedenis toevoegen"
+          }
+        }
+      }
+    },
+    "Add Custom Rule": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter une règle personnalisée"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aangepaste regel toevoegen"
+          }
+        }
+      }
+    },
+    "Add Image Files…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter des fichiers image…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afbeeldingsbestanden toevoegen…"
+          }
+        }
+      }
+    },
+    "Add Preset": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter un préréglage"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voorinstelling toevoegen"
+          }
+        }
+      }
+    },
     "Add Space": {
       "localizations": {
         "fr": {
@@ -459,6 +733,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ruimte toevoegen"
+          }
+        }
+      }
+    },
+    "Add a preset for documentation, issue reports, or sharing.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajoutez un préréglage pour la documentation, les rapports de problème ou le partage."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voeg een voorinstelling toe voor documentatie, probleemmeldingen of delen."
+          }
+        }
+      }
+    },
+    "Add sections, then update the preview.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajoutez des sections, puis actualisez l’aperçu."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voeg secties toe en werk het voorbeeld bij."
           }
         }
       }
@@ -703,6 +1009,22 @@
         }
       }
     },
+    "Background": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arrière-plan"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Achtergrond"
+          }
+        }
+      }
+    },
     "Black": {
       "localizations": {
         "fr": {
@@ -831,6 +1153,22 @@
         }
       }
     },
+    "CSV preserves cells, commas, quotes, and line breaks. Markdown uses the first row as its header.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le CSV conserve les cellules, les virgules, les guillemets et les sauts de ligne. Markdown utilise la première ligne comme en-tête."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CSV behoudt cellen, komma’s, aanhalingstekens en regeleinden. Markdown gebruikt de eerste rij als kop."
+          }
+        }
+      }
+    },
     "Cancel": {
       "localizations": {
         "fr": {
@@ -895,6 +1233,54 @@
         }
       }
     },
+    "Capture History": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historique des captures"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opnamegeschiedenis"
+          }
+        }
+      }
+    },
+    "Capture History…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historique des captures…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opnamegeschiedenis…"
+          }
+        }
+      }
+    },
+    "Capture Next Section": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capturer la section suivante"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volgende sectie vastleggen"
+          }
+        }
+      }
+    },
     "Capture after 3 seconds": {
       "localizations": {
         "fr": {
@@ -943,6 +1329,22 @@
         }
       }
     },
+    "Capture with Libellule": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capturer avec Libellule"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vastleggen met Libellule"
+          }
+        }
+      }
+    },
     "Capturing in %lld… · %@ cancels": {
       "localizations": {
         "en": {
@@ -961,6 +1363,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vastleggen over %lld… · %@ annuleert"
+          }
+        }
+      }
+    },
+    "Changed pixels in red": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pixels modifiés en rouge"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gewijzigde pixels in rood"
           }
         }
       }
@@ -1013,6 +1431,54 @@
         }
       }
     },
+    "Check this join. Zero concatenates sections without removing overlap.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vérifiez ce raccord. Zéro juxtapose les sections sans supprimer le chevauchement."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controleer deze overgang. Nul voegt secties samen zonder overlap te verwijderen."
+          }
+        }
+      }
+    },
+    "Choose Two Screenshots": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisir deux captures"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Twee schermafbeeldingen kiezen"
+          }
+        }
+      }
+    },
+    "Choose a preset in the Save panel. Size and padding are in pixels; zero leaves a dimension unrestricted.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisissez un préréglage dans la fenêtre d’enregistrement. Dimensions et marges sont en pixels ; zéro ne limite pas la dimension."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kies een voorinstelling in het bewaarvenster. Afmetingen en marge zijn in pixels; nul laat een afmeting onbeperkt."
+          }
+        }
+      }
+    },
     "Choose an area, a window or a whole screen to capture (%@)": {
       "localizations": {
         "fr": {
@@ -1025,6 +1491,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Kies een gebied, een venster of een heel scherm om vast te leggen (%@)"
+          }
+        }
+      }
+    },
+    "Choose sections in order from top to bottom. You can adjust every join afterwards.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisissez les sections de haut en bas. Vous pourrez ajuster chaque raccord ensuite."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kies secties van boven naar beneden. U kunt elke overgang achteraf aanpassen."
           }
         }
       }
@@ -1089,6 +1571,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Alle tekeningen wissen%@"
+          }
+        }
+      }
+    },
+    "Click Through": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laisser passer les clics"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klikken doorlaten"
           }
         }
       }
@@ -1189,6 +1687,38 @@
         }
       }
     },
+    "Close": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fermer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sluiten"
+          }
+        }
+      }
+    },
+    "Close All Pinned Screenshots": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fermer toutes les captures épinglées"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle vastgezette schermafbeeldingen sluiten"
+          }
+        }
+      }
+    },
     "Colour of the mark and ripples": {
       "localizations": {
         "fr": {
@@ -1201,6 +1731,118 @@
           "stringUnit": {
             "state": "translated",
             "value": "Kleur van de markering en de kringen"
+          }
+        }
+      }
+    },
+    "Compare": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vergelijken"
+          }
+        }
+      }
+    },
+    "Compare Screenshots": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparer des captures"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schermafbeeldingen vergelijken"
+          }
+        }
+      }
+    },
+    "Compare Screenshots…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparer des captures…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schermafbeeldingen vergelijken…"
+          }
+        }
+      }
+    },
+    "Compare With…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparer avec…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vergelijken met…"
+          }
+        }
+      }
+    },
+    "Compare side by side, blend them, or highlight changed pixels. Overlay and difference require matching pixel dimensions.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparez côte à côte, superposez les images ou mettez en évidence les pixels modifiés. La superposition et la différence exigent les mêmes dimensions en pixels."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vergelijk naast elkaar, meng de beelden of markeer gewijzigde pixels. Overlay en verschil vereisen gelijke pixelafmetingen."
+          }
+        }
+      }
+    },
+    "Comparing pixels…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparaison des pixels…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pixels vergelijken…"
+          }
+        }
+      }
+    },
+    "Copied": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copié"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gekopieerd"
           }
         }
       }
@@ -1541,6 +2183,22 @@
         }
       }
     },
+    "Couldn't complete the action": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de terminer l’action"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De actie kon niet worden voltooid"
+          }
+        }
+      }
+    },
     "Couldn't freeze the screen": {
       "localizations": {
         "fr": {
@@ -1669,6 +2327,22 @@
         }
       }
     },
+    "Custom Rules": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Règles personnalisées"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aangepaste regels"
+          }
+        }
+      }
+    },
     "Custom color": {
       "localizations": {
         "fr": {
@@ -1681,6 +2355,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "Aangepaste kleur"
+          }
+        }
+      }
+    },
+    "Custom rule": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Règle personnalisée"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aangepaste regel"
+          }
+        }
+      }
+    },
+    "Custom rules": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Règles personnalisées"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aangepaste regels"
           }
         }
       }
@@ -1713,6 +2419,134 @@
           "stringUnit": {
             "state": "translated",
             "value": "Snijd de afbeelding bij tot de rechthoek, met de toegevoegde ruimte opgevuld (↩)"
+          }
+        }
+      }
+    },
+    "Delete All": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout supprimer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alles verwijderen"
+          }
+        }
+      }
+    },
+    "Delete All…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout supprimer…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alles verwijderen…"
+          }
+        }
+      }
+    },
+    "Delete Preset": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer le préréglage"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voorinstelling verwijderen"
+          }
+        }
+      }
+    },
+    "Delete after": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer après"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwijderen na"
+          }
+        }
+      }
+    },
+    "Delete all capture history, including favorites?": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer tout l’historique des captures, y compris les favoris ?"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle opnamegeschiedenis verwijderen, inclusief favorieten?"
+          }
+        }
+      }
+    },
+    "Detection Categories": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Catégories de détection"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detectiecategorieën"
+          }
+        }
+      }
+    },
+    "Difference": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Différence"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verschil"
+          }
+        }
+      }
+    },
+    "Different Pixel Sizes": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dimensions en pixels différentes"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verschillende pixelafmetingen"
           }
         }
       }
@@ -2101,6 +2935,22 @@
         }
       }
     },
+    "Drop an image or an editable project here to open it.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Déposez une image ou un projet modifiable ici pour l’ouvrir."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep hier een afbeelding of bewerkbaar project om het te openen."
+          }
+        }
+      }
+    },
     "Duplicate": {
       "localizations": {
         "fr": {
@@ -2129,6 +2979,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bewerk"
+          }
+        }
+      }
+    },
+    "Edit Difference": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modifier la différence"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verschil bewerken"
+          }
+        }
+      }
+    },
+    "Editable projects include the original image, including pixels hidden by redactions. Share a PNG or JPEG to share only the visible result.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les projets modifiables contiennent l’image originale, y compris les pixels masqués. Partagez un PNG ou JPEG pour ne partager que le résultat visible."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewerkbare projecten bevatten de oorspronkelijke afbeelding, inclusief afgedekte pixels. Deel een PNG of JPEG om alleen het zichtbare resultaat te delen."
           }
         }
       }
@@ -2165,6 +3047,70 @@
         }
       }
     },
+    "Email addresses": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adresses e-mail"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "E-mailadressen"
+          }
+        }
+      }
+    },
+    "Enable history to keep future captures.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activez l’historique pour conserver les prochaines captures."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schakel geschiedenis in om toekomstige opnamen te bewaren."
+          }
+        }
+      }
+    },
+    "Enabled": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activée"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingeschakeld"
+          }
+        }
+      }
+    },
+    "Enter a name, dimensions from 0 to 16384, and padding from 0 to 2048.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saisissez un nom, des dimensions de 0 à 16384 et une marge de 0 à 2048."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voer een naam in, afmetingen van 0 tot 16384 en een marge van 0 tot 2048."
+          }
+        }
+      }
+    },
     "Eraser": {
       "localizations": {
         "fr": {
@@ -2177,6 +3123,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "Gum"
+          }
+        }
+      }
+    },
+    "Export Presets": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Préréglages d’exportation"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exportvoorinstellingen"
+          }
+        }
+      }
+    },
+    "Export Presets…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Préréglages d’exportation…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exportvoorinstellingen…"
+          }
+        }
+      }
+    },
+    "Extract Text and Tables": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Extraire le texte et les tableaux"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekst en tabellen extraheren"
+          }
+        }
+      }
+    },
+    "Extract Text and Tables…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Extraire le texte et les tableaux…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekst en tabellen extraheren…"
+          }
+        }
+      }
+    },
+    "Extract Text from Image": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Extraire le texte d’une image"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekst uit afbeelding extraheren"
+          }
+        }
+      }
+    },
+    "Faces": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Visages"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gezichten"
           }
         }
       }
@@ -2245,6 +3287,54 @@
         }
       }
     },
+    "Favorites": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Favoris"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Favorieten"
+          }
+        }
+      }
+    },
+    "Filename": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nom du fichier"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bestandsnaam"
+          }
+        }
+      }
+    },
+    "Filename tokens: {date}, {time}, {width}, {height}. The extension is added automatically.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Variables du nom : {date}, {time}, {width}, {height}. L’extension est ajoutée automatiquement."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bestandsnaamvariabelen: {date}, {time}, {width}, {height}. De extensie wordt automatisch toegevoegd."
+          }
+        }
+      }
+    },
     "Fill": {
       "localizations": {
         "fr": {
@@ -2293,6 +3383,38 @@
         }
       }
     },
+    "Finish this capture before adding more than 50 sections.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminez cette capture avant d’ajouter plus de 50 sections."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voltooi deze opname voordat u meer dan 50 secties toevoegt."
+          }
+        }
+      }
+    },
+    "First": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Première"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eerste"
+          }
+        }
+      }
+    },
     "Fit": {
       "localizations": {
         "fr": {
@@ -2321,6 +3443,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pas in venster"
+          }
+        }
+      }
+    },
+    "Format": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Format"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Formaat"
           }
         }
       }
@@ -2453,6 +3591,22 @@
         }
       }
     },
+    "Hide Selected Areas": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer les zones sélectionnées"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geselecteerde gebieden verbergen"
+          }
+        }
+      }
+    },
     "Hide With": {
       "localizations": {
         "fr": {
@@ -2533,6 +3687,22 @@
         }
       }
     },
+    "Hide sensitive text and faces in an image using Libellule's redaction settings. Returns a flattened PNG. Processing stays on your Mac.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquez les textes sensibles et les visages avec les réglages de masquage de Libellule. Renvoie un PNG aplati. Le traitement reste sur votre Mac."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verberg gevoelige tekst en gezichten met de afdekinstellingen van Libellule. Geeft een samengevoegde PNG terug. De verwerking blijft op uw Mac."
+          }
+        }
+      }
+    },
     "Hide the drawings for a moment to see the screen underneath; they come back when switched off%@": {
       "localizations": {
         "fr": {
@@ -2577,6 +3747,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Uitlichten"
+          }
+        }
+      }
+    },
+    "History": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historique"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geschiedenis"
           }
         }
       }
@@ -2677,6 +3863,38 @@
         }
       }
     },
+    "Ignore channel changes up to %lld": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ignorer les écarts par canal jusqu’à %lld"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kanaalverschillen tot %lld negeren"
+          }
+        }
+      }
+    },
+    "Image": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Image"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afbeelding"
+          }
+        }
+      }
+    },
     "Include the window's shadow (⌥-click a window for the opposite)": {
       "localizations": {
         "fr": {
@@ -2725,6 +3943,28 @@
         }
       }
     },
+    "Join %lld → %lld": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Join %1$lld → %2$lld"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Raccord %lld → %lld"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overgang %lld → %lld"
+          }
+        }
+      }
+    },
     "Join lines into paragraphs": {
       "localizations": {
         "fr": {
@@ -2737,6 +3977,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Voeg regels samen tot alinea's"
+          }
+        }
+      }
+    },
+    "Keep capture history on this Mac": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conserver l’historique des captures sur ce Mac"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opnamegeschiedenis op deze Mac bewaren"
           }
         }
       }
@@ -2801,6 +4057,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "Behoud de schaduw rond een vastgelegd venster, op een transparante rand"
+          }
+        }
+      }
+    },
+    "Keep this capture until it is deleted": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conserver cette capture jusqu’à sa suppression"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze opname bewaren totdat u ze verwijdert"
+          }
+        }
+      }
+    },
+    "Keys and tokens": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clés et jetons"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleutels en tokens"
           }
         }
       }
@@ -2917,6 +4205,22 @@
         }
       }
     },
+    "Library and Export": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bibliothèque et exportation"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bibliotheek en export"
+          }
+        }
+      }
+    },
     "Lights": {
       "localizations": {
         "fr": {
@@ -3025,6 +4329,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Lijndikte: %@ pt"
+          }
+        }
+      }
+    },
+    "Literal rules match text without regard to case. Regular expressions match the entire matched area. Use the Redact menu → Review Detected Areas in the editor to dismiss false positives.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les règles littérales ignorent la casse. Les expressions régulières masquent toute la correspondance. Utilisez Masquer → Examiner les zones détectées dans l’éditeur pour écarter les faux positifs."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Letterlijke regels negeren hoofdletters. Reguliere expressies dekken de volledige overeenkomst af. Gebruik Afdekken → Gedetecteerde gebieden controleren in de editor om onjuiste treffers uit te sluiten."
           }
         }
       }
@@ -3141,6 +4461,22 @@
         }
       }
     },
+    "Make Pinned Screenshots Interactive": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réactiver les captures épinglées"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vastgezette schermafbeeldingen interactief maken"
+          }
+        }
+      }
+    },
     "Make room for callouts next to the picture": {
       "localizations": {
         "fr": {
@@ -3153,6 +4489,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Maak ruimte voor bijschriften naast de afbeelding"
+          }
+        }
+      }
+    },
+    "Manage Presets…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gérer les préréglages…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voorinstellingen beheren…"
           }
         }
       }
@@ -3221,6 +4573,38 @@
         }
       }
     },
+    "Maximum height": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hauteur maximale"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maximale hoogte"
+          }
+        }
+      }
+    },
+    "Maximum width": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Largeur maximale"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maximale breedte"
+          }
+        }
+      }
+    },
     "Measure": {
       "localizations": {
         "fr": {
@@ -3253,6 +4637,134 @@
         }
       }
     },
+    "More": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plus"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meer"
+          }
+        }
+      }
+    },
+    "Name": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nom"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Naam"
+          }
+        }
+      }
+    },
+    "New captures will appear here.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les prochaines captures apparaîtront ici."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nieuwe opnamen verschijnen hier."
+          }
+        }
+      }
+    },
+    "New preset": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nouveau préréglage"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nieuwe voorinstelling"
+          }
+        }
+      }
+    },
+    "No Captures": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucune capture"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen opnamen"
+          }
+        }
+      }
+    },
+    "No Export Presets": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun préréglage d’exportation"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen exportvoorinstellingen"
+          }
+        }
+      }
+    },
+    "No Tables Found": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun tableau détecté"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen tabellen gevonden"
+          }
+        }
+      }
+    },
+    "No reliable overlap was found. Set the overlap manually, or scroll less and capture the section again.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun chevauchement fiable n’a été trouvé. Réglez-le manuellement ou faites moins défiler et recapturez la section."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Er is geen betrouwbare overlap gevonden. Stel de overlap handmatig in of scroll minder ver en leg de sectie opnieuw vast."
+          }
+        }
+      }
+    },
     "No text or code found": {
       "localizations": {
         "fr": {
@@ -3265,6 +4777,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Geen tekst of code gevonden"
+          }
+        }
+      }
+    },
+    "No text was found.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun texte détecté."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen tekst gevonden."
           }
         }
       }
@@ -3349,6 +4877,70 @@
         }
       }
     },
+    "Open": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Openen"
+          }
+        }
+      }
+    },
+    "Open First Image…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir la première image…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eerste afbeelding openen…"
+          }
+        }
+      }
+    },
+    "Open Image in Libellule": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir une image dans Libellule"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afbeelding openen in Libellule"
+          }
+        }
+      }
+    },
+    "Open Image or Project…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir une image ou un projet…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afbeelding of project openen…"
+          }
+        }
+      }
+    },
     "Open Libellule Window": {
       "localizations": {
         "fr": {
@@ -3397,6 +4989,22 @@
         }
       }
     },
+    "Open Second Image…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir la seconde image…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tweede afbeelding openen…"
+          }
+        }
+      }
+    },
     "Open System Settings": {
       "localizations": {
         "fr": {
@@ -3425,6 +5033,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "Open Systeeminstellingen bij de lijst met inlogonderdelen om Libellule in te schakelen"
+          }
+        }
+      }
+    },
+    "Open an image in Libellule's annotation editor.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrez une image dans l’éditeur d’annotations de Libellule."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open een afbeelding in de annotatie-editor van Libellule."
+          }
+        }
+      }
+    },
+    "Open in Editor": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir dans l’éditeur"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Openen in editor"
           }
         }
       }
@@ -3477,6 +5117,22 @@
         }
       }
     },
+    "Original size": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taille originale"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oorspronkelijke grootte"
+          }
+        }
+      }
+    },
     "Outline": {
       "localizations": {
         "fr": {
@@ -3489,6 +5145,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "Omtrek"
+          }
+        }
+      }
+    },
+    "Overlap (pixels)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chevauchement (pixels)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overlap (pixels)"
+          }
+        }
+      }
+    },
+    "Overlay": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Superposition"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overlay"
           }
         }
       }
@@ -3541,6 +5229,22 @@
         }
       }
     },
+    "Padding": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marge"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marge"
+          }
+        }
+      }
+    },
     "Palette": {
       "localizations": {
         "fr": {
@@ -3573,6 +5277,22 @@
         }
       }
     },
+    "Paste Image": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coller une image"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afbeelding plakken"
+          }
+        }
+      }
+    },
     "Pause": {
       "localizations": {
         "fr": {
@@ -3601,6 +5321,70 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pen"
+          }
+        }
+      }
+    },
+    "Phone numbers": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Numéros de téléphone"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Telefoonnummers"
+          }
+        }
+      }
+    },
+    "Pin Screenshot": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Épingler la capture"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schermafbeelding vastzetten"
+          }
+        }
+      }
+    },
+    "Pinned Screenshot": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capture épinglée"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vastgezette schermafbeelding"
+          }
+        }
+      }
+    },
+    "Pinned Screenshots": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Captures épinglées"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vastgezette schermafbeeldingen"
           }
         }
       }
@@ -3681,6 +5465,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Presenteren"
+          }
+        }
+      }
+    },
+    "Preset:": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Préréglage :"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voorinstelling:"
           }
         }
       }
@@ -3781,6 +5581,22 @@
         }
       }
     },
+    "Read text from an image on your Mac, without changing the clipboard.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lisez le texte d’une image sur votre Mac sans modifier le presse-papiers."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lees tekst uit een afbeelding op uw Mac zonder het klembord te wijzigen."
+          }
+        }
+      }
+    },
     "Reading text…": {
       "localizations": {
         "fr": {
@@ -3809,6 +5625,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Herken de tekst, of een QR-code, in de opname en kopieer die (⇧⌘C)"
+          }
+        }
+      }
+    },
+    "Recognizing document structure…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reconnaissance de la structure du document…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documentstructuur herkennen…"
           }
         }
       }
@@ -3857,6 +5689,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Afschermen"
+          }
+        }
+      }
+    },
+    "Redact Image": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masquer une image"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afbeelding afdekken"
           }
         }
       }
@@ -3957,6 +5805,38 @@
         }
       }
     },
+    "Regular expression": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Expression régulière"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reguliere expressie"
+          }
+        }
+      }
+    },
+    "Remove Last": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer la dernière"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laatste verwijderen"
+          }
+        }
+      }
+    },
     "Remove all annotations (%@)": {
       "localizations": {
         "fr": {
@@ -4037,6 +5917,38 @@
         }
       }
     },
+    "Review Detected Areas…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Examiner les zones détectées…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gedetecteerde gebieden controleren…"
+          }
+        }
+      }
+    },
+    "Review Redactions": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Examiner les masquages"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afdekkingen controleren"
+          }
+        }
+      }
+    },
     "Right": {
       "localizations": {
         "fr": {
@@ -4069,6 +5981,22 @@
         }
       }
     },
+    "Rule name": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nom de la règle"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regelnaam"
+          }
+        }
+      }
+    },
     "Run the lines of a paragraph together when copying text from the screen": {
       "localizations": {
         "fr": {
@@ -4097,6 +6025,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bewaar als…"
+          }
+        }
+      }
+    },
+    "Save Editable Project…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrer un projet modifiable…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewerkbaar project bewaren…"
           }
         }
       }
@@ -4261,6 +6205,102 @@
         }
       }
     },
+    "Screenshot opacity": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opacité de la capture"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dekking van schermafbeelding"
+          }
+        }
+      }
+    },
+    "Scrolling Capture": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capture défilante"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scrollende opname"
+          }
+        }
+      }
+    },
+    "Scrolling Capture…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Capture défilante…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scrollende opname…"
+          }
+        }
+      }
+    },
+    "Search recognized text": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rechercher dans le texte reconnu"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herkende tekst doorzoeken"
+          }
+        }
+      }
+    },
+    "Second": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seconde"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tweede"
+          }
+        }
+      }
+    },
+    "Second image opacity": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opacité de la seconde image"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dekking van tweede afbeelding"
+          }
+        }
+      }
+    },
     "See everything. Share only what matters.": {
       "localizations": {
         "fr": {
@@ -4305,6 +6345,70 @@
           "stringUnit": {
             "state": "translated",
             "value": "Selecteer alles"
+          }
+        }
+      }
+    },
+    "Select Area…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sélectionner une zone…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebied selecteren…"
+          }
+        }
+      }
+    },
+    "Select None": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout désélectionner"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niets selecteren"
+          }
+        }
+      }
+    },
+    "Select an area without fixed headers or footers. Scroll the app underneath, leaving some overlap, then capture the next section. Sections are joined from top to bottom.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sélectionnez une zone sans en-tête ni pied de page fixe. Faites défiler l’application en gardant un chevauchement, puis capturez la section suivante. Les sections sont assemblées de haut en bas."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecteer een gebied zonder vaste kop- of voetteksten. Scroll de onderliggende app met enige overlap en leg de volgende sectie vast. Secties worden van boven naar beneden samengevoegd."
+          }
+        }
+      }
+    },
+    "Select the areas to hide. Uncheck a finding to leave it visible.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sélectionnez les zones à masquer. Décochez une détection pour la laisser visible."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecteer de te verbergen gebieden. Vink een treffer uit om deze zichtbaar te laten."
           }
         }
       }
@@ -4421,6 +6525,22 @@
         }
       }
     },
+    "Show Libellule's interactive area, window, and display selection.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Affichez la sélection interactive de zone, de fenêtre et d’écran de Libellule."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toon de interactieve gebieds-, venster- en schermselectie van Libellule."
+          }
+        }
+      }
+    },
     "Show a ripple where you click": {
       "localizations": {
         "fr": {
@@ -4465,6 +6585,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Zichtbaar tijdens het annoteren van het scherm, ook tijdens de pauze, zodat een publiek de aanwijzer kan volgen en elke klik ziet. Wijzigingen gelden vanaf de volgende keer dat de annotatiemodus start."
+          }
+        }
+      }
+    },
+    "Side by Side": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Côte à côte"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Naast elkaar"
           }
         }
       }
@@ -4565,6 +6701,22 @@
         }
       }
     },
+    "Start Over…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recommencer…"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opnieuw beginnen…"
+          }
+        }
+      }
+    },
     "Start the next annotation session with the drawing the last one ended with": {
       "localizations": {
         "fr": {
@@ -4629,6 +6781,38 @@
         }
       }
     },
+    "Stores the visible image and searchable text after redaction. Keeps up to 100 recent captures; favorites stay until deleted. Turning history off stops new saves.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conserve l’image visible et le texte recherchable après masquage. Garde jusqu’à 100 captures récentes ; les favoris restent jusqu’à leur suppression. Désactiver l’historique arrête les nouveaux enregistrements."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewaart het zichtbare beeld en doorzoekbare tekst na afdekking. Bewaart tot 100 recente opnamen; favorieten blijven tot verwijdering. Geschiedenis uitschakelen stopt nieuwe opslag."
+          }
+        }
+      }
+    },
+    "Swap": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permuter"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omwisselen"
+          }
+        }
+      }
+    },
     "System-wide": {
       "localizations": {
         "fr": {
@@ -4641,6 +6825,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "Systeembreed"
+          }
+        }
+      }
+    },
+    "Table": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tableau"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tabel"
+          }
+        }
+      }
+    },
+    "Table %lld": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tableau %lld"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tabel %lld"
           }
         }
       }
@@ -4677,6 +6893,38 @@
         }
       }
     },
+    "Text Blocks": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blocs de texte"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekstblokken"
+          }
+        }
+      }
+    },
+    "Text or pattern to hide": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Texte ou motif à masquer"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Te verbergen tekst of patroon"
+          }
+        }
+      }
+    },
     "The board the screen was annotated on: switch it off to show the picture underneath": {
       "localizations": {
         "fr": {
@@ -4689,6 +6937,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Het bord waarop het scherm is geannoteerd: schakel het uit om de afbeelding eronder te tonen"
+          }
+        }
+      }
+    },
+    "The clipboard does not contain an image or an image file.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le presse-papiers ne contient ni image ni fichier image."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het klembord bevat geen afbeelding of afbeeldingsbestand."
           }
         }
       }
@@ -4801,6 +7065,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Het bewaarvenster begint met deze structuur en laat je die per bestand wijzigen. Kopiëren, slepen en delen geven altijd een PNG door."
+          }
+        }
+      }
+    },
+    "The sections must have the same pixel width. Capture the same area on the same display each time.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les sections doivent avoir la même largeur en pixels. Capturez la même zone sur le même écran à chaque fois."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De secties moeten even breed zijn in pixels. Leg telkens hetzelfde gebied op hetzelfde scherm vast."
           }
         }
       }
@@ -4965,6 +7245,38 @@
         }
       }
     },
+    "This file could not be read as an image or a Libellule project.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce fichier ne peut pas être lu comme une image ou un projet Libellule."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dit bestand kan niet als afbeelding of Libellule-project worden gelezen."
+          }
+        }
+      }
+    },
+    "This image is too large. Use an image up to 32768 pixels per side and 100 million pixels in total.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cette image est trop grande. Utilisez une image de 32768 pixels maximum par côté et de 100 millions de pixels au total."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze afbeelding is te groot. Gebruik een afbeelding van maximaal 32768 pixels per zijde en 100 miljoen pixels in totaal."
+          }
+        }
+      }
+    },
     "This is version %@": {
       "localizations": {
         "fr": {
@@ -4977,6 +7289,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dit is versie %@"
+          }
+        }
+      }
+    },
+    "This regular expression is invalid and will not run.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cette expression régulière est invalide et ne sera pas exécutée."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze reguliere expressie is ongeldig en wordt niet uitgevoerd."
           }
         }
       }
@@ -5025,6 +7353,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Transparant"
+          }
+        }
+      }
+    },
+    "Try a tighter capture around the table, or copy the text blocks.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Essayez une capture plus serrée autour du tableau ou copiez les blocs de texte."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Probeer een strakkere opname rond de tabel of kopieer de tekstblokken."
           }
         }
       }
@@ -5109,6 +7453,22 @@
         }
       }
     },
+    "Update Preview": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualiser l’aperçu"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voorbeeld bijwerken"
+          }
+        }
+      }
+    },
     "Updates": {
       "localizations": {
         "fr": {
@@ -5121,6 +7481,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "Updates"
+          }
+        }
+      }
+    },
+    "Use Libellule's menu → Make Pinned Screenshots Interactive to restore mouse interaction": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Utilisez le menu de Libellule → Réactiver les captures épinglées pour rétablir les interactions de la souris"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebruik het menu van Libellule → Vastgezette schermafbeeldingen interactief maken om muisinteractie te herstellen"
+          }
+        }
+      }
+    },
+    "Use Side by Side, or crop the screenshots to matching dimensions in the editor.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Utilisez Côte à côte ou recadrez les captures aux mêmes dimensions dans l’éditeur."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebruik Naast elkaar of snijd de schermafbeeldingen in de editor bij tot gelijke afmetingen."
+          }
+        }
+      }
+    },
+    "View": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Affichage"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weergave"
           }
         }
       }

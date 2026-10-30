@@ -238,7 +238,7 @@ final class AnnotationDocument {
 }
 
 /// The file formats a capture can be saved as.
-enum ExportFormat: String, CaseIterable, Identifiable {
+enum ExportFormat: String, CaseIterable, Identifiable, Codable {
     case png, jpeg
 
     static let defaultsKey = "saveFormat"
@@ -274,7 +274,7 @@ enum ExportFormat: String, CaseIterable, Identifiable {
 }
 
 /// What fills the space added around a capture.
-enum CanvasFill: String, CaseIterable, Identifiable {
+enum CanvasFill: String, CaseIterable, Identifiable, Codable {
     case white, black, transparent
 
     static let defaultsKey = "canvasFill"
