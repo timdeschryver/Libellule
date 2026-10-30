@@ -347,6 +347,8 @@ Drawing on the screen works without the permission, but everything that looks at
 
 Run the unit tests (written with Swift Testing) with <kbd>⌘U</kbd> in Xcode, or with `xcodebuild test` and the same arguments as the build. They cover the redaction patterns and custom rules, text assembly and table formatting, the global shortcuts, the drawing keys and their conflicts, the toolbox, the annotation layer (selection, eraser, clipboard, text boxes, step numbers, measuring), the editor's document model, editable project round-trips, image import and DPI, export presets, history privacy and retention, pixel differences, and scrolling joins. They run inside the app, which skips its startup (shortcuts, history maintenance, self-test) while testing.
 
+The document-recognition integration test runs when Core ML reports an available Apple Neural Engine. It is skipped on machines without one, including macOS CI virtual machines, where Vision's text model cannot load. Table-formatting tests run on every machine.
+
 ### Project structure
 
 ```

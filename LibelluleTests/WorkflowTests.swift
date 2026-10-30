@@ -1,4 +1,5 @@
 import AppKit
+import CoreML
 import SwiftUI
 import Testing
 @testable import Libellule
@@ -98,7 +99,13 @@ struct WorkflowTests {
         #expect(StructuredTextRecognizer.markdown([]).isEmpty)
     }
 
-    @Test func documentRecognitionExtractsARealTableOnDevice() async throws {
+    // Vision's text model fails to load on macOS CI VMs without a Neural Engine.
+    // Check the hardware before running; recognition errors on supported Macs must still fail.
+    @Test(.enabled(if: MLModel.availableComputeDevices.contains { device in
+        if case .neuralEngine = device { return true }
+        return false
+    }, "Document recognition requires an available Apple Neural Engine."))
+    func documentRecognitionExtractsARealTableOnDevice() async throws {
         let image = NSImage(size: CGSize(width: 800, height: 400), flipped: false) { bounds in
             NSColor.white.setFill()
             bounds.fill()
