@@ -5,6 +5,34 @@ import Testing
 
 @Suite(.serialized)
 struct WorkflowViewTests {
+    @Test func livePalettesFitWithTheArrowStylePicker() async throws {
+        let session = LiveAnnotationSession(toolbox: AnnotationToolbox())
+        session.setArrowStyle(.elbow)
+        let layouts: [(String, PaletteLayout, Bool, CGSize)] = [
+            ("live-palette-wide", .horizontal, false, CGSize(width: LiveAnnotationPalette.singleRowWidth, height: 100)),
+            ("live-palette-compact", .horizontal, true, CGSize(width: 1280, height: 180)),
+            ("live-palette-left", .left, false, CGSize(width: 220, height: 900)),
+            ("live-palette-right", .right, false, CGSize(width: 220, height: 900)),
+        ]
+        for (name, layout, compact, maximum) in layouts {
+            let view = LiveAnnotationPalette(session: session, compact: compact, layout: layout)
+            let hosting = NSHostingView(rootView: view.environment(\.colorScheme, .light))
+            let size = hosting.fittingSize
+            #expect(size.width <= maximum.width)
+            #expect(size.height <= maximum.height)
+            let window = NSWindow(contentRect: CGRect(origin: .zero, size: size), styleMask: [.borderless], backing: .buffered, defer: false)
+            window.isReleasedWhenClosed = false
+            window.contentView = hosting
+            hosting.layoutSubtreeIfNeeded()
+            try await Task.sleep(for: .milliseconds(100))
+            hosting.layoutSubtreeIfNeeded()
+            let bitmap = try #require(hosting.bitmapImageRepForCachingDisplay(in: hosting.bounds))
+            hosting.cacheDisplay(in: hosting.bounds, to: bitmap)
+            Attachment.record(try #require(bitmap.representation(using: .png, properties: [:])), named: "\(name).png")
+            window.close()
+        }
+    }
+
     /// Render the native views themselves, without capturing the desktop or requesting screen access.
     @Test func workflowWindowsRenderAtTheirSupportedSizes() async throws {
         let suite = UUID().uuidString
@@ -27,7 +55,27 @@ struct WorkflowViewTests {
         defaults.set(true, forKey: CaptureHistoryStore.enabledKey)
         history.record(AnnotationDocument(image: image, scale: 1), indexText: false)
         let review = RedactionReview(image: image, preview: image, findings: [Redactor.Finding(kind: .secret, box: CGRect(x: 0.08, y: 0.15, width: 0.36, height: 0.18))])
+        let document = AnnotationDocument(image: image, scale: 1)
+        var callout = Annotation(shape: .text("Review this change", origin: CGPoint(x: 240, y: 60)), color: .init(red: 0.95, green: 0.25, blue: 0.1), lineWidth: 3)
+        callout.calloutTarget = CGPoint(x: 120, y: 150)
+        callout.text.hasBackground = true
+        callout.arrowStyle = .curved
+        document.layer.apply([callout], actionName: "Fixture")
+        document.layer.select([callout.id])
+        let styleStore = AnnotationStyleStore(defaults: defaults)
+        styleStore.save(name: "Review", layer: document.layer)
+        let words = [RecognizedWord(text: "Customer", rect: CGRect(x: 40, y: 40, width: 80, height: 20), line: 0)]
+        let bending = AnnotationLayer(size: document.pointSize)
+        bending.toolbox.tool = .arrow
+        bending.updateDrag(from: CGPoint(x: 60, y: 140), to: CGPoint(x: 420, y: 140), constrained: false)
+        bending.updateDrag(from: CGPoint(x: 60, y: 140), to: CGPoint(x: 420, y: 230), constrained: false, commandHeld: true)
         let views: [(String, AnyView, CGSize)] = [
+            ("arrow-bending", AnyView(AnnotationCanvas(layer: bending, background: image, displayScale: 1)), document.pointSize),
+            ("editor", AnyView(AnnotationEditorView(document: document)), CGSize(width: 1180, height: 600)),
+            ("editor-minimum", AnyView(AnnotationEditorView(document: document)), CGSize(width: 980, height: 460)),
+            ("annotation-styles", AnyView(AnnotationStylesView(layer: document.layer, store: styleStore)), CGSize(width: 660, height: 520)),
+            ("remove-section", AnyView(RemoveSectionView(image: image, pointSize: document.pointSize, apply: { _, _, _ in })), CGSize(width: 780, height: 600)),
+            ("text-markup", AnyView(TextMarkupView(image: image, words: words, pointSize: document.pointSize, apply: { _, _ in })), CGSize(width: 860, height: 620)),
             ("main", AnyView(ContentView()), CGSize(width: 500, height: 760)),
             ("presets", AnyView(ExportPresetsView(store: presets)), CGSize(width: 540, height: 580)),
             ("history", AnyView(CaptureHistoryView(store: history)), CGSize(width: 900, height: 560)),

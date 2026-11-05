@@ -13,6 +13,14 @@ final class AnnotationToolbox {
     }
 
     let context: Context?
+    var arrowStyle = ArrowStyle.straight
+    var curveDegrees = Annotation.defaultCurveDegrees
+    var textStyle = TextStyle()
+    private var badgeStyleOverride: BadgeStyle?
+    var badgeStyle: BadgeStyle {
+        get { badgeStyleOverride ?? Preferences.badgeStyle }
+        set { badgeStyleOverride = newValue }
+    }
 
     var tool: AnnotationTool {
         didSet { remember() }

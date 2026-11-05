@@ -55,7 +55,7 @@ struct WorkflowTests {
 
     @Test func projectsRejectUnknownVersionsAndOversizedCanvases() throws {
         var archive = try ProjectArchive(document: AnnotationDocument(image: picture(), scale: 1))
-        archive.version = 2
+        archive.version = 99
         #expect(throws: (any Error).self) { try archive.document() }
         archive.version = 1
         archive.canvas.size.width = 1_000_000

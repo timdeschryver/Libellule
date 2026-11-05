@@ -41,7 +41,7 @@ final class LiveAnnotationSession {
     }
 
     /// Remembers the tool, colour and width between sessions, and can start with a fixed tool (a setting).
-    let toolbox = AnnotationToolbox(context: .live)
+    let toolbox: AnnotationToolbox
     /// Shared by all displays so ⌘Z always undoes the most recent stroke, wherever it was.
     let undoManager = UndoManager()
     let clickEffects = ClickEffectTracker()
@@ -96,6 +96,27 @@ final class LiveAnnotationSession {
     static let fadesInkKey = "liveFadingInk"
 
     var layers: [AnnotationLayer] { surfaces.map(\.layer) }
+
+    init(toolbox: AnnotationToolbox = AnnotationToolbox(context: .live)) {
+        self.toolbox = toolbox
+    }
+
+    var arrowStyle: ArrowStyle {
+        for layer in layers {
+            if let selected = layer.selectedAnnotations.first(where: {
+                if case .arrow = $0.shape { return true }
+                return $0.calloutTarget != nil
+            }) { return selected.arrowStyle }
+        }
+        return toolbox.arrowStyle
+    }
+
+    func setArrowStyle(_ style: ArrowStyle) {
+        toolbox.arrowStyle = style
+        undoManager.beginUndoGrouping()
+        defer { undoManager.endUndoGrouping() }
+        for layer in layers { layer.setArrowStyle(style) }
+    }
 
     var hasAnnotations: Bool {
         surfaces.contains { !$0.layer.annotations.isEmpty || !$0.layer.fadingAnnotations.isEmpty }
@@ -882,15 +903,16 @@ struct LiveAnnotationPalette: View {
     let session: LiveAnnotationSession
     @Bindable private var toolbox: AnnotationToolbox
     @AppStorage(RedactionStyle.defaultsKey) private var redactionStyle = RedactionStyle.blackout
-    private let layout = Preferences.paletteLayout
+    private let layout: PaletteLayout
     private let isCompact: Bool
 
     /// The width of the strip in one row; narrower displays get two.
-    static let singleRowWidth: CGFloat = 1560
+    static let singleRowWidth: CGFloat = 1640
 
     /// `compact` forces or forbids the two-row strip; nil decides from the width of the display under the pointer.
-    init(session: LiveAnnotationSession, compact: Bool? = nil) {
+    init(session: LiveAnnotationSession, compact: Bool? = nil, layout: PaletteLayout = Preferences.paletteLayout) {
         self.session = session
+        self.layout = layout
         _toolbox = Bindable(session.toolbox)
         let width = (NSScreen.underPointer ?? NSScreen.main)?.visibleFrame.width ?? Self.singleRowWidth
         isCompact = compact ?? (width < Self.singleRowWidth)
@@ -965,6 +987,8 @@ struct LiveAnnotationPalette: View {
 
         ToolPicker(selection: $toolbox.tool, axis: axis)
             .fixedSize()
+
+        ArrowStylePicker(selection: Binding(get: { session.arrowStyle }, set: { session.setArrowStyle($0) }))
 
         BarSeparator(axis: axis)
 

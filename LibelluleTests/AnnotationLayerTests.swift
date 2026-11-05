@@ -56,6 +56,7 @@ struct AnnotationLayerTests {
 
     @Test func movingNudgingAndDeletingActOnTheWholeSelection() {
         let layer = layerWithThreeRectangles()
+        layer.snapsToAnnotations = false // This test checks exact pointer displacement; snapping is tested separately.
         layer.selectAll()
         let before = layer.annotations.map(\.bounds)
 

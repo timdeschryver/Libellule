@@ -10,7 +10,7 @@ extension UTType {
 
 /// Explicit project saves retain the source pixels. Ordinary exports and history never use this format.
 struct ProjectArchive: Codable {
-    var version = 1
+    var version = 3
     var originalPNG: Data
     var scale: CGFloat
     var canvas: CGRect
@@ -32,12 +32,13 @@ struct ProjectArchive: Codable {
     }
 
     func document() throws -> AnnotationDocument {
-        guard version == 1, scale.isFinite, (0.25...8).contains(scale),
+        guard (1...3).contains(version), scale.isFinite, (0.25...8).contains(scale),
               [canvas.minX, canvas.minY, canvas.maxX, canvas.maxY, canvas.width, canvas.height].allSatisfy({ $0.isFinite && abs($0) <= 1_000_000 }),
               canvas.width >= 1, canvas.height >= 1,
               canvas.width * scale <= 32_768, canvas.height * scale <= 32_768,
               canvas.width * canvas.height * scale * scale <= 100_000_000,
               annotations.count <= 100_000, annotations.allSatisfy(\.isValidForProject),
+              annotations.reduce(0, { $0 + ($1.imagePNG?.count ?? 0) }) <= 200_000_000,
               board.map({ $0.opacity.isFinite && (0...1).contains($0.opacity) }) ?? true
         else { throw CocoaError(.fileReadCorruptFile) }
         let image = try ImageImport.read(originalPNG).image
@@ -46,6 +47,7 @@ struct ProjectArchive: Codable {
         document.layer.replaceCanvas(size: canvas.size, annotations: annotations)
         document.layer.dimsLights = dimsLights
         document.layer.board = board
+        document.refreshBackdrop()
         document.undoManager.removeAllActions()
         document.markSaved()
         return document
@@ -56,6 +58,11 @@ private extension Annotation {
     var isValidForProject: Bool {
         func point(_ p: CGPoint) -> Bool { p.x.isFinite && p.y.isFinite && abs(p.x) <= 1_000_000 && abs(p.y) <= 1_000_000 }
         func rect(_ r: CGRect) -> Bool { point(r.origin) && r.width.isFinite && r.height.isFinite && (0...1_000_000).contains(r.width) && (0...1_000_000).contains(r.height) }
+        guard calloutTarget.map(point) ?? true, curveDegrees.isFinite, Annotation.curveDegreeRange.contains(curveDegrees) else { return false }
+        if let imagePNG {
+            guard case .rectangle = shape, imagePNG.count <= 100_000_000,
+                  (try? ImageImport.read(imagePNG)) != nil else { return false }
+        }
         guard lineWidth.isFinite, (0.1...100).contains(lineWidth),
               [color.linearRed, color.linearGreen, color.linearBlue, color.opacity].allSatisfy({ $0.isFinite && abs($0) <= 100 }),
               text.fontSize.map({ $0.isFinite && (1...1_000).contains($0) }) ?? true,

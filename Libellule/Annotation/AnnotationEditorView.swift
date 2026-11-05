@@ -24,6 +24,10 @@ struct AnnotationEditorView: View {
     @State private var redactionReview: RedactionReview?
     @State private var extractionImage: CGImage?
     @State private var showsExtraction = false
+    @State private var showsStyles = false
+    @State private var showsRemoveSection = false
+    @State private var sectionImage: CGImage?
+    @State private var textMarkup: TextMarkupSession?
     @AppStorage(CaptureHistoryStore.enabledKey) private var historyEnabled = false
     #endif
 
@@ -55,6 +59,7 @@ struct AnnotationEditorView: View {
                         AnnotationCanvas(layer: document.layer, background: document.image, backgroundScale: document.scale, displayScale: displayScale, pointerMoved: { pointerLocation = $0 })
                             .frame(width: content.width * displayScale, height: content.height * displayScale)
                             .shadow(color: .black.opacity(0.5), radius: 14, y: 6)
+                            .contextMenu { arrangementCommands }
                     }
                 }
                 .padding(24)
@@ -90,6 +95,7 @@ struct AnnotationEditorView: View {
             document.layer.convertSelection(to: tool)
             refocusCanvas()
         }
+        .onChange(of: layer.annotations) { _, _ in document.refreshBackdrop() }
         .onChange(of: layer.dimsLights) { _, _ in refocusCanvas() }
         .onChange(of: layer.board == nil) { _, _ in refocusCanvas() }
         .onChange(of: zoom) { _, _ in refocusCanvas() }
@@ -110,7 +116,22 @@ struct AnnotationEditorView: View {
         .sheet(isPresented: $showsExtraction) {
             if let extractionImage { StructuredTextView(image: extractionImage) }
         }
-        .onDrop(of: ["public.file-url", "public.image"], isTargeted: nil) { WorkspaceCoordinator.shared.acceptDrop($0) }
+        .sheet(isPresented: $showsStyles) { AnnotationStylesView(layer: layer) }
+        .sheet(isPresented: $showsRemoveSection) {
+            if let sectionImage {
+                RemoveSectionView(image: sectionImage, pointSize: document.pointSize) { from, to, axis in
+                    do { try document.removeSection(from: from, to: to, axis: axis) }
+                    catch { WorkspaceCoordinator.shared.present(error) }
+                }
+            }
+        }
+        .sheet(item: $textMarkup) { session in
+            TextMarkupView(image: session.preview, words: session.words, pointSize: session.pointSize) { action, selected in
+                guard document.image === session.baseImage, layer.annotations == session.annotations else { return }
+                TextMarkup.apply(action, words: session.words, selected: selected, layer: layer)
+            }
+        }
+        .onDrop(of: ["public.file-url", "public.image"], isTargeted: nil) { EditorImageActions.acceptDrop($0, document: document) }
         #endif
     }
 
@@ -217,40 +238,12 @@ struct AnnotationEditorView: View {
     /// A bar of its own below the window toolbar, as in Preview, so the toolbar has room for every action
     /// and none of them ends up in its overflow menu at the window's usual width.
     private var markupBar: some View {
-        let isCropping = crop != nil
-        return HStack(spacing: 6) {
-            Group {
-                ToolPicker(selection: $toolbox.tool)
-                    .fixedSize()
-
-                BarSeparator()
-
-                ColorPalette(selection: $toolbox.color)
-
-                StrokeWidthPicker(toolbox: toolbox)
-                    .fixedSize()
-
-                BarSeparator()
-
-                Toggle(isOn: $layer.dimsLights) {
-                    Label("Dim Lights", systemImage: layer.dimsLights ? "moon.fill" : "moon")
-                }
-                .toggleStyle(.active)
-                .labelStyle(.iconOnly)
-                .help("Dim lights: darken everything except highlighted areas (\(OverlayShortcuts.shared.label(for: .lights)))")
-
-                if cameWithBoard {
-                    Toggle(isOn: Binding(get: { layer.board != nil }, set: { on in layer.board = on ? boardFromSettings : nil })) {
-                        Label("Board", systemImage: "rectangle.inset.filled")
-                    }
-                    .toggleStyle(.active)
-                    .labelStyle(.iconOnly)
-                    .help("The board the screen was annotated on: switch it off to show the picture underneath")
-                }
+        HStack(spacing: 6) {
+            ViewThatFits(in: .horizontal) {
+                drawingControls(compact: false)
+                drawingControls(compact: true)
             }
-            .disabled(isCropping)
-
-            Spacer(minLength: 0)
+            .frame(maxWidth: .infinity, alignment: .leading)
 
             Toggle(isOn: Binding(get: { crop != nil }, set: { $0 ? startCrop() : applyCrop() })) {
                 Label("Crop", systemImage: "crop")
@@ -264,6 +257,85 @@ struct AnnotationEditorView: View {
         .frame(maxWidth: .infinity)
         .background(.bar)
         .overlay(alignment: .bottom) { Divider() }
+    }
+
+    private func drawingControls(compact: Bool) -> some View {
+        HStack(spacing: 6) {
+            if compact {
+                Menu {
+                    Picker("Tools", selection: $toolbox.tool) {
+                        ForEach(AnnotationTool.allCases) { tool in
+                            Label(tool.title, systemImage: tool.systemImage).tag(tool)
+                        }
+                    }
+                } label: { Label(toolbox.tool.title, systemImage: toolbox.tool.systemImage) }
+                .menuStyle(.borderlessButton)
+                .fixedSize()
+            } else {
+                ToolPicker(selection: $toolbox.tool).fixedSize()
+            }
+            annotationMenu
+            BarSeparator()
+            ColorPalette(selection: $toolbox.color)
+            StrokeWidthPicker(toolbox: toolbox).fixedSize()
+            BarSeparator()
+            Toggle(isOn: $layer.dimsLights) {
+                Label("Dim Lights", systemImage: layer.dimsLights ? "moon.fill" : "moon")
+            }
+            .toggleStyle(.active)
+            .labelStyle(.iconOnly)
+            .help("Dim lights: darken everything except highlighted areas (\(OverlayShortcuts.shared.label(for: .lights)))")
+            if cameWithBoard {
+                Toggle(isOn: Binding(get: { layer.board != nil }, set: { on in layer.board = on ? boardFromSettings : nil })) {
+                    Label("Board", systemImage: "rectangle.inset.filled")
+                }
+                .toggleStyle(.active)
+                .labelStyle(.iconOnly)
+                .help("The board the screen was annotated on: switch it off to show the picture underneath")
+            }
+        }
+        .fixedSize(horizontal: true, vertical: false)
+        .disabled(crop != nil)
+    }
+
+    private var annotationMenu: some View {
+        Menu {
+            Picker("Arrow Style", selection: Binding(get: { layer.selectedAnnotations.first?.arrowStyle ?? toolbox.arrowStyle }, set: { layer.setArrowStyle($0) })) {
+                ForEach(ArrowStyle.allCases) { style in Text(style.title).tag(style) }
+            }
+            Divider()
+            arrangementCommands
+            #if os(macOS)
+            Divider()
+            Button("Annotate Recognized Text…") { recognizeTextForMarkup() }
+            Button("Annotation Styles and Stamps…") { showsStyles = true }
+            #endif
+        } label: { Image(systemName: "slider.horizontal.3") }
+        .menuStyle(.borderlessButton)
+        .fixedSize()
+        .help("Arrow styles, arrange annotations, text markup and saved styles")
+    }
+
+    @ViewBuilder
+    private var arrangementCommands: some View {
+        Button("Group") { layer.groupSelection() }.disabled(!layer.canGroup)
+            .keyboardShortcut("g", modifiers: .command)
+        Button("Ungroup") { layer.ungroupSelection() }.disabled(!layer.canUngroup)
+            .keyboardShortcut("g", modifiers: [.command, .shift])
+        Button(layer.selectionIsLocked ? "Unlock" : "Lock") { layer.toggleSelectionLock() }.disabled(!layer.hasSelection)
+        Button("Unlock All") { layer.unlockAll() }.disabled(!layer.annotations.contains(where: \.isLocked))
+        Divider()
+        Button("Bring to Front") { layer.arrangeSelection(front: true) }.disabled(!layer.hasSelection)
+        Button("Send to Back") { layer.arrangeSelection(front: false) }.disabled(!layer.hasSelection)
+        Menu("Align") {
+            ForEach(AnnotationAlignment.allCases) { alignment in
+                Button(alignment.title) { layer.alignSelection(alignment) }
+            }
+            Divider()
+            Button("Distribute Horizontally") { layer.distributeSelection(horizontal: true) }
+            Button("Distribute Vertically") { layer.distributeSelection(horizontal: false) }
+        }.disabled(layer.selectedAnnotations.filter { !$0.isLocked }.count < 2)
+        Toggle("Snap to Annotations", isOn: $layer.snapsToAnnotations)
     }
 
     /// Zoom out, the level (a menu of steps) and zoom in, on one track like the bars' other grouped controls.
@@ -360,6 +432,7 @@ struct AnnotationEditorView: View {
         switch toolbox.tool {
         case .select: action = String(localized: "Click to select · drag a box or ⇧-click for several · ⌘A all · drag to move · ⌥-drag duplicates · ⌘C ⌘X ⌘V ⌘D · ⌫ deletes · arrows nudge · double-click text to edit · ⌘[ ⌘] text size · ⌘B pill")
         case .eraser: action = String(localized: "Drag over anything to remove it")
+        case .callout: action = String(localized: "Drag from the target to the label · type your callout · move the label with Select · drag the target handle to retarget")
         case .text: action = String(localized: "Click where the text should start, or on a text to change it · drag out a box of a width · ⇧↩ breaks a line · ↩ places · esc drops · ⌘B pill · ⌘[ ⌘] size")
         case .badge: action = String(localized: "Click to drop the next step number · \(OverlayShortcuts.shared.label(for: .resetStepNumbers)) starts again at 1")
         case .pixelate: action = String(localized: "Drag over the part to hide · \(OverlayShortcuts.shared.label(for: .redact)) hides anything sensitive")
@@ -368,7 +441,8 @@ struct AnnotationEditorView: View {
         case .measure: action = String(localized: "Drag between two points to measure the distance · ⇧ for straight angles")
         case .spotlight: action = String(localized: "Drag over the part to keep bright · \(OverlayShortcuts.shared.label(for: .lights)) dims the rest even more")
         case .freehand, .highlighter: action = String(localized: "Drag to draw")
-        case .line, .arrow: action = String(localized: "Drag to draw · ⇧ for straight angles")
+        case .line: action = String(localized: "Drag to draw · ⇧ for straight angles")
+        case .arrow: action = String(localized: "Drag to draw · hold ⌘ to bend with endpoints fixed · ⇧ snaps the bend to 15°")
         case .rectangle, .ellipse: action = String(localized: "Drag to draw · ⇧ for a square or circle · ⌥ from the centre")
         }
         return action + " · tools 1–9 0 · colors R O Y G B P W K · size − + [ ]"
@@ -452,6 +526,31 @@ struct AnnotationEditorView: View {
             Menu {
                 Button("Save Editable Project…") { document.saveProject(attachedTo: NSApp.keyWindow) }
                     .keyboardShortcut("s", modifiers: [.command, .shift])
+                Menu("Add Image") {
+                    ForEach(AnnotationDocument.ImagePlacement.allCases) { placement in
+                        Button(placement.title + "…") { EditorImageActions.chooseImages(for: document, placement: placement) }
+                    }
+                }
+                Menu("Add Capture") {
+                    ForEach(AnnotationDocument.ImagePlacement.allCases) { placement in
+                        Button(placement.title + "…") { EditorImageActions.capture(for: document, placement: placement) }
+                    }
+                }
+                Button("Paste Image onto Canvas") { EditorImageActions.paste(into: document) }
+                    .keyboardShortcut("v", modifiers: [.command, .shift])
+                Divider()
+                Button("Retake Screenshot, Keep Annotations…") { EditorImageActions.capture(for: document, replacing: true) }
+                    .keyboardShortcut("r", modifiers: [.command, .shift])
+                Button("Replace Background from Image…") { EditorImageActions.chooseImages(for: document, replacing: true) }
+                Button("Remove a Middle Section…") {
+                    layer.commitTextEditing()
+                    sectionImage = document.flattenedImage()
+                    showsRemoveSection = sectionImage != nil
+                }
+                Divider()
+                Button("Annotate Recognized Text…") { recognizeTextForMarkup() }
+                Button("Annotation Styles and Stamps…") { showsStyles = true }
+                Divider()
                 Button("Pin Screenshot") { WorkspaceCoordinator.shared.pin(document) }
                 Button("Compare With…") {
                     document.layer.commitTextEditing()
@@ -512,10 +611,13 @@ struct AnnotationEditorView: View {
     private func redact() {
         document.layer.commitTextEditing()
         showStatus(String(localized: "Looking for anything sensitive…"))
-        let image = document.image
+        let base = document.image
+        let annotations = layer.annotations
+        document.refreshBackdrop()
+        let image = document.backdrop.original
         let style = redactionStyle
         Task {
-            if let result = await document.layer.redact(image, style: style, stillShowing: { document.image === image }) {
+            if let result = await document.layer.redact(image, style: style, stillShowing: { document.image === base && layer.annotations == annotations }) {
                 showStatus(result.message)
             }
         }
@@ -524,13 +626,33 @@ struct AnnotationEditorView: View {
     // MARK: - Keyboard
 
     #if os(macOS)
+    private func recognizeTextForMarkup() {
+        layer.commitTextEditing()
+        let image = document.image
+        let annotations = layer.annotations
+        let size = document.pointSize
+        guard let preview = document.flattenedImage() else { return }
+        showStatus(String(localized: "Reading text…"))
+        Task {
+            do {
+                let words = try await TextMarkup.words(in: preview, size: size)
+                guard document.image === image, layer.annotations == annotations else { return }
+                if words.isEmpty { showStatus(String(localized: "No text found")) }
+                else { textMarkup = TextMarkupSession(baseImage: image, preview: preview, pointSize: size, annotations: annotations, words: words) }
+            } catch { showStatus(error.localizedDescription) }
+        }
+    }
+
     private func reviewRedactions() {
         document.layer.commitTextEditing()
         let image = document.image
+        let annotations = layer.annotations
+        document.refreshBackdrop()
+        let composed = document.backdrop.original
         showStatus(String(localized: "Looking for anything sensitive…"))
         Task {
-            let findings = await Redactor.findings(in: image).filter { !document.layer.isRedacted($0.rect(in: document.pointSize)) }
-            guard document.image === image else { return }
+            let findings = await Redactor.findings(in: composed).filter { !document.layer.isRedacted($0.rect(in: document.pointSize)) }
+            guard document.image === image, layer.annotations == annotations else { return }
             if findings.isEmpty { showStatus(String(localized: "Nothing sensitive found")) }
             else if let preview = document.flattenedImage() { redactionReview = RedactionReview(image: image, preview: preview, findings: findings) }
         }
@@ -573,6 +695,16 @@ struct AnnotationEditorView: View {
             layer.nudgeSelection(by: delta)
             return .handled
         }
+        if press.modifiers == [.command, .shift] {
+            switch String(press.key.character).lowercased() {
+            case "g": layer.ungroupSelection(); return .handled
+            #if os(macOS)
+            case "v": EditorImageActions.paste(into: document); return .handled
+            case "r": EditorImageActions.capture(for: document, replacing: true); return .handled
+            #endif
+            default: break
+            }
+        }
         guard let shortcut = LocalShortcut.from(press) else { return .ignored }
         if shortcut.modifiers == .command, handleCommand(shortcut.character) {
             return .handled
@@ -598,14 +730,22 @@ struct AnnotationEditorView: View {
     private func handleCommand(_ character: String) -> Bool {
         let layer = document.layer
         switch character {
+        case "g":
+            layer.groupSelection()
         case "a":
             layer.selectAll()
         case "x":
             guard layer.hasSelection else { return false }
             layer.cutSelection()
         case "v":
-            guard !AnnotationClipboard.shared.isEmpty else { return false }
-            layer.paste(at: pointerLocation)
+            if !AnnotationClipboard.shared.isEmpty { layer.paste(at: pointerLocation) }
+            else {
+                #if os(macOS)
+                EditorImageActions.paste(into: document)
+                #else
+                return false
+                #endif
+            }
         case "d":
             guard layer.hasSelection else { return false }
             layer.duplicateSelection()
@@ -696,7 +836,9 @@ struct AnnotationEditorView: View {
     private func copyText() {
         showStatus(String(localized: "Reading text…"))
         Task {
-            if let copied = await TextRecognizer.copyText(from: document.image) {
+            document.layer.commitTextEditing()
+            guard let image = document.flattenedImage() else { return }
+            if let copied = await TextRecognizer.copyText(from: image) {
                 showStatus(copied.message)
             } else {
                 showStatus(String(localized: "No text or code found"))

@@ -7,9 +7,9 @@ import UniformTypeIdentifiers
 @Observable
 final class AnnotationDocument {
     /// The picture as captured. Every crop is cut from it afresh, so a crop can be widened again later.
-    let original: CGImage
+    private(set) var original: CGImage
     /// Pixels per point of the source capture (2 on Retina displays).
-    let scale: CGFloat
+    private(set) var scale: CGFloat
     let layer: AnnotationLayer
 
     /// The part of the original that makes up the picture, in the original's points with a top-left origin.
@@ -21,15 +21,18 @@ final class AnnotationDocument {
     private(set) var image: CGImage
     /// The picture as the picture-based tools (pixelate, blur, magnifier) see it; derived copies are built on first use.
     private(set) var backdrop: AnnotationRenderer.Backdrop
+    private var sourceRevision = UUID()
+    private var backdropImages: [Annotation] = []
 
     init(image: CGImage, scale: CGFloat, annotations: [Annotation] = [], dimsLights: Bool = false, board: Board? = nil, toolbox: AnnotationToolbox = AnnotationToolbox()) {
         original = image
         self.image = image
-        self.scale = scale > 0 ? scale : 1
-        let pointSize = CGSize(width: CGFloat(image.width) / self.scale, height: CGFloat(image.height) / self.scale)
+        let pixelScale = scale > 0 ? scale : 1
+        self.scale = pixelScale
+        let pointSize = CGSize(width: CGFloat(image.width) / pixelScale, height: CGFloat(image.height) / pixelScale)
         canvas = CGRect(origin: .zero, size: pointSize)
         layer = AnnotationLayer(size: pointSize, toolbox: toolbox, annotations: annotations, dimsLights: dimsLights, board: board)
-        backdrop = AnnotationRenderer.Backdrop(original: image, pointSize: pointSize, scale: self.scale)
+        backdrop = AnnotationRenderer.Backdrop(original: image, pointSize: pointSize, scale: pixelScale)
         layer.backdrop = backdrop
         savedState = editState
     }
@@ -47,6 +50,7 @@ final class AnnotationDocument {
 
     /// Everything the editor can change about the picture.
     private struct EditState: Equatable {
+        var sourceRevision: UUID
         var canvas: CGRect
         var fill: CanvasFill
         var annotations: [Annotation]
@@ -55,7 +59,7 @@ final class AnnotationDocument {
     }
 
     private var editState: EditState {
-        EditState(canvas: canvas, fill: canvasFill, annotations: layer.annotations, dimsLights: layer.dimsLights, board: layer.board)
+        EditState(sourceRevision: sourceRevision, canvas: canvas, fill: canvasFill, annotations: layer.annotations, dimsLights: layer.dimsLights, board: layer.board)
     }
 
     /// How the picture looked when it was last copied, saved, dragged or shared.
@@ -82,10 +86,15 @@ final class AnnotationDocument {
         let shift = CGPoint(x: canvas.minX - rect.minX, y: canvas.minY - rect.minY)
         let surface = CGRect(origin: .zero, size: rect.size)
         let moved = layer.annotations.map { $0.translated(by: shift) }.filter { $0.bounds.intersects(surface) }
-        restore(CanvasState(canvas: rect, fill: fill, image: picture, annotations: moved), actionName: "Crop")
+        restore(CanvasState(original: original, scale: scale, revision: sourceRevision, dimsLights: layer.dimsLights, board: layer.board, canvas: rect, fill: fill, image: picture, annotations: moved), actionName: "Crop")
     }
 
     private struct CanvasState {
+        var original: CGImage
+        var scale: CGFloat
+        var revision: UUID
+        var dimsLights: Bool
+        var board: Board?
         var canvas: CGRect
         var fill: CanvasFill
         var image: CGImage
@@ -94,13 +103,20 @@ final class AnnotationDocument {
 
     /// Swaps in a picture and its annotations, registering the way back for undo (and redo).
     private func restore(_ state: CanvasState, actionName: String) {
-        let previous = CanvasState(canvas: canvas, fill: canvasFill, image: image, annotations: layer.annotations)
+        let previous = CanvasState(original: original, scale: scale, revision: sourceRevision, dimsLights: layer.dimsLights, board: layer.board, canvas: canvas, fill: canvasFill, image: image, annotations: layer.annotations)
+        original = state.original
+        scale = state.scale
+        sourceRevision = state.revision
         canvas = state.canvas
         canvasFill = state.fill
         image = state.image
         backdrop = AnnotationRenderer.Backdrop(original: state.image, pointSize: state.canvas.size, scale: scale)
         layer.backdrop = backdrop
         layer.replaceCanvas(size: state.canvas.size, annotations: state.annotations)
+        layer.dimsLights = state.dimsLights
+        layer.board = state.board
+        backdropImages = []
+        refreshBackdrop()
         undoManager.registerChange(on: self, actionName: actionName) { document in
             document.restore(previous, actionName: actionName)
         }
@@ -138,11 +154,132 @@ final class AnnotationDocument {
         return context.makeImage()
     }
 
+    /// Rebuild picture-based effects when an embedded image moves or changes size.
+    func refreshBackdrop() {
+        let images = layer.annotations.filter { $0.imagePNG != nil }
+        guard images != backdropImages else { return }
+        backdropImages = images
+        let composed = AnnotationRenderer.flatten(images, onto: image, scale: scale) ?? image
+        backdrop = AnnotationRenderer.Backdrop(original: composed, pointSize: pointSize, scale: scale)
+        layer.backdrop = backdrop
+    }
+
+    enum ImagePlacement: String, CaseIterable, Identifiable {
+        case inset, right, below
+        var id: String { rawValue }
+        var title: String {
+            switch self {
+            case .inset: String(localized: "Inset")
+            case .right: String(localized: "To the Right")
+            case .below: String(localized: "Below")
+            }
+        }
+    }
+
+    /// Each image remains independently movable and resizable. Added space and image insertion undo together.
+    func insertImage(_ picture: CGImage, sourceScale: CGFloat, placement: ImagePlacement) throws {
+        layer.commitTextEditing()
+        let natural = CGSize(width: CGFloat(picture.width) / max(0.25, sourceScale), height: CGFloat(picture.height) / max(0.25, sourceScale))
+        let gap: CGFloat = 16
+        var frame = CGRect(origin: .zero, size: natural)
+        var newCanvas = canvas
+        switch placement {
+        case .inset:
+            let fit = min(1, pointSize.width * 0.45 / natural.width, pointSize.height * 0.45 / natural.height)
+            frame.size = CGSize(width: natural.width * fit, height: natural.height * fit)
+            frame.origin = CGPoint(x: max(0, pointSize.width - frame.width - gap), y: max(0, pointSize.height - frame.height - gap))
+        case .right:
+            frame.origin.x = pointSize.width + gap
+            newCanvas.size = CGSize(width: frame.maxX, height: max(pointSize.height, frame.height))
+        case .below:
+            frame.origin.y = pointSize.height + gap
+            newCanvas.size = CGSize(width: max(pointSize.width, frame.width), height: frame.maxY)
+        }
+        try validateSize(newCanvas.size)
+        guard let png = imageData(from: picture, format: .png), let base = Self.picture(of: original, scale: scale, cutTo: newCanvas, fill: canvasFill) else { throw WorkspaceError.invalidImage }
+        var annotation = Annotation(shape: .rectangle(frame), color: layer.toolbox.resolvedColor, lineWidth: layer.toolbox.lineWidth)
+        annotation.imagePNG = png
+        restore(CanvasState(original: original, scale: scale, revision: sourceRevision, dimsLights: layer.dimsLights, board: layer.board, canvas: newCanvas, fill: canvasFill, image: base, annotations: layer.annotations + [annotation]), actionName: "Add Image")
+        layer.select([annotation.id])
+        layer.toolbox.tool = .select
+    }
+
+    /// Coordinates remain in points; a different-sized replacement keeps the old crop where possible.
+    func replaceBackground(with picture: CGImage, scale newScale: CGFloat) throws {
+        guard newScale.isFinite, (0.25...8).contains(newScale) else { throw WorkspaceError.invalidImage }
+        layer.commitTextEditing()
+        let size = CGSize(width: CGFloat(picture.width) / newScale, height: CGFloat(picture.height) / newScale)
+        let wasUncropped = canvas == originalBounds
+        let target = wasUncropped ? CGRect(origin: .zero, size: size) : canvas
+        guard target.width * newScale <= 32768, target.height * newScale <= 32768,
+              target.width * target.height * newScale * newScale <= 100_000_000,
+              let base = Self.picture(of: picture, scale: newScale, cutTo: target, fill: canvasFill) else { throw WorkspaceError.imageTooLarge }
+        restore(CanvasState(original: picture, scale: newScale, revision: UUID(), dimsLights: layer.dimsLights, board: layer.board, canvas: target, fill: canvasFill, image: base, annotations: layer.annotations), actionName: "Replace Screenshot")
+    }
+
+    private func validateSize(_ size: CGSize) throws {
+        guard size.width.isFinite, size.height.isFinite, size.width >= 1, size.height >= 1,
+              size.width * scale <= 32768, size.height * scale <= 32768,
+              size.width * size.height * scale * scale <= 100_000_000 else { throw WorkspaceError.imageTooLarge }
+    }
+
+    enum CutAxis: String, CaseIterable, Identifiable {
+        case horizontal, vertical
+        var id: String { rawValue }
+        var title: String { self == .horizontal ? String(localized: "Rows") : String(localized: "Columns") }
+    }
+
+    /// Remove a full-width or full-height band. Flattening preserves clipped annotations and redactions exactly.
+    /// The original state, including editable annotations, remains available through undo.
+    func removeSection(from: CGFloat, to: CGFloat, axis: CutAxis) throws {
+        layer.commitTextEditing()
+        let lower = (min(from, to) * scale).rounded()
+        let upper = (max(from, to) * scale).rounded()
+        let limit = CGFloat(axis == .horizontal ? image.height : image.width)
+        guard lower >= 1, upper < limit, upper - lower >= 1,
+              let source = flattenedImage() else { throw WorkspaceError.invalidImage }
+        let removed = upper - lower
+        let width = source.width - (axis == .vertical ? Int(removed) : 0)
+        let height = source.height - (axis == .horizontal ? Int(removed) : 0)
+        guard let context = AnnotationRenderer.rgbContext(width: width, height: height, like: source) else { throw WorkspaceError.imageTooLarge }
+        context.translateBy(x: 0, y: CGFloat(height))
+        context.scaleBy(x: 1, y: -1)
+        func piece(_ rect: CGRect, at origin: CGPoint) {
+            guard let part = source.cropping(to: rect) else { return }
+            context.saveGState()
+            context.translateBy(x: origin.x, y: origin.y + rect.height)
+            context.scaleBy(x: 1, y: -1)
+            context.draw(part, in: CGRect(origin: .zero, size: rect.size))
+            context.restoreGState()
+        }
+        if axis == .horizontal {
+            piece(CGRect(x: 0, y: 0, width: source.width, height: Int(lower)), at: .zero)
+            piece(CGRect(x: 0, y: upper, width: CGFloat(source.width), height: CGFloat(source.height) - upper), at: CGPoint(x: 0, y: lower))
+        } else {
+            piece(CGRect(x: 0, y: 0, width: Int(lower), height: source.height), at: .zero)
+            piece(CGRect(x: upper, y: 0, width: CGFloat(source.width) - upper, height: CGFloat(source.height)), at: CGPoint(x: lower, y: 0))
+        }
+        // A visible dashed seam makes the omitted content explicit.
+        context.setStrokeColor(CGColor(gray: 1, alpha: 1))
+        context.setLineWidth(4 * scale)
+        let a = axis == .horizontal ? CGPoint(x: 0, y: lower) : CGPoint(x: lower, y: 0)
+        let b = axis == .horizontal ? CGPoint(x: width, y: Int(lower)) : CGPoint(x: Int(lower), y: height)
+        context.move(to: a); context.addLine(to: b); context.strokePath()
+        context.setStrokeColor(CGColor(gray: 0.25, alpha: 1))
+        context.setLineWidth(scale)
+        context.setLineDash(phase: 0, lengths: [6 * scale, 4 * scale])
+        context.move(to: a); context.addLine(to: b); context.strokePath()
+        guard let result = context.makeImage() else { throw WorkspaceError.invalidImage }
+        let size = CGSize(width: CGFloat(width) / scale, height: CGFloat(height) / scale)
+        restore(CanvasState(original: result, scale: scale, revision: UUID(), dimsLights: false, board: nil, canvas: CGRect(origin: .zero, size: size), fill: canvasFill, image: result, annotations: []), actionName: "Remove Section")
+    }
+
     // MARK: - Export
 
     /// The capture with all annotations burned in, at the capture's native pixel size.
     func flattenedImage() -> CGImage? {
-        AnnotationRenderer.flatten(layer.annotations, onto: image, scale: scale, backdrop: backdrop, dimsLights: layer.dimsLights, board: layer.board)
+        refreshBackdrop()
+        return AnnotationRenderer.flatten(layer.annotations, onto: image, scale: scale, backdrop: backdrop, dimsLights: layer.dimsLights, board: layer.board)
     }
 
     /// Bytes of `flattenedImage()` in `format`, tagged with the capture's DPI so Retina shots open at true size.

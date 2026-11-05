@@ -5,7 +5,7 @@ import CoreText
 
 /// The drawing tools offered by the annotation editor and the live overlay.
 enum AnnotationTool: String, CaseIterable, Identifiable {
-    case select, eraser, arrow, line, rectangle, ellipse, freehand, highlighter, spotlight, text, badge, pixelate, blur, magnifier, measure
+    case select, eraser, arrow, line, rectangle, ellipse, freehand, highlighter, spotlight, text, badge, pixelate, blur, magnifier, measure, callout
 
     var id: String { rawValue }
 
@@ -21,6 +21,7 @@ enum AnnotationTool: String, CaseIterable, Identifiable {
         case .highlighter: String(localized: "Marker")
         case .spotlight: String(localized: "Highlight")
         case .text: String(localized: "Text")
+        case .callout: String(localized: "Callout")
         case .badge: String(localized: "Step Number")
         case .pixelate: String(localized: "Pixelate")
         case .blur: String(localized: "Blur")
@@ -41,6 +42,7 @@ enum AnnotationTool: String, CaseIterable, Identifiable {
         case .highlighter: "highlighter"
         case .spotlight: "rectangle.center.inset.filled"
         case .text: "textformat"
+        case .callout: "text.bubble"
         case .badge: "1.circle"
         case .pixelate: "checkerboard.rectangle"
         case .blur: "aqi.medium"
@@ -209,6 +211,13 @@ struct Annotation: Identifiable, Equatable, Sendable, Codable {
     var text = TextStyle()
     /// Only step numbers use it.
     var badgeStyle = BadgeStyle.filled
+    var arrowStyle = ArrowStyle.straight
+    var curveDegrees = Annotation.defaultCurveDegrees
+    var calloutTarget: CGPoint?
+    var groupID: UUID?
+    var isLocked = false
+    /// Embedded images use a rectangle for their editable frame.
+    var imagePNG: Data?
 
     /// Derived sizes so one width setting drives every tool: thin / medium / thick (text can have a size of its own).
     var fontSize: CGFloat { text.fontSize ?? Self.fontSize(lineWidth: lineWidth) }  // 13 / 20 / 34 pt
@@ -250,7 +259,7 @@ struct Annotation: Identifiable, Equatable, Sendable, Codable {
         case .measure:
             return measureGeometry?.path ?? Path()
         case .arrow(let a, let b):
-            return Self.arrowGeometry(from: a, to: b, lineWidth: lineWidth).shaft
+            return Self.connector(from: a, to: b, style: arrowStyle, lineWidth: lineWidth, curveDegrees: curveDegrees).shaft
         case .rectangle(let rect):
             return Path(rect)
         case .ellipse(let rect):
@@ -265,14 +274,17 @@ struct Annotation: Identifiable, Equatable, Sendable, Codable {
     /// The solid part of the shape (an arrowhead), if it has one.
     var fillPath: Path? {
         guard case .arrow(let a, let b) = shape else { return nil }
-        return Self.arrowGeometry(from: a, to: b, lineWidth: lineWidth).head
+        return Self.connector(from: a, to: b, style: arrowStyle, lineWidth: lineWidth, curveDegrees: curveDegrees).head
     }
 
     /// Where the annotation sits on the surface; drives selection outlines and hit testing.
     var bounds: CGRect {
+        if imagePNG != nil, case .rectangle(let rect) = shape { return rect }
         switch shape {
         case .text:
-            return textBox ?? .zero
+            let box = textBox ?? .zero
+            guard let connector = connectorGeometry else { return box }
+            return box.union(connector.shaft.boundingRect).union(connector.head.boundingRect).insetBy(dx: -lineWidth / 2, dy: -lineWidth / 2)
         case .badge(_, let center):
             return CGRect(center: center, radius: badgeRadius)
         case .measure:
@@ -415,8 +427,14 @@ struct Annotation: Identifiable, Equatable, Sendable, Codable {
     /// Whether `point` is on the drawn marks (not just inside a shape's empty interior).
     func hitTest(_ point: CGPoint) -> Bool {
         let tolerance: CGFloat = 6
+        if imagePNG != nil { return bounds.insetBy(dx: -tolerance, dy: -tolerance).contains(point) }
+        if let target = calloutTarget, hypot(point.x - target.x, point.y - target.y) <= tolerance { return true }
+        if let connector = connectorGeometry, calloutTarget != nil,
+           connector.head.contains(point) || connector.shaft.strokedPath(StrokeStyle(lineWidth: lineWidth + tolerance * 2)).contains(point) { return true }
         switch shape {
-        case .text, .badge, .blackout, .pixelate, .blur:
+        case .text:
+            return textBox?.insetBy(dx: -tolerance, dy: -tolerance).contains(point) ?? false
+        case .badge, .blackout, .pixelate, .blur:
             return bounds.insetBy(dx: -tolerance, dy: -tolerance).contains(point)
         case .magnifier:
             guard let geometry = magnifierGeometry else { return false }
@@ -446,6 +464,7 @@ struct Annotation: Identifiable, Equatable, Sendable, Codable {
     func translated(by delta: CGPoint) -> Annotation {
         func move(_ point: CGPoint) -> CGPoint { CGPoint(x: point.x + delta.x, y: point.y + delta.y) }
         var copy = self
+        copy.calloutTarget = calloutTarget.map(move)
         switch shape {
         case .line(let a, let b): copy.shape = .line(from: move(a), to: move(b))
         case .arrow(let a, let b): copy.shape = .arrow(from: move(a), to: move(b))
@@ -520,7 +539,7 @@ struct Annotation: Identifiable, Equatable, Sendable, Codable {
 }
 
 nonisolated extension Annotation {
-    private enum CodingKeys: String, CodingKey { case id, shape, color, lineWidth, text, badgeStyle }
+    private enum CodingKeys: String, CodingKey { case id, shape, color, lineWidth, text, badgeStyle, arrowStyle, curveDegrees, calloutTarget, groupID, isLocked, imagePNG }
 
     /// Store linear components directly. Converting to sRGB and back introduces rounding in project saves.
     init(from decoder: Decoder) throws {
@@ -533,6 +552,12 @@ nonisolated extension Annotation {
         lineWidth = try values.decode(CGFloat.self, forKey: .lineWidth)
         text = try values.decode(TextStyle.self, forKey: .text)
         badgeStyle = try values.decode(BadgeStyle.self, forKey: .badgeStyle)
+        arrowStyle = try values.decodeIfPresent(ArrowStyle.self, forKey: .arrowStyle) ?? .straight
+        curveDegrees = try values.decodeIfPresent(CGFloat.self, forKey: .curveDegrees) ?? Self.defaultCurveDegrees
+        calloutTarget = try values.decodeIfPresent(CGPoint.self, forKey: .calloutTarget)
+        groupID = try values.decodeIfPresent(UUID.self, forKey: .groupID)
+        isLocked = try values.decodeIfPresent(Bool.self, forKey: .isLocked) ?? false
+        imagePNG = try values.decodeIfPresent(Data.self, forKey: .imagePNG)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -543,6 +568,12 @@ nonisolated extension Annotation {
         try values.encode(lineWidth, forKey: .lineWidth)
         try values.encode(text, forKey: .text)
         try values.encode(badgeStyle, forKey: .badgeStyle)
+        try values.encode(arrowStyle, forKey: .arrowStyle)
+        try values.encode(curveDegrees, forKey: .curveDegrees)
+        try values.encodeIfPresent(calloutTarget, forKey: .calloutTarget)
+        try values.encodeIfPresent(groupID, forKey: .groupID)
+        try values.encode(isLocked, forKey: .isLocked)
+        try values.encodeIfPresent(imagePNG, forKey: .imagePNG)
     }
 }
 
@@ -613,6 +644,10 @@ enum AnnotationRenderer {
     // MARK: On screen
 
     static func draw(_ annotation: Annotation, in context: inout GraphicsContext, backdrop: Backdrop? = nil) {
+        if case .rectangle(let rect) = annotation.shape, let image = annotation.embeddedImage {
+            context.draw(Image(decorative: image, scale: 1), in: rect)
+            return
+        }
         switch annotation.shape {
         case .spotlight:
             break  // part of the dim pass, see drawDim(_:)
@@ -660,6 +695,12 @@ enum AnnotationRenderer {
         context.saveGState()
         defer { context.restoreGState() }
 
+        if case .rectangle(let rect) = annotation.shape, let image = annotation.embeddedImage {
+            context.translateBy(x: rect.minX, y: rect.maxY)
+            context.scaleBy(x: 1, y: -1)
+            context.draw(image, in: CGRect(origin: .zero, size: rect.size))
+            return
+        }
         switch annotation.shape {
         case .spotlight:
             break  // part of the dim pass, see drawDim(_:)
@@ -815,11 +856,14 @@ enum AnnotationRenderer {
         if let board {
             context.fill(Path(CGRect(origin: .zero, size: size)), with: .color(Color(cgColor: board.cgColor)))
         }
+        for annotation in annotations where annotation.imagePNG != nil {
+            draw(annotation, in: &context, backdrop: backdrop)
+        }
         for annotation in annotations where annotation.modifiesBackdrop {
             draw(annotation, in: &context, backdrop: backdrop)
         }
         drawDim(annotations, dimsLights: dimsLights, size: size, pointer: pointer, in: &context)
-        for annotation in annotations where !annotation.modifiesBackdrop {
+        for annotation in annotations where !annotation.modifiesBackdrop && annotation.imagePNG == nil {
             draw(annotation, in: &context, backdrop: backdrop)
         }
     }
@@ -831,11 +875,14 @@ enum AnnotationRenderer {
             context.fill(CGRect(origin: .zero, size: size))
             context.restoreGState()
         }
+        for annotation in annotations where annotation.imagePNG != nil {
+            draw(annotation, in: context, scale: scale, backdrop: backdrop)
+        }
         for annotation in annotations where annotation.modifiesBackdrop {
             draw(annotation, in: context, scale: scale, backdrop: backdrop)
         }
         drawDim(annotations, dimsLights: dimsLights, size: size, in: context)
-        for annotation in annotations where !annotation.modifiesBackdrop {
+        for annotation in annotations where !annotation.modifiesBackdrop && annotation.imagePNG == nil {
             draw(annotation, in: context, scale: scale, backdrop: backdrop)
         }
     }
@@ -909,6 +956,17 @@ enum AnnotationRenderer {
 
         switch annotation.shape {
         case .text(let string, let origin):
+            if let connector = annotation.connectorGeometry {
+                context.setLineWidth(annotation.lineWidth)
+                context.setLineCap(.round)
+                context.setLineJoin(.round)
+                context.setStrokeColor(annotation.color.cgColor)
+                context.setFillColor(annotation.color.cgColor)
+                context.addPath(connector.shaft.cgPath)
+                context.strokePath()
+                context.addPath(connector.head.cgPath)
+                context.fillPath()
+            }
             if annotation.text.hasBackground, let box = annotation.textBox {
                 // The pill casts the shadow; the glyphs on it don't need one.
                 let pill = CGPath(roundedRect: box, cornerWidth: annotation.fontSize * 0.35, cornerHeight: annotation.fontSize * 0.35, transform: nil)

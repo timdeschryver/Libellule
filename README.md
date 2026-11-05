@@ -93,7 +93,7 @@ Every capture mode, tool and colour has a single-letter key, the drawing tools a
 - **Open Image or Project…** (<kbd>⌘O</kbd>) opens existing images or `.libellule` projects. Choose several files to open separate editors. Finder's **Open With → Libellule** works too.
 - **Paste Image** (<kbd>⌥⌘V</kbd>) opens an image or image file from the clipboard. You can also drop image files, image data, or projects onto the main window or an editor; each opens in a new editor.
 - Imported images get the same annotation, crop, OCR, and redaction tools as new captures. **Redact every screenshot** also applies to imported images.
-- In the editor's **More** menu, **Save Editable Project…** (<kbd>⇧⌘S</kbd>) saves the original image, crop and added space, annotation shapes and styles, dimming, and board. Reopen it to continue editing. Undo history is not saved.
+- In the editor's **More** menu, **Save Editable Project…** (<kbd>⇧⌘S</kbd>) saves the original image, crop and added space, annotation shapes and styles, dimming, and board. Reopen it to continue editing. Groups, locks, connected callouts, arrow styles, and embedded images are saved too. Undo history is not saved. New projects use format version 3; Libellule can still open version 1 and 2 projects.
 - **Projects retain the original pixels, including anything under a redaction or outside a crop.** Use the ordinary PNG/JPEG save, Copy, Share, or drag export when sharing only the visible result.
 
 ### Pin a screenshot
@@ -143,6 +143,29 @@ Open **Scrolling Capture…** from the main window, File menu, or menu bar.
 
 **Add Image Files…** also stitches existing sections; add them in top-to-bottom order. Every section must have the same pixel width. You can remove the last section or start over. The workflow scrolls manually, handles up to 50 sections, and limits the result to 32768 pixels per side and 100 million pixels total. Fixed content and repeating backgrounds can require manual joins. Automatic redaction, when enabled, is applied to each section and again to the finished image when it opens.
 
+### Combine screenshots and update a capture
+
+In the editor's **More** menu, use **Add Image** or **Add Capture** to place an image **Inset**, **To the Right**, or **Below** the current screenshot. Right and Below expand the canvas with a 16-point gap. Different image sizes and Retina scales are supported. Images stay independently editable: move them with Select, or drag their bottom-right handle to resize while preserving the aspect ratio. Group them with labels and arrows to make a comparison or walkthrough.
+
+Drop images onto an editor to add insets, or use **Paste Image onto Canvas** (<kbd>⇧⌘V</kbd>). A normal paste also accepts images when the annotation clipboard is empty. Dropping projects still opens them in separate editors. Automatic redaction applies to incoming images and captures before insertion; redactions are always drawn above embedded images.
+
+**Retake Screenshot, Keep Annotations…** (<kbd>⇧⌘R</kbd>) hides the editor and lets you choose a new capture for its background. **Replace Background from Image…** does the same with an existing image. Annotations keep their positions in logical points; an uncropped canvas follows the new image size, while a crop or added space is retained. The new content goes through automatic redaction when enabled. Replacement and image insertion support Undo and Redo.
+
+### Remove a middle section
+
+Choose **More → Remove a Middle Section…** to shorten a log, conversation, or other long capture. Choose rows or columns, then adjust Start and End while reviewing the marked band. The remaining content closes up and a dashed seam makes the omission visible.
+
+This action flattens existing annotations, dimming, and embedded images into the result so anything hidden stays hidden. Undo restores the original pixels and editable annotations. You can continue annotating the shortened image.
+
+### Annotate recognized text
+
+Choose **More → Annotate Recognized Text…** or the sliders menu on the markup bar. On-device OCR finds words in the visible, composed image, including inserted images; existing redactions stay covered.
+
+- Click a word, <kbd>⇧</kbd>-click for a range, or <kbd>⌘</kbd>-click to add or remove a word. You can also search for text and select matching words.
+- **Highlight** follows the selected text, joining adjacent words on the same line. **Underline** draws a line underneath.
+- **Redact** covers selected words with solid black. **Redact All Matches** covers every occurrence of each selected word, ignoring case and accents and matching whole recognized words.
+- Every action is one undo step. OCR accuracy depends on the source image; review the result before sharing.
+
 ### Compare screenshots
 
 Open **Compare Screenshots…**, or choose **More → Compare With…** to use the editor's current visible image as the first screenshot.
@@ -186,7 +209,13 @@ A zoomable canvas built for explaining things quickly: arrows and numbered steps
 | Pixelate | <kbd>X</kbd> | Pixelates an area |
 | Blur | <kbd>U</kbd> | Blurs an area; the size sets how strongly. Picking Pixelate or Blur with hidden areas selected switches them over |
 | Magnifier | <kbd>Z</kbd> | A loupe on a detail; drag from the detail to where the enlarged view should sit |
+| Callout | Configurable | Drag from the target to the label, then type; move the label while its arrow stays attached |
 | Measure | <kbd>Q</kbd> | Drag between two points to show the distance in points; <kbd>⇧</kbd> snaps to straight angles |
+
+- **Connected callouts:** choose the speech-bubble tool, then drag from the target to where the label should sit and type. Moving the label keeps its target fixed; with Select, drag the target's round handle to point elsewhere. Double-click the label to edit it. The sliders menu offers straight, curved, and elbow arrows for both ordinary arrows and callouts. Callout's shortcut can be assigned in Settings.
+- **Group and arrange:** select several annotations and use the sliders menu or right-click menu to Group (<kbd>⌘G</kbd>), Ungroup (<kbd>⇧⌘G</kbd>), Lock/Unlock, Bring to Front, Send to Back, align, or distribute them. Groups move and arrange together; copies get independent groups. Locks protect against dragging, editing, erasing, and deleting; Unlock All makes locked annotations editable again. Images stay below markup and redactions regardless of stacking order.
+- **Alignment guides:** selection drags snap to edges and centers of other annotations and the canvas, showing pink guides. Disable **Snap to Annotations** in the sliders menu for free placement; arrow-key nudging stays precise.
+- **Styles and stamps:** **Annotation Styles and Stamps…** saves named colors, widths, arrow styles, badge styles, and text formatting. Apply a style to the selection, or with nothing selected use it for new annotations. Insert Expected, Actual, Click here, Fixed, and Needs review stamps, or save custom stamp text for later. Saved styles and stamps stay on this Mac.
 
 - **Colours:** eight presets with a letter each (<kbd>R</kbd>ed, <kbd>O</kbd>range, <kbd>Y</kbd>ellow, <kbd>G</kbd>reen, <kbd>B</kbd>lue, <kbd>P</kbd>urple, <kbd>W</kbd>hite, blac<kbd>K</kbd>) plus a colour well for any other colour.
 - **Size:** anything from 1 to 24 points, applied to lines, text, badges and blur strength. The thin, medium and thick presets sit on <kbd>-</kbd> and <kbd>=</kbd>, <kbd>[</kbd> and <kbd>]</kbd> step a point at a time, <kbd>⌘</kbd>-scroll does too, and the number on the bar opens a slider.
@@ -202,6 +231,12 @@ A zoomable canvas built for explaining things quickly: arrows and numbered steps
 ### Annotate the screen
 
 Draw on top of everything, on every display, without taking a screenshot first. Made for presentations, screen sharing and pair programming.
+
+The arrow-shaped **Arrow Style** button beside the drawing tools switches between **Straight**, **Curved**, and **Elbow** arrows, including callout connectors. It applies to new drawings and to selected arrows or callouts on the screen. Changing selected annotations supports Undo. The picker is available in both the top strip and the side palettes.
+
+**Choose the bend while drawing:** start dragging an arrow, then keep the mouse button down and hold <kbd>⌘</kbd>. Its endpoints stay fixed while you move the pointer to bend it to either side. Add <kbd>⇧</kbd> for 15° steps. Release <kbd>⌘</kbd> to position the endpoint again with the chosen bend, or release the mouse to finish. Holding <kbd>⌘</kbd> from the initial mouse-down lets you place the arrow normally; release and press it again to begin bending.
+
+With **Select**, <kbd>⌘</kbd>-drag an existing arrow or callout connector to change its bend. Selected curved arrows and callouts also have a diamond handle on the curve: drag it directly, with <kbd>⇧</kbd> for 15° steps. The signed angle ranges from −150° to 150°; 0° is straight. Bending switches the connector to Curved, keeps its endpoints fixed, and supports Undo. This works in the screenshot editor too; projects and saved styles retain the bend.
 
 - All the editor's drawing tools, colours and sizes, from a floating palette. Pixelate, blur and the magnifier work on what is on the screen underneath, and the magnifier follows the screen as it changes.
 - **The palette** runs across the top of the screen (in two rows on a display too narrow for one) or down the left or right edge (a setting), can be dragged anywhere and remembers where you left it on each display. <kbd>⌥⌘T</kbd> hides and shows it.

@@ -72,13 +72,46 @@ struct AnnotationCanvas: View {
             context.stroke(outline, with: .color(.white.opacity(0.9)), style: StrokeStyle(lineWidth: hairline * 3))
             context.stroke(outline, with: .color(.accentColor), style: StrokeStyle(lineWidth: hairline, dash: [4 * hairline, 3 * hairline]))
             // A lone text shows handles on its sides: drag them to set the width it wraps to.
-            if layer.selectedIDs.count == 1, let box = selected.textBox {
+            if !selected.isLocked, layer.selectedIDs.count == 1, let box = selected.textBox {
                 for x in [box.minX, box.maxX] {
                     let handle = Path(roundedRect: CGRect(center: CGPoint(x: x, y: box.midY), radius: 4 * hairline), cornerRadius: hairline)
                     context.fill(handle, with: .color(.white))
                     context.stroke(handle, with: .color(.accentColor), lineWidth: hairline)
                 }
             }
+        }
+        for selected in layer.selectedAnnotations where !selected.isLocked {
+            let centers: [CGPoint] = [selected.calloutTarget,
+                selected.imagePNG == nil ? nil : CGPoint(x: selected.bounds.maxX, y: selected.bounds.maxY)].compactMap { $0 }
+            for center in centers {
+                let handle = Path(ellipseIn: CGRect(center: center, radius: 5 * hairline))
+                context.fill(handle, with: .color(.white))
+                context.stroke(handle, with: .color(.accentColor), lineWidth: hairline)
+            }
+        }
+        for selected in layer.selectedAnnotations where !selected.isLocked && selected.id != layer.textEditing?.replacing {
+            if let handle = selected.curveHandle, let ends = selected.connectorEndpoints {
+                let middle = CGPoint(x: (ends.from.x + ends.to.x) / 2, y: (ends.from.y + ends.to.y) / 2)
+                var guide = Path()
+                guide.move(to: middle)
+                guide.addLine(to: handle)
+                context.stroke(guide, with: .color(.accentColor), style: StrokeStyle(lineWidth: hairline, dash: [3 * hairline, 3 * hairline]))
+                var diamond = Path()
+                let radius = 6 * hairline
+                diamond.move(to: CGPoint(x: handle.x, y: handle.y - radius))
+                diamond.addLine(to: CGPoint(x: handle.x + radius, y: handle.y))
+                diamond.addLine(to: CGPoint(x: handle.x, y: handle.y + radius))
+                diamond.addLine(to: CGPoint(x: handle.x - radius, y: handle.y))
+                diamond.closeSubpath()
+                context.fill(diamond, with: .color(.white))
+                context.stroke(diamond, with: .color(.accentColor), lineWidth: hairline)
+            }
+        }
+        for guide in layer.alignmentGuides {
+            var path = Path()
+            path.move(to: guide.origin)
+            path.addLine(to: CGPoint(x: guide.maxX, y: guide.maxY))
+            context.stroke(path, with: .color(.pink), style: StrokeStyle(lineWidth: hairline, dash: [4 * hairline, 3 * hairline]))
         }
         if let marquee = layer.marquee, marquee.width > 1 || marquee.height > 1 {
             context.fill(Path(marquee), with: .color(.accentColor.opacity(0.12)))
@@ -177,7 +210,8 @@ struct AnnotationCanvas: View {
                     constrained: Self.isShiftPressed,
                     optionHeld: Self.isOptionPressed,
                     extending: Self.isShiftPressed,
-                    clickCount: Self.clickCount
+                    clickCount: Self.clickCount,
+                    commandHeld: Self.isCommandPressed
                 )
             }
             .onEnded { _ in
@@ -199,6 +233,14 @@ struct AnnotationCanvas: View {
     private static var isShiftPressed: Bool {
         #if os(macOS)
         NSEvent.modifierFlags.contains(.shift)
+        #else
+        false
+        #endif
+    }
+
+    private static var isCommandPressed: Bool {
+        #if os(macOS)
+        NSEvent.modifierFlags.contains(.command)
         #else
         false
         #endif

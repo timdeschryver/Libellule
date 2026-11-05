@@ -96,7 +96,7 @@ struct LocalShortcut: Hashable, Codable, Sendable {
 /// Everything a single key can do on the canvas or the live overlay. The tool cases share the tools' raw values.
 enum OverlayAction: String, CaseIterable, Identifiable, Codable {
     // Tools
-    case select, arrow, line, rectangle, ellipse, freehand, highlighter, spotlight, text, badge, pixelate, blur, magnifier, eraser, measure
+    case select, arrow, line, rectangle, ellipse, freehand, highlighter, spotlight, text, badge, pixelate, blur, magnifier, eraser, measure, callout
     // Size
     case thinner, thicker, sizeDown, sizeUp
     // Presenting
@@ -151,6 +151,7 @@ enum OverlayAction: String, CaseIterable, Identifiable, Codable {
         case .magnifier: LocalShortcut("z")
         case .eraser: LocalShortcut("e")
         case .measure: LocalShortcut("q")
+        case .callout: nil
         case .thinner: LocalShortcut("-")
         case .thicker: LocalShortcut("=")
         case .sizeDown: LocalShortcut("[")
@@ -232,6 +233,7 @@ final class OverlayShortcuts {
 
     /// Keys the editor and overlay use regardless of this table, so nothing can be mapped onto them.
     static let fixedCommands: [LocalShortcut: String] = [
+        LocalShortcut("g", .command): "Group",
         LocalShortcut("z", .command): "Undo",
         LocalShortcut("a", .command): "Select All",
         LocalShortcut("c", .command): "Copy",

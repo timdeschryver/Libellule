@@ -281,7 +281,7 @@ struct ToolPicker: View {
         [.select, .eraser],
         [.arrow, .line, .rectangle, .ellipse],
         [.freehand, .highlighter],
-        [.spotlight, .text, .badge],
+        [.spotlight, .text, .callout, .badge],
         [.pixelate, .blur, .magnifier, .measure],
     ]
 
@@ -291,8 +291,43 @@ struct ToolPicker: View {
                 .frame(width: 18)
                 .accessibilityLabel(tool.title)
         } help: { tool in
-            "\(tool.title) (\(tool.shortcutLabel))"
+            let label = tool.shortcutLabel.isEmpty ? tool.title : "\(tool.title) (\(tool.shortcutLabel))"
+            if tool == .arrow {
+                return label + " · " + String(localized: "Hold ⌘ during a drag to bend the arrow; ⇧ snaps the bend to 15°")
+            }
+            return label
         }
+    }
+}
+
+/// A compact style menu for the live palette, showing the chosen arrow's actual geometry.
+struct ArrowStylePicker: View {
+    @Binding var selection: ArrowStyle
+
+    var body: some View {
+        Menu {
+            Picker("Arrow Style", selection: $selection) {
+                ForEach(ArrowStyle.allCases) { style in
+                    Text(style.title).tag(style)
+                }
+            }
+            .pickerStyle(.inline)
+        } label: {
+            Canvas { context, size in
+                context.scaleBy(x: size.width / 40, y: size.height / 40)
+                let geometry = Annotation.connector(from: CGPoint(x: 4, y: 36), to: CGPoint(x: 36, y: 4), style: selection, lineWidth: 2.5)
+                context.stroke(geometry.shaft, with: .foreground, style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
+                context.fill(geometry.head, with: .foreground)
+            }
+            .frame(width: 18, height: 18)
+        }
+        .menuStyle(.button)
+        .menuIndicator(.hidden)
+        .buttonStyle(.bar)
+        .fixedSize()
+        .barHelp(Text("Arrow Style"))
+        .accessibilityLabel(Text("Arrow Style"))
+        .accessibilityValue(Text(selection.title))
     }
 }
 
