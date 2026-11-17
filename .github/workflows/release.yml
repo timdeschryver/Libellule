@@ -2,10 +2,9 @@
 # attaches both with their SHA-256 checksums to a GitHub release, then points
 # the Homebrew cask in Casks/ at the new version.
 #
-# Push a tag such as v1.2.0, or publish a release on GitHub, to build and attach
-# the app to that release. Run it by hand from the
-# Actions tab to check the build without releasing: the app is then kept as a
-# workflow artifact instead.
+# Push a tag such as v1.2.0, or run this workflow from the Actions tab and enter
+# a version such as 1.2.0. A manual run creates the tag at the tested commit
+# when publishing the release.
 #
 # The builds are signed ad hoc rather than with a Developer ID certificate,
 # which needs a paid Apple Developer Program membership, so they aren't
@@ -20,6 +19,11 @@ on:
   push:
     tags: ["v*"]
   workflow_dispatch:
+    inputs:
+      version:
+        description: Release version, such as 1.2.0 (an optional v prefix is accepted)
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -31,7 +35,7 @@ defaults:
     shell: bash
 
 concurrency:
-  group: release-${{ github.ref }}
+  group: release
 
 jobs:
   release:
@@ -41,27 +45,38 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - name: Pick the version and the paths
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
         run: |
           xcodebuild -version
           # The runner context can't be used in a job-level env, so the paths under the runner's
           # temporary directory are exported here for the steps that follow.
           echo "ARCHIVE=$RUNNER_TEMP/Libellule.xcarchive" >> "$GITHUB_ENV"
           echo "APP=$RUNNER_TEMP/Libellule.xcarchive/Products/Applications/Libellule.app" >> "$GITHUB_ENV"
-          if [[ "$GITHUB_REF_TYPE" == tag ]]; then
-            version="${GITHUB_REF_NAME#v}"
-            if [[ ! "$version" =~ ^[0-9]+(\.[0-9]+){1,2}$ ]]; then
-              echo "::error::Release tags look like v1.2 or v1.2.3, got $GITHUB_REF_NAME"
+          if [[ "$GITHUB_EVENT_NAME" == workflow_dispatch ]]; then
+            tag="v${REQUESTED_VERSION#v}"
+          else
+            tag="$GITHUB_REF_NAME"
+          fi
+          if [[ ! "$tag" =~ ^v[0-9]+(\.[0-9]+){1,2}$ ]]; then
+            echo "::error::Release versions must look like 1.2 or 1.2.3, with an optional v prefix."
+            exit 1
+          fi
+          if existing_commit="$(git rev-parse --verify --quiet "refs/tags/$tag^{commit}")"; then
+            if [[ "$existing_commit" != "$GITHUB_SHA" ]]; then
+              echo "::error::Tag $tag already points to another commit. Choose a new version or run the workflow on that tag."
               exit 1
             fi
-            echo "VERSION=$version" >> "$GITHUB_ENV"
-            echo "ZIP=Libellule-$version.zip" >> "$GITHUB_ENV"
-            echo "DMG=Libellule-$version.dmg" >> "$GITHUB_ENV"
-          else
-            echo "ZIP=Libellule-${GITHUB_SHA::7}.zip" >> "$GITHUB_ENV"
-            echo "DMG=Libellule-${GITHUB_SHA::7}.dmg" >> "$GITHUB_ENV"
           fi
+          version="${tag#v}"
+          echo "RELEASE_TAG=$tag" >> "$GITHUB_ENV"
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+          echo "ZIP=Libellule-$version.zip" >> "$GITHUB_ENV"
+          echo "DMG=Libellule-$version.dmg" >> "$GITHUB_ENV"
 
       - name: Run the tests
         run: |
@@ -99,23 +114,20 @@ jobs:
           shasum -a 256 "$DMG" | tee "$DMG.sha256"
 
       - name: Publish the release
-        if: github.ref_type == 'tag'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          # The release may already exist: publishing one from the GitHub website creates the tag
-          # that starts this workflow, and a re-run finds the release an earlier run made. Then only
-          # the files are (re)attached, and the title and notes are left alone.
+          # Re-runs update the assets while retaining the existing release title and notes.
+          # For manual runs, --target creates a missing tag at the commit that passed the tests.
           assets=("$ZIP" "$ZIP.sha256" "$DMG" "$DMG.sha256")
-          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
-            gh release upload "$GITHUB_REF_NAME" "${assets[@]}" --clobber
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" "${assets[@]}" --clobber
           else
-            gh release create "$GITHUB_REF_NAME" "${assets[@]}" \
-              --verify-tag --title "Libellule $VERSION" --generate-notes
+            gh release create "$RELEASE_TAG" "${assets[@]}" \
+              --target "$GITHUB_SHA" --title "Libellule $VERSION" --generate-notes
           fi
 
       - name: Point the Homebrew cask at the release
-        if: github.ref_type == 'tag'
         run: |
           sha="$(cut -d' ' -f1 "$DMG.sha256")"
           git fetch origin main
@@ -134,14 +146,3 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -am "Point the Homebrew cask at $VERSION"
           git push origin main
-
-      - name: Keep the app
-        if: github.ref_type != 'tag'
-        uses: actions/upload-artifact@v7
-        with:
-          name: Libellule
-          path: |
-            ${{ env.ZIP }}
-            ${{ env.ZIP }}.sha256
-            ${{ env.DMG }}
-            ${{ env.DMG }}.sha256

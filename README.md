@@ -384,6 +384,21 @@ Run the unit tests (written with Swift Testing) with <kbd>⌘U</kbd> in Xcode, o
 
 The integration tests for document and word recognition run when Core ML reports an available Apple Neural Engine. They are skipped on machines without one, including macOS CI virtual machines, where Vision's text model cannot load. Unit tests for text markup and table formatting run on every machine.
 
+### Keeping CI reliable
+
+A passing test run on a physical Mac does not guarantee a pass on the CI virtual machine: the available hardware can differ. When adding tests or preparing changes:
+
+- **Run the full test suite before pushing.** A successful build only checks compilation; use `xcodebuild test` or <kbd>⌘U</kbd> to execute the tests too.
+- **Declare hardware requirements explicitly.** For tests that load Vision's text models, check `MLModel.availableComputeDevices` for `.neuralEngine` with Swift Testing's `.enabled(if:)` condition. Group tests with the same requirement in a dedicated suite and apply the condition to the suite so new tests inherit it. Skip only when the hardware is unavailable; recognition errors on supported Macs must still fail the test. See [Swift Testing conditions](https://developer.apple.com/documentation/testing/conditiontrait).
+- **Keep logic tests independent of hardware.** Use fixed inputs for text matching, redaction rules, coordinate handling, and table formatting so these tests run on every machine. Test actual recognition separately in integration tests.
+- **Wait for CI on the latest commit before merging or reporting completion.** Use pull requests so CI can check changes before they reach `main`. GitHub's [required status checks](https://docs.github.com/en/pull-requests/reference/status-checks) can enforce this. A successful local run is only part of verification.
+
+### Releases
+
+To publish from GitHub, open **Actions → Release → Run workflow**, select `main`, enter a version such as `1.0.0`, and run the workflow. An optional `v` prefix is accepted. The workflow runs the tests, builds the release app, and creates the `v1.0.0` tag at the tested commit when publishing the GitHub release. It attaches the ZIP, DMG, and SHA-256 checksums, then updates the Homebrew cask.
+
+Pushing a version tag such as `v1.0.0` also starts the Release workflow. Versions must contain two or three numeric components, such as `1.0` or `1.0.0`. An existing tag must point to the commit being built; use a new version for a different commit. Re-running the same release replaces its downloads and keeps its title and notes.
+
 ### Project structure
 
 ```
@@ -400,7 +415,7 @@ Libellule/
 LibelluleTests/                                          The unit tests
 Libellule-Info.plist                                     macOS document types and the .libellule project type
 Casks/libellule.rb                                       The Homebrew cask, pointed at each release by the workflow
-.github/workflows/release.yml                            Builds a release on GitHub Actions when a tag is pushed (see its header comment)
+.github/workflows/release.yml                            Publishes a release from a version tag or a manual run with a version
 ```
 
 The app icon is an Icon Composer document, `Libellule/AppIcon.icon`, whose layers are plain SVGs in its `Assets` folder; `docs/icon.png` is a render of it for this README.
