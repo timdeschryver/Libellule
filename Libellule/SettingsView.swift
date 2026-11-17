@@ -11,7 +11,7 @@ enum SettingsTab: String {
     static let defaultsKey = "settingsTab"
 }
 
-/// Settings in panes, as macOS apps lay them out, so no single pane runs taller than a laptop screen.
+/// Settings in scrollable panes that fit on a laptop screen.
 struct SettingsView: View {
     @AppStorage(SettingsTab.defaultsKey) private var tab = SettingsTab.general
 
@@ -40,11 +40,11 @@ struct SettingsView: View {
 }
 
 private extension View {
-    /// The look of every pane: a grouped form at a fixed width, which the window takes its height from.
-    func settingsPane() -> some View {
+    /// Bound the grouped form's height so long panes scroll instead of growing beyond the screen.
+    func settingsPane(width: CGFloat = 520) -> some View {
         formStyle(.grouped)
-            .frame(width: 520)
-            .fixedSize(horizontal: false, vertical: true)
+            .scrollIndicators(.visible)
+            .frame(width: width, height: 600)
     }
 }
 
@@ -388,8 +388,7 @@ private struct RedactionSettings: View {
                 Text("Literal rules match text without regard to case. Regular expressions match the entire matched area. Use the Redact menu → Review Detected Areas in the editor to dismiss false positives.")
             }
         }
-        .formStyle(.grouped)
-        .frame(width: 580, height: 650)
+        .settingsPane(width: 580)
         .onChange(of: rules) { _, value in RedactionRules.custom = value }
     }
 

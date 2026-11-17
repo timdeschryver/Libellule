@@ -92,6 +92,7 @@ enum DockIcon {
 /// The status-bar menu. The app has no Dock icon unless asked to, so this is also how the main window comes back.
 struct MenuBarContent: View {
     @Environment(\.openWindow) private var openWindow
+    @Environment(\.openSettings) private var openSettings
 
     var body: some View {
         HotKeyMenuButton("Capture Area", action: .captureArea) {
@@ -125,8 +126,12 @@ struct MenuBarContent: View {
             openWindow(id: "main")
             NSApp.activate()
         }
-        SettingsLink {
-            Text("Settings…")
+        Button("Settings…") {
+            // Let the menu close before activating, so focus stays with the Settings window.
+            DispatchQueue.main.async {
+                openSettings()
+                NSApp.activate()
+            }
         }
         Button("Check for Updates…") {
             AppInfo.checkForUpdates()
