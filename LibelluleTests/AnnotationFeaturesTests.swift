@@ -1,4 +1,5 @@
 import AppKit
+import CoreML
 import SwiftUI
 import Testing
 @testable import Libellule
@@ -263,7 +264,13 @@ struct AnnotationFeaturesTests {
         #expect(layer.annotations.isEmpty)
     }
 
-    @Test func onDeviceWordBoxesFollowTextAndRedactionHidesEveryOccurrence() async throws {
+    // Vision's text model cannot load on CI VMs without a Neural Engine.
+    // Keep recognition failures visible on supported Macs.
+    @Test(.enabled(if: MLModel.availableComputeDevices.contains { device in
+        if case .neuralEngine = device { return true }
+        return false
+    }, "Word recognition requires an available Apple Neural Engine."))
+    func onDeviceWordBoxesFollowTextAndRedactionHidesEveryOccurrence() async throws {
         var first = Annotation(shape: .text("Customer token", origin: CGPoint(x: 30, y: 30)), color: .init(red: 0, green: 0, blue: 0), lineWidth: 4)
         first.text.fontSize = 32
         var second = first
