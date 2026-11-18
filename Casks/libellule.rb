@@ -5,8 +5,8 @@
 #   brew tap timdeschryver/libellule https://github.com/timdeschryver/Libellule
 #   brew install --cask --no-quarantine libellule
 cask "libellule" do
-  version "0.0.0"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  version "0.0.1"
+  sha256 "6e70d1e9dcfa9d51fe53b06b7a8820a5be5bb6c1f7211419779413e7547a963d"
 
   url "https://github.com/timdeschryver/Libellule/releases/download/v#{version}/Libellule-#{version}.dmg"
   name "Libellule"
